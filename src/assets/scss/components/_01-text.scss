@@ -1,0 +1,61 @@
+body {
+    @include antialias;
+    font-family: $roboto;
+}
+
+@include headings() {
+    color: lighten($black, 30%);
+    font-family: $roboto;
+    font-weight: 300;
+    sup {
+        font-size: rem(13);
+        top: -20px;
+    }
+}
+
+@include headings(1) {
+    font-size: rem(36);
+    margin: 0 0 .5rem;
+}
+
+@include headings(2) {
+    font-size: rem(26);
+    margin: 0 0 .3rem;
+    &.sub-title {
+        margin-bottom: 2em;
+    }
+}
+
+sup {
+    font-size: rem(10);
+    position: relative;
+    top: -10px;
+}
+
+a {
+    @include transition(all .8s ease-in-out);
+    color: $site-primary-color;
+    text-decoration: none;
+    &:active {
+        color: $site-secondary-color;
+    }
+    &:hover {
+        color: $site-quaternary-color;
+    }
+}
+
+p {
+    @include line-height(24);
+    color: darken($text-gray, 20%);
+    font-size: rem(18);
+    font-weight: 400;
+    margin-top: 0;
+}
+
+
+/*--------------------------------
+	Hero and Sections
+*/
+.cd-section {}
+
+

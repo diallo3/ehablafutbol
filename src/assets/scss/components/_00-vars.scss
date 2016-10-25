@@ -1,0 +1,87 @@
+/*--------------------------------
+	Variables
+*/
+$site-primary-color: #1E5484;
+$site-secondary-color: #4EAACF;
+$site-tertiary-color: #486474;
+$site-quaternary-color: #008080;
+$section-bck: #f9f9f9;
+$site-gray: #CCCBCB;
+$text-gray: #9B9B9B;
+$footer-text: #97B5D0;
+
+$button-color: #7DC855;
+
+$form-background: #dae0e3;
+$form-input: #90a1ab;
+
+$color-1: #3e3947; // dark purple
+$color-2: #745360; // light purple
+$color-3: #d88683; // pink
+$color-4: #fff; // white
+
+$base-font-size: 16px;
+
+/*--------------------------------
+    Site
+*/
+$maximum-width: 1190px;
+
+
+/*--------------------------------
+	Breakpoints
+*/
+$breakpoints: (
+    small: 667px,
+    medium: 768px,
+    large: 1024px
+);
+
+/*--------------------------------
+	Paths
+*/
+$fontPath: "../fonts";
+$imgPath: "../img";
+
+/*--------------------------------
+	Google Fonts
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
+$roboto: "Roboto", sans-serif;
+
+@mixin roboto($size, $style, $weight) {
+    font-family: $roboto;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+/*--------------------------------
+    z-index 
+*/
+$secondary-bar-zindex: 1;
+$intro-zindex: 2;
+$header-zindex: 3;
+
+/*--------------------------------
+    header height
+*/
+$header-S: 50px;
+$header-M: 70px;
+
+/*--------------------------------
+    intro height
+*/
+$intro-height-S: 300px;
+$intro-height-M: 400px;
+$intro-height-L: 600px;
+
+/*--------------------------------
+    secondary bar
+*/
+$bar-height-full: 100px;
+$bar-height: 70px;
+
+/*--------------------------------
+    Buttons
+*/

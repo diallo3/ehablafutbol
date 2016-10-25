@@ -1,16 +1,34 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/app.css" | prepend: site.baseurl }}">
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+        <link rel="stylesheet" href="{{ "/assets/css/app.css" | prepend: site.baseurl }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    </head>
+    <!-- base urls structure -->
+    {% include inc-base-url.html %}
+    <body {% if page.slug %} id="{{page.slug}}-page" class="{{page.slug}}" {% endif %}>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    {{ content }}
+        <main id="main-view" class="main-scene">
+            {{ content }}
+        </main>
+        
+        {% include inc-default-scripts.html %}
+        <!-- {% include inc-scrollmagic.html %} -->
 
-    <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
-  </body>
+        <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
 </html>

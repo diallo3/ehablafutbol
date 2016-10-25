@@ -1,0 +1,43 @@
+body {
+    background-color: $black;
+    margin-bottom: 100vh;
+    height: 100%;
+}
+
+figure {
+    @include zero-out;
+}
+
+.ov {
+    @include abs-pos($t: 0, $r:0, $b:0, $l:0);
+}
+
+.main-scene {
+    @include mui-animation(fade);
+
+    transition-timing-function: ease-in;
+    animation-duration: 1.2s;
+
+    animation-fill-mode: both;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+.cd-section {
+    @include bp(mediumUp) {
+        padding: 5em 1em 3em;
+        min-height: 700px;
+    }
+}
+
+#intro, #hero {
+    height: 100vh;
+    .entry {
+        @include center-align($hor: true, $pos: absolute);
+    }
+}
+
