@@ -5,6 +5,8 @@ var gulp     = require('gulp');
 var rimraf   = require('rimraf');
 var sequence = require('run-sequence');
 var cp       = require('child_process');
+var ghPages  = require('gulp-gh-pages');
+var babel    = require('gulp-babel');
 
 // Check for --production flag
 var isProduction = !!(argv.production);
@@ -26,34 +28,39 @@ var PATHS = {
     '!src/assets/**/*',
   ],
   sass: [
+    'bower_components/bourbon/app/assets/stylesheets/',
     'bower_components/foundation-sites/scss',
-    'bower_components/motion-ui/src/'
+    'bower_components/motion-ui'
   ],
-  javascript: [
+  jquery: [
     'bower_components/jquery/dist/jquery.js',
+  ],
+  foundation: [
     'bower_components/what-input/what-input.js',
     'bower_components/foundation-sites/js/foundation.core.js',
     'bower_components/foundation-sites/js/foundation.util.*.js',
     // Paths to individual JS components defined below
-    'bower_components/foundation-sites/js/foundation.abide.js',
-    'bower_components/foundation-sites/js/foundation.accordion.js',
-    'bower_components/foundation-sites/js/foundation.accordionMenu.js',
-    'bower_components/foundation-sites/js/foundation.drilldown.js',
-    'bower_components/foundation-sites/js/foundation.dropdown.js',
-    'bower_components/foundation-sites/js/foundation.dropdownMenu.js',
-    'bower_components/foundation-sites/js/foundation.equalizer.js',
-    'bower_components/foundation-sites/js/foundation.interchange.js',
-    'bower_components/foundation-sites/js/foundation.magellan.js',
-    'bower_components/foundation-sites/js/foundation.offcanvas.js',
-    'bower_components/foundation-sites/js/foundation.orbit.js',
-    'bower_components/foundation-sites/js/foundation.responsiveMenu.js',
-    'bower_components/foundation-sites/js/foundation.responsiveToggle.js',
-    'bower_components/foundation-sites/js/foundation.reveal.js',
-    'bower_components/foundation-sites/js/foundation.slider.js',
-    'bower_components/foundation-sites/js/foundation.sticky.js',
-    'bower_components/foundation-sites/js/foundation.tabs.js',
-    'bower_components/foundation-sites/js/foundation.toggler.js',
-    'bower_components/foundation-sites/js/foundation.tooltip.js',
+    // 'bower_components/foundation-sites/js/foundation.abide.js',
+    // 'bower_components/foundation-sites/js/foundation.accordion.js',
+    // 'bower_components/foundation-sites/js/foundation.accordionMenu.js',
+    // 'bower_components/foundation-sites/js/foundation.drilldown.js',
+    // 'bower_components/foundation-sites/js/foundation.dropdown.js',
+    // 'bower_components/foundation-sites/js/foundation.dropdownMenu.js',
+    // 'bower_components/foundation-sites/js/foundation.equalizer.js',
+    // 'bower_components/foundation-sites/js/foundation.interchange.js',
+    // 'bower_components/foundation-sites/js/foundation.magellan.js',
+    // 'bower_components/foundation-sites/js/foundation.offcanvas.js',
+    // 'bower_components/foundation-sites/js/foundation.orbit.js',
+    // 'bower_components/foundation-sites/js/foundation.responsiveMenu.js',
+    // 'bower_components/foundation-sites/js/foundation.responsiveToggle.js',
+    // 'bower_components/foundation-sites/js/foundation.reveal.js',
+    // 'bower_components/foundation-sites/js/foundation.slider.js',
+    // 'bower_components/foundation-sites/js/foundation.sticky.js',
+    // 'bower_components/foundation-sites/js/foundation.tabs.js',
+    // 'bower_components/foundation-sites/js/foundation.toggler.js',
+    // 'bower_components/foundation-sites/js/foundation.tooltip.js',
+  ],
+  javascript: [
     'src/assets/js/**/!(app).js',
     'src/assets/js/app.js'
   ]
@@ -113,21 +120,51 @@ gulp.task('sass', function() {
     .pipe(browser.reload({ stream: true }));
 });
 
+gulp.task('jquery', function() {
+    var uglify = $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        });
+
+    return gulp.src(PATHS.jquery)
+        .pipe($.concat('jquery.js'))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
+gulp.task('fnd', function() {
+    var uglify = $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        });
+
+    return gulp.src(PATHS.foundation) 
+        .pipe($.concat('fnd.js'))
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
-  var uglify = $.if(isProduction, $.uglify()
-    .on('error', function (e) {
-      console.log(e);
-    }));
+    var uglify = $.if(isProduction, $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        }));
 
-  return gulp.src(PATHS.javascript)
-    .pipe($.sourcemaps.init())
-    .pipe($.concat('app.js'))
-    .pipe(uglify)
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('dist/assets/js'))
-    .on('finish', browser.reload);
+    return gulp.src(PATHS.javascript)
+        .pipe($.sourcemaps.init())
+        
+        .pipe($.concat('app.js'))
+        .pipe(uglify)
+        // .pipe($.if(!isProduction, $('string/element/array/function/jQuery object/string, context')()))
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
 });
 
 // Copy images to the "dist" folder
@@ -145,7 +182,15 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['jekyll', 'sass', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'javascript', 'images', 'copy'], done);
+});
+
+// deploy to gh-pages
+
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Start a server with LiveReload to preview the site in
