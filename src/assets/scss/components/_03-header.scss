@@ -1,12 +1,6 @@
 // Header
 .header-container {
-    @include mui-animation(fade, slide(in, down));
-
-    transition-timing-function: ease-in;
-    animation-duration: .5s;
-
-    animation-fill-mode: both;
- 
+	height: 100vh; 
 }
 
 /* -------------------------------- 
@@ -135,20 +129,20 @@ Secondary Fixed Navigation
 -------------------------------- */
 
 .cd-secondary-nav {
-	position: relative;
+	width: 100%; 
 	z-index: $header-zindex;
 
 	ul {
 		/* mobile first - secondary navigation hidden by default, triggered by tap/click on .cd-secondary-nav-trigger*/
+		border: 1px solid; 
 		position: fixed;
 		width: 90%;
 		max-width: 400px;
-		right: 5%;
-		bottom: 20px;
-		background: rgba($color-1, .96);
+		background: rgba($black, 1);
 		visibility: hidden;
 		z-index: 1;
 		-webkit-backface-visibility: hidden;
+		@include zero-out;
 		backface-visibility: hidden;
 		@include transform(scale(0));
 		@include transform-origin(100% 100%);
@@ -179,7 +173,7 @@ Secondary Fixed Navigation
 	@include bp(large) {
 		z-index: $secondary-bar-zindex;
 		height: $bar-height-full;
-		background-color: rgba($color-1, .96);
+		background-color: rgba($black, .96);
 		@include transition(height 0.3s);
 
 		nav, ul, li, a {

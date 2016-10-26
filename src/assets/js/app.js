@@ -41,7 +41,7 @@ window.onload = convertMailAddress;
 			// global vars
 			var secondaryNav = $('.cd-secondary-nav'),
 				secondaryNavTopPosition = secondaryNav.offset().top,
-				taglineOffesetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
+				taglineOffesetTop = $('header-container') + $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
 				contentSections = $('.cd-section');
 
 			// scroll function

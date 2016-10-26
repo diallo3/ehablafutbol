@@ -1,6 +1,6 @@
 body {
     background-color: $black;
-    margin-bottom: 100vh;
+    background-color: #c00; 
     height: 100%;
 }
 
@@ -19,6 +19,50 @@ figure {
     animation-duration: 1.2s;
 
     animation-fill-mode: both;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+
+.cd-container {
+    width: 90%;
+    margin: 0 auto;
+    @include clearfix;
+}
+
+.has-top-margin {
+    /* this class is given - using jQuery - to the .cd-main-content following the .cd-secondary-nav when it becomes fixed */
+    @include bp(large) {
+        @include animation(animate-margin-top 0.3s);
+        margin-top: $bar-height; // variables inside _variables.scss
+    }
+}
+
+@include keyframes(animate-margin-top) {
+    0% {
+        margin-top: $bar-height-full;
+    }
+
+    100% {
+        margin-top: $bar-height;
+    }
+}
+
+/* -------------------------------- 
+
+Hero components 
+
+-------------------------------- */
+.hero-section {
+    background-color: cyan;
+    position: relative;
+    height: 90%; 
+    // .entry {
+    //     @include center-align($ver: true, $hor: true, $pos: absolute);
+    // }
 }
 
 /* -------------------------------- 
