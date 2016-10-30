@@ -41,13 +41,14 @@ window.onload = convertMailAddress;
 			// global vars
 			var secondaryNav = $('.cd-secondary-nav'),
 				secondaryNavTopPosition = secondaryNav.offset().top,
-				taglineOffesetTop = $('header-container') + $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
+				offsetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
+				taglineOffesetTop = $('.header-container') + offsetTop,
 				contentSections = $('.cd-section');
 
 			// scroll function
 			$(window).on('scroll', function(){
 				//on desktop - assign a position fixed to logo and action button and move them outside the viewport
-				( $(window).scrollTop() > taglineOffesetTop ) ? $('#cd-logo, .cd-btn').addClass('is-hidden') : $('#cd-logo, .cd-btn').removeClass('is-hidden');
+				( $(window).scrollTop() > offsetTop ) ? $('#cd-logo, .cd-btn-head').addClass('hidden') : $('#cd-logo, .cd-btn-head').removeClass('hidden');
 				
 				//on desktop - fix secondary navigation on scrolling
 				if($(window).scrollTop() > secondaryNavTopPosition ) {
@@ -61,7 +62,7 @@ window.onload = convertMailAddress;
 					setTimeout(function() {
 			            secondaryNav.addClass('animate-children');
 			            $('#cd-logo').addClass('slide-in');
-						$('.cd-btn').addClass('slide-in');
+						$('.cd-btn-head').addClass('slide-in');
 			        }, 50);
 
 				} else {
@@ -72,7 +73,7 @@ window.onload = convertMailAddress;
 					setTimeout(function() {
 			            secondaryNav.removeClass('animate-children');
 			            $('#cd-logo').removeClass('slide-in');
-						$('.cd-btn').removeClass('slide-in');
+						$('.cd-btn-head').removeClass('slide-in');
 			        }, 50);
 				}
 

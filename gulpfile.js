@@ -31,6 +31,7 @@ var PATHS = {
     'bower_components/bourbon/app/assets/stylesheets/',
     'bower_components/foundation-sites/scss',
     'bower_components/motion-ui'
+    'bower_components/typi/scss/typi'
   ],
   jquery: [
     'bower_components/jquery/dist/jquery.js',
