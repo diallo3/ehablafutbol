@@ -5,6 +5,7 @@
 -------------------------------- */
 
 .cd-primary-nav {
+    display: none;
     @include bp(mediumUp) {
         background: none;
         ul {
@@ -41,6 +42,9 @@
 -------------------------------- */
 
 .cd-secondary-nav {
+    @include bp(mediumUp) {
+        background-color: black(.8);
+    }
     @include bp(large) {
         @include transition(height .3s);
         height: $bar-height-full;
@@ -49,10 +53,9 @@
         nav, ul, li, a {
             height: 100%;
         }
+        z-index: $header-zindex;
     }
-    background-color: black(.8);
     width: 100%;
-    z-index: $header-zindex;
     &.is-fixed {
         /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
         /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
@@ -81,11 +84,6 @@
         }
     }
 
-    &.is-visible {
-        @include transform(scale(1));
-        @include transition(transform .3s, visibility 0s .3s);
-        visibility: visible;
-    }
     .site-nav {
         @include zero-out;
         @include transform(scale(0));
@@ -161,13 +159,41 @@
     }
 }
 
+// Mobile Nav easier to read
+.cd-secondary-nav {
+    .site-nav {
+        &.is-visible {
+            @include transform(scale(1));
+            @include transition(transform .3s, visibility 0s .1s, ease-in-out);
+            @include flat-list;
+            background-color: black(.8);
+            width: 100%;
+            max-width: 100%;
+            visibility: visible;
+            bottom: 0;
+            li {
+                text-align: center; 
+                text-transform: uppercase;
+                span {
+                    display: none;
+                }
+                a {
+                    padding: rem(30);
+                    display: block; 
+                }
+            }
+        }
+    }
+    
+}
+
 .cd-secondary-nav-trigger {
     @include bp(large) {
         display: none;
     }
     white-space: nowrap;
     text-indent: 100%;
-    background: rgba($color-1, .96);
+    background: rgba($black, .96);
     width: 44px;
     height: 44px;
     /* image replacement */
@@ -180,7 +206,7 @@
     span {
         @include center;
         @include transition(background .3s);
-        background: $color-3;
+        background: $white;
         border-radius: 50%;
         width: 4px;
         height: 4px;
@@ -213,12 +239,12 @@
     }
 
     &.menu-is-open span {
-        background: rgba($color-3, 0);
+        background: rgba($white, 0);
         width: 20px;
         height: 2px;
 
         &::before, &::after {
-            background: rgba($color-3, 1);
+            background: rgba($white, 1);
             border-radius: 0;
             width: 100%;
             height: 100%;

@@ -41,6 +41,7 @@ window.onload = convertMailAddress;
 		function headerNav() {
 			// global vars
 			var secondaryNav = $('.cd-secondary-nav'),
+				secondaryNavFixed = $('.cd-secondary-nav.is-fixed');
 				secondaryNavTopPosition = secondaryNav.offset().top,
 				offsetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
 				taglineOffesetTop = $('.header-container') + offsetTop,
@@ -55,8 +56,6 @@ window.onload = convertMailAddress;
 				if($(window).scrollTop() > secondaryNavTopPosition ) {
 					//fix secondary navigation
 					secondaryNav.addClass('is-fixed');
-					//push the .cd-main-content giving it a top-margin
-					$('.cd-main-content').addClass('has-top-margin');
 
 					//on Firefox CSS transition/animation fails when parent element changes position attribute
 					//so we to change secondary navigation childrens attributes after having changed its position value
@@ -69,7 +68,6 @@ window.onload = convertMailAddress;
 				} else {
 
 					secondaryNav.removeClass('is-fixed');
-					$('.cd-main-content').removeClass('has-top-margin');
 
 					setTimeout(function() {
 			            secondaryNav.removeClass('animate-children');
@@ -111,8 +109,8 @@ window.onload = convertMailAddress;
 		        event.preventDefault();
 		        var target= $(this.hash);
 		        $('body,html').animate({
-		        	'scrollTop': target.offset().top //- secondaryNav.height() + 1
-		        	}, 400
+		        	'scrollTop': target.offset().top - secondaryNavFixed.height()
+		        	}, 600
 		        ); 
 		        //on mobile - close secondary navigation
 		        $('.cd-secondary-nav-trigger').removeClass('menu-is-open');

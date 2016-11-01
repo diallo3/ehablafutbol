@@ -5,12 +5,11 @@
 -------------------------------- */
 .header-container {
     @include zero-out;
+    border-bottom: 1px solid white(.2); 
     height: 100vh;
     position: relative;
     overflow: hidden;
 }
-
-
 
 .cd-header {
     @include grid-row;
@@ -20,7 +19,7 @@
     }
     height: $header-S;
     position: relative;
-    z-index: $header-zindex;
+    z-index: 5;
 }
 
 .cd-section.hero {
@@ -36,7 +35,7 @@
 
 #cd-logo {
     @include center-align($ver: false, $hor: true, $pos: absolute);
-    @include bp(large) {
+    @include bp(mediumUp) {
         &.hidden {
             @include transition(left .3s, opacity .3s);
             margin-left: 0;
@@ -68,14 +67,17 @@
 }
 
 .ctas {
-    ul {
-        @include menu-list($li-padding: 0 .8rem);
-        @include centered-list;
+    text-align: center;
+        ul {
+            @include flat-list;
+            @include bp(mediumUp) {
+                @include menu-list($li-padding: 0 .8rem);
+                @include centered-list;
+        }
     }
 }
 
 .cd-btn-head {
-    @include ctaSlide();
     padding: .7rem 1.2rem;
     z-index: $header-zindex;
 
@@ -90,9 +92,10 @@
 
         &.slide-in {
             top: 10px;
-            right: 10%;
-
-            opacity: 1;
+            right: 5%;
+            @include bp(mediumUp) {
+                opacity: 1;
+            }
         }
     }
 }

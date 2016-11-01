@@ -10,6 +10,24 @@ $typi: (
   large: 20px
 );
 
+$hero-map: (
+  null: (48px, 1.1),
+  medium: (52px, 2),
+  large: (78px, 1.5)
+);
+
+$hero-sub-map: (
+  null: 16px,
+  medium: 20px,
+  large: 32px
+);
+
+$h2-map: (
+  null: 28px,
+  medium: 38px,
+  large: 46px
+);
+
 body {
     @include antialias;
     font-family: $roboto;
@@ -29,12 +47,11 @@ body {
 }
 
 @include headings(1) {
-    font-size: rem(36);
-    margin: 0 0 .5rem;
+    margin: 0 0 2.5rem;
 }
 
 @include headings(2) {
-    font-size: rem(26);
+    @include typi($h2-map);
     margin: 0 0 .3rem;
     &.sub-title {
         margin-bottom: 2em;
@@ -60,9 +77,8 @@ a {
 }
 
 p {
-    @include line-height(24);
+    @include typi-base();
     color: darken($white, 20%);
-    font-size: rem(18);
     font-weight: 400;
     margin-top: 0;
 }
@@ -82,11 +98,12 @@ p {
 #cd-intro {
     .title {
         h1 {
-            font-size: rem(62);
+            @include typi($hero-map);
             text-transform: uppercase; 
-            font-weight: 400; 
+            font-weight: 400;
+            padding: 0 1em;
             span {
-                font-size: rem(32);
+                @include typi($hero-sub-map);
                 text-transform: normal;
                 display: block;  
                 font-weight: 300; 
@@ -98,7 +115,19 @@ p {
         }
     }
 }
-.cd-section {
+.cd-section:not(.hero) {
+    .title {
+        @include typi($h2-map);
+    }
+    .small-title {
+        font-size: rem(16); 
+        text-transform: uppercase;
+        margin-bottom: 3em; 
+        display: block;
+    }
+    p {
+        font-size: rem(20px);   
+    }
     
 }
 
