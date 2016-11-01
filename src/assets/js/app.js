@@ -37,6 +37,28 @@ window.onload = convertMailAddress;
 		// Foundation init
 		$(document).foundation();
 
+		// smooth anchors
+	    function smoothAnchor() {
+	    	$('.ctas').on('click', '.cta', function(event) {
+			    if (this.hash !== "") {
+			    	// Prevent default anchor click behavior
+			      	event.preventDefault();
+
+			      	// Store hash
+			      	var hash = this.hash;
+
+			      	$('html, body').animate({
+			        	scrollTop: $(hash).offset().top
+			      	}, 600, function(){
+			   
+				        // Add hash (#) to URL when done scrolling (default click behavior)
+				        window.location.hash = hash;
+			      	});
+			    } 
+			});
+	    }
+	    smoothAnchor();
+
 		// Secondary Header
 		function headerNav() {
 			// global vars

@@ -71,6 +71,11 @@ Hero components
         background-image: url(#{$imgPath}/img-bck-hero.jpg);
 
     }
+    .ov {
+        @include linear-gradient(to top, black, rgba(0,0,0,0), black);
+        background-color: black(0);
+        opacity: .5; 
+    }
 }
 
 #cd-community {
