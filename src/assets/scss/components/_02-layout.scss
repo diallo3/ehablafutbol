@@ -13,6 +13,7 @@ figure {
 
 .main-scene {
     @include mui-animation(fade);
+    @include zero-out;
 
     transition-timing-function: ease-in;
     animation-duration: 1.2s;
@@ -26,17 +27,11 @@ Modules - reusable parts of our design
 
 -------------------------------- */
 
-.cd-container {
-    width: 90%;
-    margin: 0 auto;
-    @include clearfix;
-}
-
 .has-top-margin {
     /* this class is given - using jQuery - to the .cd-main-content following the .cd-secondary-nav when it becomes fixed */
     @include bp(large) {
         @include animation(animate-margin-top 0.3s);
-        margin-top: $bar-height; // variables inside _variables.scss
+        // margin-top: $bar-height; // variables inside _variables.scss
     }
 }
 
@@ -50,18 +45,31 @@ Modules - reusable parts of our design
     }
 }
 
+.bcg {
+    @include abs-pos($t: 0, $l: 0);
+    @include bg-size(cover);
+    background-color: $black;
+    background-position: 100% 0;
+    background-repeat: no-repeat; 
+    width: 100%;
+    height: 150%;
+    z-index: auto; 
+
+    opacity: .8;
+}
+
 /* -------------------------------- 
 
 Hero components 
 
 -------------------------------- */
-.hero-section {
-    background-color: cyan;
-    position: relative;
-    height: 90%; 
-    // .entry {
-    //     @include center-align($ver: true, $hor: true, $pos: absolute);
-    // }
+.header-container {
+    .bcg {
+        background-image: url(#{$imgPath}/img-bck-hero.jpg); 
+        @include bp(large) {
+            @include bg-size(120%);
+        }
+    }
 }
 
 /* -------------------------------- 
@@ -69,18 +77,70 @@ Hero components
 Main components 
 
 -------------------------------- */
-
 .cd-section {
-    @include bp(mediumUp) {
-        padding: 5em 1em 3em;
-        min-height: 700px;
-    }
+    position: relative;
 }
 
-#intro, #hero {
-    height: 100vh;
+.cd-section:not(.hero) {
+    @include bp(mediumUp) {
+        min-height: 700px;
+        height: 100vh; 
+    }
+    border-bottom: 1px solid white(.7); 
+    padding-top: 5em; 
+    width: 100%;
+    @include clearfix;
     .entry {
-        @include center-align($hor: true, $pos: absolute);
+        @include grid-row;
+        @include grid-col-end();
+        @include bp(large) {
+            @include center($xy:y);
+            margin-top: -5em; 
+        }
+        
+        padding: 0 1em 1em;
+        position: relative;
+        .icon {
+            @include center-block;
+            margin-bottom: 1em; 
+            width: 40px;
+            height: 40px;
+            display: block; 
+            @include bp(large) {
+                @include abs-pos($t:0, $l:0.9375rem);
+            }  
+        }
+        .content {
+            @include grid-col;
+            @include grid-column-end;
+            text-align: center;
+            .section-title {
+                margin-bottom: 3em; 
+            }
+            .title {
+                font-size: rem(36); 
+            }
+            .small-title {
+                font-size: rem(16); 
+                text-transform: uppercase;
+                margin-bottom: 3em; 
+                display: block;
+            }
+            p {
+                font-size: rem(20px);   
+            }
+            @include bp(large) {
+                @include grid-col(7);
+                text-align: left;
+                padding-left: 5em; 
+            }
+        }
+    }
+    .ctas {
+        @include abs-pos($b: 0);
+        background-color: black(0.3);
+        padding: 2em; 
+        width: 100%;  
     }
 }
 

@@ -8,6 +8,8 @@
     @include bp(mediumUp) {
         background: none;
         ul {
+            margin: 2em 0;
+            padding: 0; 
             width: auto;
             position: static;
         }
@@ -18,10 +20,12 @@
         }
 
         a {
-            background: transparent;
+            @include hide-text;
+            background: url(#{$imgPath}/icon-fb.svg) no-repeat 0 0;
+            width: 40px;
+            height: 40px;   
             padding: .6em 1em;
-            height: auto;
-            display: inline-block;
+            display: block;
         }
     }
     background-size: 44px 44px;
@@ -39,25 +43,27 @@
 .cd-secondary-nav {
     @include bp(large) {
         @include transition(height .3s);
-        background-color: rgba($black, .96);
         height: $bar-height-full;
         z-index: $secondary-bar-zindex;
-
+        @include abs-pos($b:0);
         nav, ul, li, a {
             height: 100%;
         }
     }
+    background-color: black(.8);
     width: 100%;
     z-index: $header-zindex;
     &.is-fixed {
         /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
         /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+        background-color: $black; 
         border-bottom: 2px solid $white;
         width: 100%;
         height: $bar-height;
         position: fixed;
         top: 0;
         left: 0;
+        bottom: auto; 
     }
 
     &.animate-children {
@@ -89,7 +95,6 @@
         @include bp(large) {
             @include transform(scale(1));
             text-align: center;
-            background-color: transparent;
             width: auto;
             max-width: 100%;
             visibility: visible;
@@ -120,7 +125,6 @@
                         @include center(x);
                         @include transition(opacity .2s);
                         background-repeat: no-repeat;
-                        border: 1px solid $white;
                         width: 40px;
                         height: 40px;
                         display: inline-block;
@@ -175,6 +179,7 @@
 
     span {
         @include center;
+        @include transition(background .3s);
         background: $color-3;
         border-radius: 50%;
         width: 4px;
@@ -182,10 +187,6 @@
         display: block;
         /* the span element is used to create the menu icon */
         position: absolute;
-
-        -webkit-transition: background .3s;
-           -moz-transition: background .3s;
-                transition: background .3s;
 
         &::before, &::after {
             content: "";

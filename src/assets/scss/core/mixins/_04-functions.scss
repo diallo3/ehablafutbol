@@ -8,3 +8,11 @@
 @function white($opacity) {
  	@return rgba(white, $opacity)
 }
+
+
+/*--------------------------------
+	Prefixers (to be used with Bourbon)
+*/
+@mixin bg-size($type) {
+  @include prefixer(background-size, $type, webkit moz spec);
+}

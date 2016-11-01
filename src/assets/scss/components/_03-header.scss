@@ -4,7 +4,10 @@
 
 -------------------------------- */
 .header-container {
+    @include zero-out;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 

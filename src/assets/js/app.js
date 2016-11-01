@@ -111,7 +111,7 @@ window.onload = convertMailAddress;
 		        event.preventDefault();
 		        var target= $(this.hash);
 		        $('body,html').animate({
-		        	'scrollTop': target.offset().top - secondaryNav.height() + 1
+		        	'scrollTop': target.offset().top //- secondaryNav.height() + 1
 		        	}, 400
 		        ); 
 		        //on mobile - close secondary navigation
