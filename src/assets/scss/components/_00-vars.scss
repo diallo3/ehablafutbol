@@ -1,26 +1,20 @@
 /*--------------------------------
 	Variables
 */
-$site-primary-color: #1E5484;
-$site-secondary-color: #4EAACF;
+$site-primary-color: #1e5484;
+$site-secondary-color: #4eaacf;
 $site-tertiary-color: #486474;
 $site-quaternary-color: #008080;
 $section-bck: #f9f9f9;
-$site-gray: #CCCBCB;
-$text-gray: #9B9B9B;
-$footer-text: #97B5D0;
-
-$button-color: #7DC855;
-
-$form-background: #dae0e3;
-$form-input: #90a1ab;
-
-$color-1: #3e3947; // dark purple
-$color-2: #745360; // light purple
-$color-3: #d88683; // pink
-$color-4: #fff; // white
-
+$site-gray: #cccbcb;
+$text-gray: #9b9b9b;
+$button-color: #7dc855;
 $base-font-size: 16px;
+
+$color-1: #3e3947; 
+$color-2: #745360; 
+$color-3: #d88683; 
+$color-4: #fff; 
 
 /*--------------------------------
     Site
@@ -85,3 +79,75 @@ $bar-height: 70px;
 /*--------------------------------
     Buttons
 */
+@mixin ctaSlide($bg: rgba($white, .3), $hv: #c00, $type: more) {
+    @include transition(all .3s);
+    @include backface-visibility(hidden);
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    background: $bg;
+    border: 1px solid rgba($white, .8);
+    padding: 1rem 3rem;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+    &:before {
+        @include transition(all .3s);
+        content: ""; 
+        @if $type == mail {
+            background-image: url(#{$imgPath}/icon-mail.svg);
+            -webkit-background-size: 30px 30px; 
+            -o-background-size: 30px 30px; 
+            background-size: 30px 30px; 
+        } 
+        @elseif $type == more {
+           background-image: url(#{$imgPath}/icon-layers.svg); 
+        }
+        
+        background-repeat: no-repeat;
+        background-position: 50% 50%; 
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+    
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        
+    }
+    &:after {
+        @include transition(all .3s);
+        content: "";
+        position: absolute;
+        z-index: -1;
+    }
+    &:active {
+        background: darken($hv, 10%);
+        top: 2px;
+        &:before {
+            color: #703b87;
+        }
+    }
+    &:hover {
+        background-color: $hv; 
+        &:before {
+            right: 0; 
+            left: 0;
+        }
+        span {
+            @include transform(translateX(200%));
+        }
+    }
+
+    span {
+        @include transition(all .3s);
+        @include backface-visibility(hidden);
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+}

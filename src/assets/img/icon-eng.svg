@@ -1,0 +1,14 @@
+
+<svg width="50px" height="50px" viewBox="1150 21 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <circle id="path-1" cx="23" cy="23" r="23"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="-2" y="-2" width="50" height="50">
+            <rect x="-2" y="-2" width="50" height="50" fill="white"></rect>
+            <use xlink:href="#path-1" fill="black"></use>
+        </mask>
+    </defs>
+    <g id="Group-6" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1152.000000, 23.000000)">
+        <use id="Oval" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" opacity="0.5" xlink:href="#path-1"></use>
+        <path d="M28.18,25 C28.18,25.2266678 28.0966675,25.4199992 27.93,25.58 C27.7633325,25.7400008 27.5600012,25.82 27.32,25.82 L19,25.82 L15.68,29.18 L15.68,17.5 C15.68,17.2733322 15.7599992,17.0800008 15.92,16.92 C16.0800008,16.7599992 16.2733322,16.68 16.5,16.68 L27.32,16.68 C27.5600012,16.68 27.7633325,16.7599992 27.93,16.92 C28.0966675,17.0800008 28.18,17.2733322 28.18,17.5 L28.18,25 Z M31.5,20 C31.7266678,20 31.9199992,20.0799992 32.08,20.24 C32.2400008,20.4000008 32.32,20.5933322 32.32,20.82 L32.32,33.32 L29,30 L19.82,30 C19.5933322,30 19.4000008,29.9200008 19.24,29.76 C19.0799992,29.5999992 19,29.4066678 19,29.18 L19,27.5 L29.82,27.5 L29.82,20 L31.5,20 Z" id="forum---material" fill="#FFFFFF"></path>
+    </g>
+</svg>

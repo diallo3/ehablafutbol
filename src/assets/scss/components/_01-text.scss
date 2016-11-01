@@ -1,3 +1,15 @@
+$breakpoints: (
+    small: 667px,
+    medium: 768px,
+    large: 1024px
+);
+
+$typi: (
+  null: 16px,
+  small: 18px,
+  large: 20px
+);
+
 body {
     @include antialias;
     font-family: $roboto;
@@ -36,7 +48,7 @@ sup {
 }
 
 a {
-    @include transition(all .8s ease-in-out);
+    @include transition(all .3s ease-in-out);
     color: $site-primary-color;
     text-decoration: none;
     &:active {
@@ -53,6 +65,14 @@ p {
     font-size: rem(18);
     font-weight: 400;
     margin-top: 0;
+}
+
+.cta {
+    @include ctaSlide;
+}
+
+.cta-alt {
+    @include ctaSlide($type: mail);
 }
 
 

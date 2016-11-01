@@ -1,0 +1,236 @@
+/* -------------------------------- 
+
+    Navigation
+
+-------------------------------- */
+
+.cd-primary-nav {
+    @include bp(mediumUp) {
+        background: none;
+        ul {
+            width: auto;
+            position: static;
+        }
+
+        li {
+            margin-left: 1em;
+            display: inline-block;
+        }
+
+        a {
+            background: transparent;
+            padding: .6em 1em;
+            height: auto;
+            display: inline-block;
+        }
+    }
+    background-size: 44px 44px;
+    height: 100%;
+    /* mobile first - navigation hidden by default, triggered by tap/click on navigation icon */
+    float: right;
+}
+
+/* -------------------------------- 
+
+	Secondary Fixed Navigation
+
+-------------------------------- */
+
+.cd-secondary-nav {
+    @include bp(large) {
+        @include transition(height .3s);
+        background-color: rgba($black, .96);
+        height: $bar-height-full;
+        z-index: $secondary-bar-zindex;
+
+        nav, ul, li, a {
+            height: 100%;
+        }
+    }
+    width: 100%;
+    z-index: $header-zindex;
+    &.is-fixed {
+        /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
+        /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+        border-bottom: 2px solid $white;
+        width: 100%;
+        height: $bar-height;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    &.animate-children {
+        /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
+        /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+        box-shadow: 0 1px 2px rgba($black, .2);
+        .site-nav {
+            li a {
+                padding: rem(20) rem(30) 0 rem(30);
+
+                span {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    &.is-visible {
+        @include transform(scale(1));
+        @include transition(transform .3s, visibility 0s .3s);
+        visibility: visible;
+    }
+    .site-nav {
+        @include zero-out;
+        @include transform(scale(0));
+        @include transform-origin(100% 100%);
+        @include transition(transform .3s, visibility 0s .3s);
+        @include backface-visibility(hidden);
+        @include bp(large) {
+            @include transform(scale(1));
+            text-align: center;
+            background-color: transparent;
+            width: auto;
+            max-width: 100%;
+            visibility: visible;
+            /* reset navigation values */
+            position: static;
+
+
+            li {
+                margin-left: -4px;
+                display: inline-block;
+                a {
+                    @include transition(padding .2s);
+                    color: #ccc;
+                    text-align: center;
+                    border-bottom: none;
+                    padding: rem(58) rem(40) 0 rem(40);
+                    display: block;
+                    position: relative;
+
+                    b {
+                        color: rgba($white, .3);
+                        font-size: rem(13);
+                        font-weight: 700;
+                        text-transform: uppercase;
+                    }
+
+                    span {
+                        @include center(x);
+                        @include transition(opacity .2s);
+                        background-repeat: no-repeat;
+                        border: 1px solid $white;
+                        width: 40px;
+                        height: 40px;
+                        display: inline-block;
+                        position: absolute;
+                        top: 18px;
+                    }
+
+                    &:hover b, &.active b {
+                        color: $white;
+                    }
+                }
+            }
+        }
+        /* mobile first - secondary navigation hidden by default, triggered by tap/click on .cd-secondary-nav-trigger*/
+        width: 90%;
+        max-width: 400px;
+        visibility: hidden;
+        position: fixed;
+        z-index: 1;
+    }
+
+    li {
+        a {
+            color: $white;
+            border-bottom: 1px solid lighten($color-1, 10%);
+            padding: 1.6em;
+            display: block;
+        }
+        &:last-child {
+            a {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.cd-secondary-nav-trigger {
+    @include bp(large) {
+        display: none;
+    }
+    white-space: nowrap;
+    text-indent: 100%;
+    background: rgba($color-1, .96);
+    width: 44px;
+    height: 44px;
+    /* image replacement */
+    overflow: hidden;
+    position: fixed;
+    right: 5%;
+    bottom: 20px;
+    z-index: 2;
+
+    span {
+        @include center;
+        background: $color-3;
+        border-radius: 50%;
+        width: 4px;
+        height: 4px;
+        display: block;
+        /* the span element is used to create the menu icon */
+        position: absolute;
+
+        -webkit-transition: background .3s;
+           -moz-transition: background .3s;
+                transition: background .3s;
+
+        &::before, &::after {
+            content: "";
+            background: inherit;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        &::before {
+            @include transform(rotate(0));
+            right: -10px;
+        }
+
+        &::after {
+            @include transform(rotate(0));
+            left: -10px;
+        }
+    }
+
+    &.menu-is-open {
+        background: transparent;
+    }
+
+    &.menu-is-open span {
+        background: rgba($color-3, 0);
+        width: 20px;
+        height: 2px;
+
+        &::before, &::after {
+            background: rgba($color-3, 1);
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        &::before {
+            @include transform(rotate(135deg));
+        }
+
+        &::after {
+            @include transform(rotate(225deg));
+        }
+    }
+}
