@@ -115,6 +115,16 @@ Hero components
     }
 }
 
+#cd-summary {
+    .bcg {
+        @include bp(large) {
+            @include bg-size(120%);
+        }
+        background-image: url(#{$imgPath}/img-bck-summary.jpg);
+        background-position: 50% 0; 
+    }
+}
+
 /* -------------------------------- 
 
 Main components 
@@ -126,6 +136,7 @@ Main components
 }
 
 .cd-section:not(.hero) {
+    background-color: $section-bck; 
     @include bp(mediumUp) {
         height: 100vh;
         min-height: 700px;
@@ -134,9 +145,11 @@ Main components
     border-bottom: 1px solid white(.4);
     padding-top: 5em;
     width: 100%;
+    .ov {
+        background-color: black(.4);
+    }
     .entry {
         @include grid-row;
-        @include grid-col-end();
         @include bp(mediumUp) {
             @include center($xy: y);
             margin-top: -5em;
@@ -182,5 +195,15 @@ Main components
         padding: 2em;
         width: 100%;
         overflow: hidden;
+    }
+    &.summary {
+        .entry {
+            
+            .content {
+                @include grid-col();
+                text-align: center;
+            }
+        }
+        
     }
 }

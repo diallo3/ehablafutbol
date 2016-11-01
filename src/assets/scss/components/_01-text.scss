@@ -40,6 +40,7 @@ body {
     color: $white;
     font-family: $roboto;
     font-weight: 300;
+    text-shadow: 1px 1px 3px black(.3); 
     sup {
         font-size: rem(13);
         top: -20px;
@@ -66,20 +67,15 @@ sup {
 
 a {
     @include transition(all .3s ease-in-out);
-    color: $site-primary-color;
+    color: $white;
     text-decoration: none;
-    &:active {
-        color: $site-secondary-color;
-    }
-    &:hover {
-        color: $site-quaternary-color;
-    }
 }
 
 p {
     @include typi-base();
     color: darken($white, 20%);
     font-weight: 400;
+    text-shadow: 1px 1px 3px black(.3);
     margin-top: 0;
 }
 
@@ -88,7 +84,7 @@ p {
 }
 
 .cta-alt {
-    @include ctaSlide($type: mail);
+    @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
 }
 
 
@@ -122,11 +118,27 @@ p {
     .small-title {
         font-size: rem(16); 
         text-transform: uppercase;
-        margin-bottom: 3em; 
+        letter-spacing: 1px; 
+        margin-bottom: 2.5rem;
+        padding: 0.5em 0; 
         display: block;
     }
     p {
         font-size: rem(20px);   
+    }
+    &.summary {
+        .title {
+            @include typi($hero-map);
+            text-transform: uppercase; 
+        }
+        p {
+            @include typi($hero-sub-map);
+        }
+        footer {
+            a {
+                @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
+            }
+        }
     }
     
 }
