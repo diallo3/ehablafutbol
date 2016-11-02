@@ -3,25 +3,21 @@ $breakpoints: (
     medium: 768px,
     large: 1024px
 );
-
 $typi: (
   null: 16px,
   small: 18px,
   large: 20px
 );
-
 $hero-map: (
   null: (48px, 1.1),
   medium: (52px, 2),
   large: (78px, 1.5)
 );
-
 $hero-sub-map: (
   null: 16px,
   medium: 20px,
   large: 32px
 );
-
 $h2-map: (
   null: 28px,
   medium: 38px,
@@ -40,7 +36,7 @@ body {
     color: $white;
     font-family: $roboto;
     font-weight: 300;
-    text-shadow: 1px 1px 1px black(.2); 
+    text-shadow: 1px 1px 1px black(.2);
     sup {
         font-size: rem(13);
         top: -20px;
@@ -95,18 +91,18 @@ p {
     .title {
         h1 {
             @include typi($hero-map);
-            text-transform: uppercase; 
             font-weight: 400;
+            text-transform: uppercase;
             padding: 0 1em;
             span {
                 @include typi($hero-sub-map);
-                text-transform: normal;
-                display: block;  
-                font-weight: 300; 
                 @include bp(mediumUp) {
+                    @include center-block;
                     max-width: 80%;
-                    @include center-block; 
                 }
+                font-weight: 300;
+                text-transform: normal;
+                display: block;
             }
         }
     }
@@ -116,20 +112,21 @@ p {
         @include typi($h2-map);
     }
     .small-title {
-        font-size: rem(16); 
+        font-size: rem(16);
+        font-weight: 500;
+        letter-spacing: 1px;
         text-transform: uppercase;
-        letter-spacing: 1px; 
         margin-bottom: 2.5rem;
-        padding: 0.5em 0; 
+        padding: .5em 0;
         display: block;
     }
     p {
-        font-size: rem(20px);   
+        font-size: rem(20px);
     }
     &.summary {
         .title {
             @include typi($hero-map);
-            text-transform: uppercase; 
+            text-transform: uppercase;
         }
         p {
             @include typi($hero-sub-map);
@@ -140,7 +137,4 @@ p {
             }
         }
     }
-    
 }
-
-
