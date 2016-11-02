@@ -19,7 +19,7 @@
     }
     height: $header-S;
     position: relative;
-    z-index: 5;
+    z-index: 3;
 }
 
 .cd-section.hero {
@@ -42,6 +42,7 @@
             position: fixed;
             top: -20%;
             left: -20%;
+            z-index: 5; 
             /* assign a position fixed and move outside the viewport (on the left) */
 
             opacity: 0;
@@ -83,10 +84,18 @@
 }
 
 .cd-btn-head {
-    padding: .7rem 1.2rem;
-    z-index: $header-zindex;
+    @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
+    font-size: rem(14);
+    padding: 0.3rem 1.5rem; 
+    padding: .4rem 1.1rem;
+    z-index: 5;
 
     opacity: 0;
+    &:before {
+        -webkit-background-size: 20px 20px; 
+            -o-background-size: 20px 20px; 
+            background-size: 20px 20px;
+    }
     &.hidden {
         @include transition(right .3s, opacity .3s);
         margin-right: 0;
@@ -96,7 +105,7 @@
 
 
         &.slide-in {
-            top: 10px;
+            top: 15px;
             right: 5%;
             @include bp(mediumUp) {
                 opacity: 1;

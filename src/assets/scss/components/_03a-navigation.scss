@@ -44,6 +44,7 @@
 .cd-secondary-nav {
     @include bp(mediumUp) {
         background-color: black(.8);
+        z-index: $header-zindex;
     }
     @include bp(large) {
         @include transition(height .3s);
@@ -53,7 +54,6 @@
         nav, ul, li, a {
             height: 100%;
         }
-        z-index: $header-zindex;
     }
     width: 100%;
     &.is-fixed {
