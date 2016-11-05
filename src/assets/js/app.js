@@ -118,12 +118,12 @@ window.onload = convertMailAddress;
 
 				// secondary navigation
 				function updateSecondaryNavigation() {
-					var actual = $(this),
-						actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
-						actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
-						actualAnchorIndex = secondaryNav.find('#intro');
 					// sections
 					contentSections.each(function(){
+						var actual = $(this),
+							actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
+							actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
+							actualAnchorIndex = secondaryNav.find('#intro');
 
 						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
 							actualAnchor.addClass('active');
