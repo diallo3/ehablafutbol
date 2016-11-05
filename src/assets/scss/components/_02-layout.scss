@@ -178,17 +178,6 @@ Main components
             }
         }
     }
-    .ctas {
-        @include bp(mediumUp) {
-            @include abs-pos($b: 0);
-            display: block;
-        }
-        background-color: black(.3);
-        padding: 2em;
-        width: 100%;
-        display: none;
-        overflow: hidden;
-    }
     &.summary {
         .entry {
             .content {

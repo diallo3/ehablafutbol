@@ -5,12 +5,11 @@
 -------------------------------- */
 
 .cd-primary-nav {
-    display: none;
     @include bp(mediumUp) {
         background: none;
         ul {
             margin: 2em 0;
-            padding: 0; 
+            padding: 0;
             width: auto;
             position: static;
         }
@@ -23,14 +22,16 @@
         a {
             @include hide-text;
             background: url(#{$imgPath}/icon-fb.svg) no-repeat 0 0;
-            width: 40px;
-            height: 40px;   
+
             padding: .6em 1em;
+            width: 40px;
+            height: 40px;
             display: block;
         }
     }
     background-size: 44px 44px;
     height: 100%;
+    display: none;
     /* mobile first - navigation hidden by default, triggered by tap/click on navigation icon */
     float: right;
 }
@@ -48,9 +49,10 @@
     }
     @include bp(large) {
         @include transition(height .3s);
-        height: $bar-height-full;
+        @include abs-pos($b: 0);
+        padding: 1.1rem;
+        min-height: $bar-height;
         z-index: $secondary-bar-zindex;
-        @include abs-pos($b:0);
         nav, ul, li, a {
             height: 100%;
         }
@@ -59,14 +61,15 @@
     &.is-fixed {
         /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
         /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
-        background-color: $black; 
+        background-color: $black;
         border-bottom: 2px solid $white;
+        padding: 0; 
         width: 100%;
         height: $bar-height;
         position: fixed;
         top: 0;
+        bottom: auto;
         left: 0;
-        bottom: auto; 
     }
 
     &.animate-children {
@@ -172,19 +175,18 @@
             visibility: visible;
             bottom: 0;
             li {
-                text-align: center; 
+                text-align: center;
                 text-transform: uppercase;
                 span {
                     display: none;
                 }
                 a {
                     padding: rem(30);
-                    display: block; 
+                    display: block;
                 }
             }
         }
     }
-    
 }
 
 .cd-secondary-nav-trigger {
@@ -259,5 +261,25 @@
         &::after {
             @include transform(rotate(225deg));
         }
+    }
+}
+
+/* -------------------------------
+    CTAs
+------------------------------- */
+.ctas {
+    @include position(fixed, auto 0 0 0);
+    @include transform(translateY(80px));
+    @include transition-property(transform);
+    @include transition-duration(.2s);
+    @include transition-timing-function(ease-in-out);
+    background-color: black(.3);
+    padding: .5em 1em;
+    width: 100vw;
+    height: 80px;
+    overflow: hidden;
+    z-index: 10;
+    &.is-visible {
+        @include transform(translateY(0));
     }
 }
