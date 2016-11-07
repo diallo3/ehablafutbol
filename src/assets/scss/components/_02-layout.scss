@@ -111,7 +111,7 @@ Hero components
 
 /* -------------------------------- 
 
-Main components 
+    Main components 
 
 -------------------------------- */
 .cd-section {
@@ -206,7 +206,7 @@ Main components
                 }
                 @include bp(large) {
                     @include abs-pos($t: 0, $r: 12%);
-                    width: 380px;
+                    width: rem(380px);
                     display: block;
                 }
                 text-align: center;
