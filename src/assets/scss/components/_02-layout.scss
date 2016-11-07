@@ -205,8 +205,8 @@ Main components
                     display: block;
                 }
                 @include bp(large) {
-                    @include abs-pos($t: 0, $r: 0);
-                    width: 450px;
+                    @include abs-pos($t: 0, $r: 12%);
+                    width: 380px;
                     display: block;
                 }
                 text-align: center;
