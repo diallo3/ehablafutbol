@@ -37,6 +37,17 @@ window.onload = convertMailAddress;
 		// Foundation init
 		$(document).foundation();
 
+		// hamburger
+		// hambuger
+	    function hamburgerNav() {
+	    	var $hb = $('.hamburger');
+	    	$hb.on('click', function(e){
+	    		e.preventDefault();
+	    		$(this).toggleClass('is-active');
+	    	})
+	    }
+	    hamburgerNav();
+
 		// smooth anchors
 	    function smoothAnchor() {
 	    	$('.ctas').on('click', '.cta', function(event) {
@@ -59,61 +70,93 @@ window.onload = convertMailAddress;
 	    }
 	    smoothAnchor();
 
+	    //open sub-navigation
+		$('.cd-subnav-trigger').on('click', function(event){
+			
+			event.preventDefault();
+			$('.cd-main-nav').toggleClass('moves-out');
+			$('.cd-slide-nav').toggleClass('moves-out');
+
+		});
+
 		// Secondary Header
-		function headerNav() {
+		function secondaryNav() {
 			// global vars
-			var secondaryNav = $('.cd-secondary-nav'),
+			var 
+				target = $('html,body');
+				view = $(window),
+				secondaryNav = $('.cd-secondary-nav'),
 				secondaryNavFixed = $('.cd-secondary-nav.is-fixed');
 				secondaryNavTopPosition = secondaryNav.offset().top,
 				offsetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
 				taglineOffesetTop = $('.header-container') + offsetTop,
-				contentSections = $('.cd-section');
+				contentSections = $('.cd-section'),
+				ctas = $('.ctas');
 
 			// scroll function
-			$(window).on('scroll', function(){
+			view.on('scroll', function(){
+				var logo = $('#cd-logo'),
+					btnHead = $('.cd-btn-head');
+
 				//on desktop - assign a position fixed to logo and action button and move them outside the viewport
-				( $(window).scrollTop() > offsetTop ) ? $('#cd-logo, .cd-btn-head').addClass('hidden') : $('#cd-logo, .cd-btn-head').removeClass('hidden');
+				( view.scrollTop() > offsetTop ) ? $('#cd-logo, .cd-btn-head').addClass('hidden') : $('#cd-logo, .cd-btn-head').removeClass('hidden');
 				
 				//on desktop - fix secondary navigation on scrolling
-				if($(window).scrollTop() > secondaryNavTopPosition ) {
+				if(view.scrollTop() > secondaryNavTopPosition ) {
 					//fix secondary navigation
 					secondaryNav.addClass('is-fixed');
+					ctas.addClass('is-visible');
 
 					//on Firefox CSS transition/animation fails when parent element changes position attribute
 					//so we to change secondary navigation childrens attributes after having changed its position value
 					setTimeout(function() {
 			            secondaryNav.addClass('animate-children');
-			            $('#cd-logo').addClass('slide-in');
-						$('.cd-btn-head').addClass('slide-in');
+			            logo.addClass('slide-in');
+						btnHead.addClass('slide-in');
 			        }, 50);
 
 				} else {
 
 					secondaryNav.removeClass('is-fixed');
+					ctas.removeClass('is-visible');
+					$('.cd-slide-nav').removeClass('moves-out');
+					
 
 					setTimeout(function() {
 			            secondaryNav.removeClass('animate-children');
-			            $('#cd-logo').removeClass('slide-in');
-						$('.cd-btn-head').removeClass('slide-in');
+			            logo.removeClass('slide-in');
+						btnHead.removeClass('slide-in');
 			        }, 50);
 				}
+
+				if(view.scrollTop() + view.height() > ($(document).height() - 100) ) {
+					ctas.removeClass('is-visible');
+					$('.cd-slide-nav').removeClass('moves-out');
+
+				}
+
+
 
 				//on desktop - update the active link in the secondary fixed navigation
 				updateSecondaryNavigation();
 
 				// secondary navigation
 				function updateSecondaryNavigation() {
+					// sections
 					contentSections.each(function(){
 						var actual = $(this),
-								actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
-								actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
-							if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
-								actualAnchor.addClass('active');
+							actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
+							actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
+							actualAnchorIndex = secondaryNav.find('#intro');
 
-							}else {
+						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
+							actualAnchor.addClass('active');
 
-								actualAnchor.removeClass('active');
-							}
+						} else {
+
+							actualAnchor.removeClass('active');
+						}
+
 					});
 				}
 				
@@ -145,7 +188,7 @@ window.onload = convertMailAddress;
 			});
 
 		}
-		headerNav();
+		secondaryNav();
 
 		
 

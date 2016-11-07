@@ -18,28 +18,57 @@
         <![endif]-->
 
         <main id="main-view" class="main-scene">
-            <div class="header-container">
+            <div id="cd-intro-top" class="header-container">
     <div class="bcg"></div>
     <div class="ov"></div>
-    <div id="cd-logo"><a href="/#top"><span><img src="assets/img/temp-logo.png" alt="Logo"></span></a></div>
-<header class="cd-header">
-    <nav class="cd-primary-nav">
-        <ul>
-            <!-- inser more links here -->
-            <li><a href="#0" class="fb">Facebook</a></li>
-            <li><a href="#0" class="tw">Twitter</a></li>
-        </ul>
-    </nav>
-</header>
+    <div id="cd-logo">
+	<a href="/#top"><img src="assets/img/temp-logo.png" alt="Logo"></a>
+</div>
+
+<div class="cd-btn-head">
+	<div class="cd-social">
+		<ul>
+			<li><a href="" class="fb">Facebook</a></li>
+<li><a href="" class="tw">Twitter</a></li>
+			<li>
+				<a href="#0" id="cd-btn" class="cd-subnav-trigger">
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box">
+					    	<span class="hamburger-inner"></span>
+					  	</span>
+					</button>
+				</a>
+			</li>
+		</ul>
+	</div>	
+</div>
+
+<div class="cd-header-container">
+	<header class="cd-header">
+		<nav class="cd-main-nav">
+			<ul>
+				<li><a href="#0">Case Studies</a></li>
+<li><a href="#0">Contact</a></li>
+			</ul>
+		</nav>
+		<nav class="cd-social">
+			<ul>
+				<li><a href="" class="fb">Facebook</a></li>
+<li><a href="" class="tw">Twitter</a></li>
+			</ul>
+		</nav>
+	</header>
+</div>
+
     <section id="cd-intro" class="cd-section hero">
         <article id="cd-intro-tagline" class="entry">
             <heading class="title">
                 <h1>
                     <span>Helping brands better<br/> serve the Hispanic community through</span>
-                    the power of futbol
+                    the power of fútbol.
                 </h1>
             </heading>
-            <footer class="ctas">
+            <footer class="cta-entry">
                 <ul>
                     <li><a href="#cd-community" class="cta"><span>Learn More</span></a></li>
                     <li><a href="#contactModal" class="cta-alt"><span>Get Started</span></a></li>
@@ -48,17 +77,16 @@
         </article>
         <!-- #cd-intro-tagline -->
 
-        <a href="#" id="cd-btn" class="cd-btn-head"><span>Learn More</span></a>
+        <!-- <a href="#" id="cd-btn" class="cd-btn-head"><span>Learn More</span></a> -->
     </section>
     <!-- #cd-intro -->
  
     <!-- cd-secondary-nav -->
     <div class="cd-secondary-nav">
-    <a href="#0" class="cd-secondary-nav-trigger">Menu<span></span></a> <!-- button visible on small devices -->
     <nav>
         <ul class="site-nav">
             <li>
-                <a href="#cd-intro">
+                <a href="#cd-intro-top" id="index">
                     <b>Intro</b>
                     <span><img src="assets/img/icon-intro.svg" alt=""></span>
                 </a>
@@ -89,135 +117,143 @@
             </li>
         </ul>
     </nav>
+    <nav>
+        <ul class="cd-slide-nav">
+            <li><a href="#0">Case Studies</a></li>
+<li><a href="#0">Contact</a></li>
+            <li><a href="#0">Terms of Use</a></li>
+<li><a href="#0">Privacy</a></li>
+        </ul>
+    </nav>
 </div>
 </div>
 <div class="cd-main-content">
     <section id="cd-community" class="cd-section">
-        <div class="bcg"></div>
-        <div class="ov"></div>
-        <article class="entry">
-            <div class="content">
-                <span class="icon"><img src="assets/img/icon-comm.svg" alt=""></span>
-                <header class="section-title">
-                    <h2 class="title">
-                        <span class="small-title">Community</span>
-                        Ehabla Futbol combines compelling, real-world experiences...
-                    </h2>
-                </header>
-                <p>with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.</p>
-            </div>
-        </article>
-
-        <!-- ctas -->
-        <div class="ctas">
-            <ul>
-                <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
-                <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
-            </ul>
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <span class="icon"><img src="assets/img/icon-comm.svg" alt=""></span>
+            <header class="section-title">
+                <h2 class="title">
+                    <span class="small-title">Community</span>
+                    eHabla Fútbol combines compelling, real-world experiences...
+                </h2>
+            </header>
+            <p>with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.</p>
         </div>
-    </section>
+    </article>
+</section>
 
     <section id="cd-connection" class="cd-section info-graphic">
-        <div class="bcg"></div>
-        <div class="ov"></div>
-        <article class="entry">
-            <div class="content">
-                <span class="icon"><img src="assets/img/icon-conn.svg" alt=""></span>
-                <header class="section-title">
-                    <h2 class="title">
-                        <span class="small-title">Connection</span>
-                        Digital Connection
-                    </h2>
-                </header>
-                <p>Free social media application offers searchable player profiles, simplifies league, tournament and ad hoc play organization while connecting players, fans and families together so they can follow each other’s successes, talk smack, publish their victories and much more.</p>
-            </div>
-            
-            <!-- phone -->
-            <figure class="featured">
-                <img src="assets/img/img-phone-conn.png" alt="">
-            </figure>
-        </article>
-
-        <!-- ctas -->
-        <div class="ctas">
-            <ul>
-                <li><a href="#cd-experience" class="cta"><span>Learn More</span></a></li>
-                <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
-            </ul>
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <span class="icon"><img src="assets/img/icon-conn.svg" alt=""></span>
+            <header class="section-title">
+                <h2 class="title">
+                    <span class="small-title">Connection</span>
+                    Digital Connection
+                </h2>
+            </header>
+            <p>Free social media application offers searchable player profiles, simplifies league, tournament and ad hoc play organization while connecting players, fans and families together so they can follow each other’s successes, talk smack, publish their victories and much more.</p>
         </div>
-    </section>
+        
+        <!-- phone -->
+        <figure class="featured">
+            <img src="assets/img/img-phone-conn.png" alt="">
+        </figure>
+    </article>
+
+    <!-- ctas 
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-experience" class="cta"><span>Learn More</span></a></li>
+            <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
+        </ul>
+    </div> -->
+</section>
 
     <section id="cd-experience" class="cd-section info-graphic">
-        <div class="bcg"></div>
-        <div class="ov"></div>
-        <article class="entry">
-            <div class="content">
-                <span class="icon"><img src="assets/img/icon-exp.svg" alt=""></span>
-                <header class="section-title">
-                    <h2 class="title">
-                        <span class="small-title">Experience</span>
-                        Intelligent Insight
-                    </h2>
-                </header>
-                <p>Using leading-edge analytics, eHabla Futbol not only understands what topics are trending in the community, but also the way in which people are talking about them and how they feel, providing unparalleled insights that sync your messages with the right market.</p>
-            </div>
-
-            <!-- phone -->
-            <figure class="featured">
-                <img src="assets/img/img-phone-exp.png" alt="">
-            </figure>
-        </article>
-
-        <!-- ctas -->
-        <div class="ctas">
-            <ul>
-                <li><a href="#cd-engage" class="cta"><span>Learn More</span></a></li>
-                <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
-            </ul>
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <span class="icon"><img src="assets/img/icon-exp.svg" alt=""></span>
+            <header class="section-title">
+                <h2 class="title">
+                    <span class="small-title">Experience</span>
+                    Intelligent Insight
+                </h2>
+            </header>
+            <p>Using leading-edge analytics, eHabla Fútbol not only understands what topics are trending in the community, but also the way in which people are talking about them and how they feel, providing unparalleled insights that sync your messages with the right market.</p>
         </div>
-    </section>
+
+        <!-- phone -->
+        <figure class="featured">
+            <img src="assets/img/img-phone-exp.png" alt="">
+        </figure>
+    </article>
+
+    <!-- ctas
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-engage" class="cta"><span>Learn More</span></a></li>
+            <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
+        </ul>
+    </div> -->
+</section>
 
     <section id="cd-engage" class="cd-section">
-        <div class="bcg"></div>
-        <div class="ov"></div>
-        <article class="entry">
-            <div class="content">
-                <span class="icon"><img src="assets/img/icon-eng.svg" alt=""></span>
-                <header class="section-title">
-                    <h2 class="title">
-                        <span class="small-title">Engage</span>
-                        Profound Impressions
-                    </h2>
-                </header>
-                <p>A combination of live event sponsorship and intelligent digital advertising enables your brand to synchronize with a passionate community, creating profound impressions that not only drive action but increase brand connection and loyalty in a unique way.</p>
-            </div>
-        </article>
-
-        <!-- ctas -->
-        <div class="ctas">
-            <ul>
-                <li><a href="#cd-summary" class="cta"><span>Learn More</span></a></li>
-                <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
-            </ul>
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <span class="icon"><img src="assets/img/icon-eng.svg" alt=""></span>
+            <header class="section-title">
+                <h2 class="title">
+                    <span class="small-title">Engage</span>
+                    Profound Impressions
+                </h2>
+            </header>
+            <p>A combination of live event sponsorship and intelligent digital advertising enables your brand to synchronize with a passionate community, creating profound impressions that not only drive action but increase brand connection and loyalty in a unique way.</p>
         </div>
-    </section>
+    </article>
+
+    <!-- ctas 
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-summary" class="cta"><span>Learn More</span></a></li>
+            <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
+        </ul>
+    </div> -->
+</section>
 
     <section id="cd-summary" class="cd-section summary">
-        <div class="bcg"></div>
-        <div class="ov"></div>
-        <article class="entry">
-            <div class="content">
-                <header class="section-title">
-                    <h2 class="title">Let's Get Started</h2>
-                </header>
-                <p>eHabla Futbol helps you understand, reach and engage with the Hispanic community in an intelligent and meaningful way, better serving their needs while catapulting brand awareness.</p>
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <header class="section-title">
+                <h2 class="title">Let's Get Started</h2>
+            </header>
+            <p>eHabla Fútbol helps you understand, reach and engage with the Hispanic community in an intelligent and meaningful way, better serving their needs while catapulting brand awareness.</p>
 
-                <footer>
-                    <a href="#"><span>Get Started!</span></a>
-                </footer>
-            </div>
-        </article>
-    </section>
+            <footer>
+                <a href="#"><span>Get Started!</span></a>
+            </footer>
+        </div>
+    </article>
+</section>
+
+    <!-- ctas -->
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
+            <li><a href="#" class="cta-alt"><span>Get Started</span></a></li>
+        </ul>
+    </div>
 </div> 
 <!-- /cd-main-content -->
 <div class="footer-container">
