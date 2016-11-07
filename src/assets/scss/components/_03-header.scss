@@ -6,20 +6,10 @@
 .header-container {
     @include zero-out;
     border-bottom: 1px solid white(.2); 
+    // padding: rem(100) rem(50) 0 rem(50); 
     height: 100vh;
     position: relative;
     overflow: hidden;
-}
-
-.cd-header {
-    @include grid-row;
-    @include bp(mediumUp) {
-        box-shadow: none;
-        height: $header-M;
-    }
-    height: $header-S;
-    position: relative;
-    z-index: 3;
 }
 
 .cd-section.hero {
@@ -30,6 +20,35 @@
         @include center-align($ver: true, $hor: true, $pos: absolute);
         text-align: center;
         width: 100%;
+    }
+}
+
+.cd-header-container {
+    @include bp(large) {
+        display: block;
+    }
+    position: relative;
+    display: none;
+    .cd-header {
+        @include grid-row;
+        nav {
+            @include grid-col(6);
+            padding: rem(30) 0 0; 
+            ul {
+                @include menu-list($li-padding: 0 5px);
+            }
+            &.cd-main-nav {
+                a {
+                    padding: 0.5em 0; 
+                    display: block;
+                }
+            }
+            &.cd-social {
+                ul {
+                    float: right;
+                }
+            }
+        }
     }
 }
 
@@ -84,28 +103,17 @@
 }
 
 .cd-btn-head {
-    @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
-    font-size: rem(14);
-    padding: 0.3rem 1.5rem; 
-    padding: .4rem 1.1rem;
+    position: fixed;
+    top: -20%;
+    right: -20%;
     z-index: 5;
 
-    opacity: 0;
-    &:before {
-        -webkit-background-size: 20px 20px; 
-            -o-background-size: 20px 20px; 
-            background-size: 20px 20px;
-    }
     &.hidden {
         @include transition(right .3s, opacity .3s);
         margin-right: 0;
-        position: fixed;
-        top: -20%;
-        right: -20%;
-
-
+        
         &.slide-in {
-            top: 15px;
+            top: 12px;
             right: 5%;
             @include bp(mediumUp) {
                 opacity: 1;

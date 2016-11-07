@@ -1,10 +1,36 @@
-<div id="cd-logo"><a href="/#top"><span><img src="assets/img/temp-logo.png" alt="Logo"></span></a></div>
-<header class="cd-header">
-    <nav class="cd-primary-nav">
-        <ul>
-            <!-- inser more links here -->
-            <li><a href="#0" class="fb">Facebook</a></li>
-            <li><a href="#0" class="tw">Twitter</a></li>
-        </ul>
-    </nav>
-</header>
+<div id="cd-logo">
+	<a href="/#top"><img src="assets/img/temp-logo.png" alt="Logo"></a>
+</div>
+
+<div class="cd-btn-head">
+	<div class="cd-social">
+		<ul>
+			{% include parts/inc-social.html %}
+			<li>
+				<a href="#0" id="cd-btn" class="cd-subnav-trigger">
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box">
+					    	<span class="hamburger-inner"></span>
+					  	</span>
+					</button>
+				</a>
+			</li>
+		</ul>
+	</div>	
+</div>
+
+<div class="cd-header-container">
+	<header class="cd-header">
+		<nav class="cd-main-nav">
+			<ul>
+				<li><a href="#0">Case Studies</a></li>
+				<li><a href="#0">Contact</a></li>
+			</ul>
+		</nav>
+		<nav class="cd-social">
+			<ul>
+				{% include parts/inc-social.html %}
+			</ul>
+		</nav>
+	</header>
+</div>

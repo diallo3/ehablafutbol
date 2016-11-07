@@ -37,6 +37,17 @@ window.onload = convertMailAddress;
 		// Foundation init
 		$(document).foundation();
 
+		// hamburger
+		// hambuger
+	    function hamburgerNav() {
+	    	var $hb = $('.hamburger');
+	    	$hb.on('click', function(e){
+	    		e.preventDefault();
+	    		$(this).toggleClass('is-active');
+	    	})
+	    }
+	    hamburgerNav();
+
 		// smooth anchors
 	    function smoothAnchor() {
 	    	$('.ctas').on('click', '.cta', function(event) {
@@ -59,8 +70,17 @@ window.onload = convertMailAddress;
 	    }
 	    smoothAnchor();
 
+	    //open sub-navigation
+		$('.cd-subnav-trigger').on('click', function(event){
+			
+			event.preventDefault();
+			$('.cd-main-nav').toggleClass('moves-out');
+			$('.cd-slide-nav').toggleClass('moves-out');
+
+		});
+
 		// Secondary Header
-		function headerNav() {
+		function secondaryNav() {
 			// global vars
 			var 
 				target = $('html,body');
@@ -99,6 +119,8 @@ window.onload = convertMailAddress;
 
 					secondaryNav.removeClass('is-fixed');
 					ctas.removeClass('is-visible');
+					$('.cd-slide-nav').removeClass('moves-out');
+					
 
 					setTimeout(function() {
 			            secondaryNav.removeClass('animate-children');
@@ -109,6 +131,8 @@ window.onload = convertMailAddress;
 
 				if(view.scrollTop() + view.height() > ($(document).height() - 100) ) {
 					ctas.removeClass('is-visible');
+					$('.cd-slide-nav').removeClass('moves-out');
+
 				}
 
 
@@ -164,7 +188,7 @@ window.onload = convertMailAddress;
 			});
 
 		}
-		headerNav();
+		secondaryNav();
 
 		
 

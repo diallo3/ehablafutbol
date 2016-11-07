@@ -75,6 +75,14 @@ p {
     margin-top: 0;
 }
 
+.cd-main-nav {
+    a {
+        font-size: rem(14px);
+        font-weight: 400;  
+        text-transform: uppercase;
+    }
+}
+
 .cta {
     @include ctaSlide;
 }
@@ -83,6 +91,23 @@ p {
     @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
 }
 
+.site-nav, .cd-slide-nav {
+    li {
+        a, b {
+            color: rgba($white, .45);
+            font-size: rem(13);
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            &:hover {
+                color: $white;
+            }
+            &:hover b, &.active b {
+                color: $white;
+            }
+        }   
+    }
+}
 
 /*--------------------------------
 	Hero and Sections
