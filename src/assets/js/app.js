@@ -332,10 +332,30 @@ window.onload = convertMailAddress;
 		}
 		// scrollEffects();
 
+		// Form Labels
+		function floatLabels() {
+			var inputFields = $('.floating-labels .cd-label').next();
+			inputFields.each(function(){
+				var singleInput = $(this);
+				//check if user is filling one of the form fields 
+				checkVal(singleInput);
+				singleInput.on('change keyup', function(){
+					checkVal(singleInput);	
+				});
+			});
+		}
+		floatLabels();
+
+		function checkVal(inputField) {
+			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
+		}
+
+
 		$('.open-modal').animatedModal({
 			animatedIn:'zoomIn',
             animatedOut:'cd-fadeOut',
             color:'#000000',
+            animationDuration: .3,
                 // Callbacks
                 beforeOpen: function() {
                     console.log("The animation was called");
