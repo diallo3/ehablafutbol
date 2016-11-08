@@ -28,7 +28,7 @@ figure {
     background-repeat: no-repeat;
     background-position: 100% 0;
     width: 100%;
-    height: 150%;
+    height: 120%;
     z-index: auto;
 
     opacity: 1;
@@ -114,9 +114,11 @@ Hero components
     Main components 
 
 -------------------------------- */
+
 .cd-section {
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .cd-section:not(.hero) {

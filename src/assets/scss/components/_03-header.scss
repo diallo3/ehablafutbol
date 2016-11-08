@@ -38,8 +38,11 @@
                 @include menu-list($li-padding: 0 5px);
             }
             &.cd-main-nav {
+                padding-top: 2.3em; 
                 a {
-                    padding: 0.5em 0; 
+                    @include ctaMain;
+                    font-size: rem(12); 
+                    padding: 0.2rem 0.5rem; 
                     display: block;
                 }
             }

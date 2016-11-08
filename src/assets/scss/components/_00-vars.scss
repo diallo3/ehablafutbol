@@ -79,7 +79,36 @@ $bar-height: 70px;
 /*--------------------------------
     Buttons
 */
-@mixin ctaSlide($bg: rgba($white, .3), $hv: #c00, $type: more) {
+
+@mixin ctaMain($bg: rgba($white, .3), $hv: $site-primary-color, $type: more) {
+    @include transition(all .3s);
+    @include backface-visibility(hidden);
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    background: $bg;
+    border: 1px solid rgba($white, .8);
+    border-radius: 2px;
+    padding: 1rem 3rem;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+    &:active {
+        background: darken($hv, 10%);
+        top: 2px;
+        &:before {
+            color: #703b87;
+        }
+    }
+    &:hover {
+        background-color: $hv; 
+    }
+}
+
+@mixin ctaSlide($bg: rgba($white, .3), $hv: $site-primary-color, $type: more) {
     @include transition(all .3s);
     @include backface-visibility(hidden);
     color: $white;

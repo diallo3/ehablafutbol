@@ -195,14 +195,6 @@ window.onload = convertMailAddress;
 
 		// preload
 		function preLoad() {
-			// get all slides
-			var slides = ["#slide01", "#slide02", "#slide03"];
-
-			// get all headers in slides that trigger animation
-			var headers = ["#slide01 header", "#slide02 header", "#slide03 header"];
-
-			// get all break up sections
-			// var breakSections = ["#cb01", "#cb02", "#cb03"];
 
 			// number of loaded images for preloader progress 
 			var loadedCount = 0; //current number of images loaded
@@ -266,6 +258,98 @@ window.onload = convertMailAddress;
 		}
 		preLoad();
 
+		function scrollEffects() {
+
+			// get all slides
+			var slides = ["#cd-community", "#cd-connection", "#cd-experience", "#cd-engage", "#cd-summary"];
+
+			// get all headers in slides that trigger animation
+			var headers = ["#cd-community header", "#cd-connection header", "#cd-experience header", "#cd-engage header", "#cd-summary header"];
+
+			// get all break up sections
+			// var breakSections = ["#cb01", "#cb02", "#cb03"];
+
+			// Enable ScrollMagic only for desktop, disable on touch and mobile devices
+			if (!Modernizr.touch) {
+
+				// SCENE 1
+				// create scenes for each of the headers
+				headers.forEach(function (header, index) {
+				    
+				    // number for highlighting scenes
+					var num = index+1;
+
+				    // make scene
+				    var headerScene = new ScrollMagic.Scene({
+				        triggerElement: header, // trigger CSS animation when header is in the middle of the viewport 
+				        offset: -95 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
+				    })
+				    .setClassToggle('.slide0'+num, 'is-active') // set class to active slide
+				    //.addIndicators() // add indicators (requires plugin), use for debugging
+				    .addTo(controller);
+				});
+
+
+			    // SCENE 3 - parallax effect on each of the slides with bcg
+			    // move bcg container when slide gets into the view
+				slides.forEach(function (slide, index) {
+
+					var $bcg = $(slide).find('.bcg');
+
+					var slideParallaxScene = new ScrollMagic.Scene({
+				        triggerElement: slide, 
+				        triggerHook: 1,
+				        duration: "100%"
+				    })
+				    .setTween(TweenMax.from($bcg, 1, {y: '-40%', autoAlpha: 0.3, ease:Power0.easeNone}))
+				    .addTo(controller);
+			    });
+
+			    // SCENE 5 - parallax effect on the intro slide
+			    // move bcg container when intro gets out of the the view
+
+			    var introTl = new TimelineMax();
+
+			    introTl
+			    	.to($('#cd-intro-top header'), 0.2, {autoAlpha: 0, ease:Power1.easeNone})
+			    	//.to($('#cd-intro-top .bcg'), 1.4, {y: '20%', ease:Power1.easeOut}, '-=0.2')
+			    	.to($('#cd-intro-top'), 0.7, {autoAlpha: 0.5, ease:Power1.easeNone}, 0);
+
+				var introScene = new ScrollMagic.Scene({
+			        triggerElement: '#cd-intro-top', 
+			        triggerHook: 0,
+			        duration: "100%"
+			    })
+			    .setTween(introTl)
+			    .addTo(controller);
+
+			    // change behaviour of controller to animate scroll instead of jump
+				controller.scrollTo(function (newpos) {
+					TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
+				});
+
+			}
+		}
+		// scrollEffects();
+
+		$('.open-modal').animatedModal({
+			animatedIn:'zoomIn',
+            animatedOut:'cd-fadeOut',
+            color:'#000000',
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                }
+		});
 		
 
 	});

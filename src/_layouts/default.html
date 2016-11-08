@@ -19,7 +19,20 @@
             {{ content }}
         </main>
 
-        
+        <!--DEMO01-->
+        <div id="animatedModal">
+            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+            <div  id="btn-close-modal" class="close-animatedModal"> 
+                CLOSE MODAL
+            </div>
+                
+            <div class="modal-content">
+                <article id="formContainer" class="entry">
+                    {% include parts/inc-form-default.html %}
+                </article>
+            </div>
+        </div>
+
         {% include inc-default-scripts.html %}
         {% include inc-scrollmagic.html %}
 
