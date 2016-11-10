@@ -9,7 +9,7 @@
 title: EHabla Futbol
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Ehabla Futbol combines compelling, real-world experiences with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
+  ehabla Futbol combines compelling, real-world experiences with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://ehabla.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
@@ -21,3 +21,7 @@ markdown: kramdown
 # Assets are being handled by Gulp
 exclude: [assets]
 keep_files: [assets]
+
+# Contact 
+contact_title: Let's Get Started
+contact_desc: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

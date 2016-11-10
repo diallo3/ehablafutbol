@@ -31,8 +31,8 @@ var PATHS = {
     'bower_components/bourbon/app/assets/stylesheets/',
     'bower_components/foundation-sites/scss',
     'bower_components/motion-ui',
+    'bower_components/animatewithsass/',
     'bower_components/typi/scss',
-    'bower_components/adaptive-placeholders/'
   ],
   jquery: [
     'bower_components/jquery/dist/jquery.js',
@@ -63,6 +63,7 @@ var PATHS = {
     // 'bower_components/foundation-sites/js/foundation.tooltip.js',
   ],
   javascript: [
+    'bower_components/jQuery-viewport-checker/src/jquery.viewportchecker.js',
     'bower_components/animated-modal/animatedModal.js',
     'src/assets/js/**/!(app).js',
     'src/assets/js/app.js'

@@ -1,33 +1,5 @@
 /* -------------------------------- 
 
-    Mui
-
--------------------------------- */
-.zoomIn {
-    @include mui-animation(fade, zoom);
-
-    animation-duration: .1s;
-}
-
-.cd-fadeOut {
-    @include animation("fade-out .2s 1");
-}
-
-@include keyframes(fade-out) {
-    0% {
-        opacity: 1;
-    }
-    30% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* -------------------------------- 
-
     Preloader 
 
 -------------------------------- */
@@ -120,27 +92,43 @@
 
 --------------------------------- */
 
-.close-animatedModal {
+.zoomIn {
+    @include zoomIn($duration: .2s);
+}
+
+.zoomOut {
+    @include zoomOut($duration: .5s);
+}
+
+#contactModal {
+    background-image: url(#{$imgPath}/img-bck-hero.jpg);
+
+    opacity: 0;
+}
+
+.close-contactModal {
     @include center-align($ver: false, $hor: true, $pos: absolute);
     text-align: center;
     border: 1px solid white(.8);
-    border-radius: 50%; 
+    border-radius: 50%;
     padding: .55em 0;
     width: 50px;
     height: 50px;
     display: inline-block;
-    top: 5%; 
+    top: 5%;
+    z-index: 10;
+
+    cursor: pointer;
+    &:hover {
+        background: $site-primary-color;
+    }
+
     .close {
         width: 30px;
         height: 30px;
         display: inline-block;
         overflow: hidden;
         position: relative;
-        &:hover {
-            &::before, &::after {
-                background: $site-primary-color;
-            }
-        }
 
         &::before, &::after {
             content: "";
@@ -171,9 +159,25 @@
 }
 
 .modal-content {
-    @include center-align($ver: true, $hor: true, $pos: absolute);
-    padding: 5em;
+    text-align: center;
+    background-color: black(.7);
+    @include bp(large) {
+        padding: 7em 5em 5em;
+    }
+    padding: 3em 1em 1em; 
     width: 100%;
+    height: 100%; 
+    .ov {
+        background: black(.85);
+    }
+    .entry {
+        @include bp(large) {
+            max-width: 80%;
+        }
+        margin: 0 auto;
+        position: relative;
+        
+    }
 }
 
 
@@ -256,7 +260,7 @@
 
     input[type="text"], input[type="email"], input[type="tel"], textarea, select {
         box-shadow: inset 0 1px 1px rgba($black, .08);
-        border: 1px solid $white;
+        border: 1px solid rgba($white, .3);
         border-radius: .25em;
         /* general style for input elements */
         padding: 18px;
@@ -283,13 +287,10 @@
         position: relative;
 
         .submit {
-            @include center-align($ver: false, $hor: true, $pos: absolute);
             @include ctaMain;
             font-size: rem(18);
             text-transform: uppercase;
             padding: 1em 2.5em;
-            bottom: -55px;
-            z-index: 5;
 
             cursor: pointer;
             &:focus {

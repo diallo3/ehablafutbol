@@ -12,7 +12,7 @@ figure {
 }
 
 .main-scene {
-    @include mui-animation(fade);
+    // @include mui-animation(fade);
     @include zero-out;
 
     transition-timing-function: ease-in;
@@ -30,8 +30,6 @@ figure {
     width: 100%;
     height: 120%;
     z-index: auto;
-
-    opacity: 1;
 }
 
 /* -------------------------------- 
@@ -116,6 +114,7 @@ Hero components
 -------------------------------- */
 
 .cd-section {
+    @include fadeIn();
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -124,14 +123,14 @@ Hero components
 .cd-section:not(.hero) {
     @include bp(mediumUp) {
         height: 100vh;
-        min-height: 700px;
+        min-height: 800px;
     }
     @include clearfix;
     @include bp(medium) {
         padding-top: rem(200);
     }
     @include bp(large) {
-        padding-top: 5em;
+        padding-top: 12%; 
     }
     background-color: $section-bck;
     border-bottom: 1px solid white(.4);
@@ -141,12 +140,15 @@ Hero components
     .ov {
         background-color: black(.4);
     }
+    .bcg {
+        opacity: .2;
+        transition: opacity 1.1s linear;
+        &.bcg-visible {
+            opacity: 1;
+        }
+    }
     .entry {
         @include grid-row;
-        @include bp(large) {
-            @include center($xy: y);
-            margin-top: -5em;
-        }
         padding: 0 1em 1em;
         position: relative;
         .icon {
@@ -175,8 +177,27 @@ Hero components
                 padding-left: 5em;
             }
             text-align: center;
+            opacity: 0; 
             .section-title {
                 margin-bottom: 3em;
+            }
+            &.content-visible {
+                opacity: 1;
+                .icon {
+                    @include fadeIn($duration: .5s, $delay: 1s);
+                }
+                .small-title {
+                    @include fadeInUp($duration: .5s, $delay: .3s);
+                }
+                .title {
+                    @include fadeInUp($duration: .5s, $delay: .5s);
+                }
+                p {
+                    @include fadeInUp($duration: .5s, $delay: .8s);
+                }
+                .section-footer {
+                    @include fadeInUp($duration: .5s, $delay: 1s);
+                }
             }
         }
     }

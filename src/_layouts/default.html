@@ -19,22 +19,32 @@
             {{ content }}
         </main>
 
-        <!--DEMO01-->
-        <div id="animatedModal">
+        <!--modal-->
+        <div id="contactModal">
             <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-            <div  id="btn-close-modal" class="close-animatedModal"> 
+            <div  id="btn-close-modal" class="close-contactModal"> 
                 <span class="close thick"></span>
             </div>
                 
             <div class="modal-content">
-                <article id="formContainer" class="entry">
-                    {% include parts/inc-form-default.html %}
-                </article>
+                <div class="ov"></div>
+                <div class="entry">
+                    <h3 class="contact-title">
+                        {{ site.contact_title }}
+                    </h3>
+                    
+                    <p>{{ site.contact_desc }}</p>
+                    
+                    <article id="formContainer" class="entry">
+                        {% include parts/inc-form-default.html %}
+                    </article>
+                </div>
             </div>
         </div>
 
         {% include inc-default-scripts.html %}
         {% include inc-scrollmagic.html %}
+ 
 
         <script src="{{ "assets/js/app.js" | prepend: site.baseurl }}"></script>
 
