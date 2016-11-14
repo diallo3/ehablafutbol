@@ -36,10 +36,12 @@
 -------------------------------- */
 
 .cd-secondary-nav {
+    position: relative;
+    z-index: $header-zindex;
     overflow: hidden;
     @include bp(mediumUp) {
         background-color: black(.4);
-        z-index: $header-zindex;
+        
         opacity: 1;
     }
     @include bp(large) {
