@@ -203,9 +203,7 @@ window.onload = convertMailAddress;
 
 			$('.bcg').imagesLoaded({
 			    background: true
-			}
-			
-			).progress( function( instance, image ) {
+			}).progress( function( instance, image ) {
 				loadProgress();
 			});
 
@@ -246,7 +244,7 @@ window.onload = convertMailAddress;
 					.to($('.progress'), 0.3, {y: 100, autoAlpha: 0, ease:Back.easeIn})
 					.to($('.txt-perc'), 0.3, {y: 100, autoAlpha: 0, ease:Back.easeIn}, 0.1)
 					.set($('body'), {className: '-=is-loading'})
-					.set($('#intro'), {className: '+=is-loaded'})
+					.set($('#cd-intro'), {className: '+=is-loaded'})
 					.to($('#preloader'), 0.7, {yPercent: 100, ease:Power4.easeInOut})
 					.set($('#preloader'), {className: '+=is-hidden'})
 					.from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')

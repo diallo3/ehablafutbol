@@ -13,11 +13,16 @@
 }
 
 .cd-section.hero {
+    padding-top: 50%; 
     height: 75vh;
     min-height: 75vh;
     position: relative;
+    
+    overflow: visible;
     .entry {
-        @include center-align($ver: true, $hor: true, $pos: absolute);
+        @include bp(large) {
+            @include center-align($ver: true, $hor: true, $pos: absolute);
+        }
         text-align: center;
         width: 100%;
     }
@@ -106,6 +111,10 @@
 }
 
 .cd-btn-head {
+    @include bp(mediumUp) {
+        display: block;
+    }
+    display: none;
     position: fixed;
     top: -20%;
     right: -20%;

@@ -120,6 +120,9 @@ p {
             text-transform: uppercase;
             padding: 0 1em;
             span {
+                padding: 0 0 0.3em;
+            }
+            .tag {
                 @include typi($hero-sub-map);
                 @include bp(mediumUp) {
                     @include center-block;
@@ -128,6 +131,27 @@ p {
                 font-weight: 300;
                 text-transform: normal;
                 display: block;
+            }
+            .end-tag {
+                i {
+                    font-style: normal;
+                }
+            }
+        }
+    }
+    &.is-loaded {
+        .tag {
+            &:nth-child(1) {
+                @include fadeInDown($duration: .8s, $delay: .5s);
+            }
+            &:nth-child(2) {
+                @include fadeInDown($duration: .8s, $delay: 1s);
+            }
+        }
+        .end-tag {
+            @include fadeIn($duration: .8s, $delay: 1.5s);
+            i {
+                @include fadeIn($duration: .8s, $delay: 2s);
             }
         }
     }

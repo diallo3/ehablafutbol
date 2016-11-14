@@ -24,11 +24,16 @@ figure {
 .bcg {
     @include abs-pos($t: 0, $l: 0);
     @include bg-size(cover);
+    @include bp(large) {
+        background-position: 100% 0;
+        width: 100%;
+        height: 120%;
+    }
     background-color: $black;
     background-repeat: no-repeat;
-    background-position: 100% 0;
+    background-position: 75% 50%;
     width: 100%;
-    height: 120%;
+    height: 100%;
     z-index: auto;
 }
 
@@ -49,7 +54,7 @@ Hero components
         @include linear-gradient(to top, black, rgba(0,0,0,0), black);
         background-color: black(0);
 
-        opacity: .65;
+        opacity: .85;
     }
 }
 
@@ -130,19 +135,22 @@ Hero components
         padding-top: rem(200);
     }
     @include bp(large) {
-        padding-top: 12%; 
+        padding-top: 12%;
     }
     background-color: $section-bck;
     border-bottom: 1px solid white(.4);
-    padding-top: 3em;
+    padding-top: 30%;
     width: 100%;
     height: 800px;
     .ov {
-        background-color: black(.4);
+        background-color: black(.7);
+        @include bp(large) {
+            background-color: black(.4);
+        }
     }
     .bcg {
-        opacity: .2;
         transition: opacity 1.1s linear;
+        opacity: .2;
         &.bcg-visible {
             opacity: 1;
         }
@@ -177,9 +185,10 @@ Hero components
                 padding-left: 5em;
             }
             text-align: center;
-            opacity: 0; 
+
+            opacity: 0;
             .section-title {
-                margin-bottom: 3em;
+                margin-bottom: 2em;
             }
             &.content-visible {
                 opacity: 1;

@@ -270,19 +270,23 @@
 
 ------------------------------- */
 .ctas {
-    @include position(fixed, auto 0 0 0);
-    @include transform(translateY(120px));
-    @include transition-property(transform);
-    @include transition-duration(.2s);
-    @include transition-timing-function(ease-in-out);
-    background-color: black(.3);
-    padding: .5em 1em;
-    width: 100vw;
-    height: 80px;
-    overflow: hidden;
-    z-index: 10;
-    &.is-visible {
-        @include transform(translateY(0));
+    display: none;
+    @include bp(large) {
+        @include position(fixed, auto 0 0 0);
+        @include transform(translateY(120px));
+        @include transition-property(transform);
+        @include transition-duration(.2s);
+        @include transition-timing-function(ease-in-out);
+        background-color: black(.3);
+        padding: .5em 1em;
+        width: 100vw;
+        height: 80px;
+        overflow: hidden;
+        z-index: 10;
+        &.is-visible {
+            @include transform(translateY(0));
+        }
     }
+    
 }
 
