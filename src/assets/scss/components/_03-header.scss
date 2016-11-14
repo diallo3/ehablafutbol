@@ -62,7 +62,7 @@
 
 #cd-logo {
     @include center-align($ver: false, $hor: true, $pos: absolute);
-    @include bp(mediumUp) {
+    @include bp(large) {
         &.hidden {
             @include transition(left .3s, opacity .3s);
             margin-left: 0;
@@ -111,7 +111,7 @@
 }
 
 .cd-btn-head {
-    @include bp(mediumUp) {
+    @include bp(large) {
         display: block;
     }
     display: none;

@@ -36,12 +36,11 @@
 -------------------------------- */
 
 .cd-secondary-nav {
-    position: relative;
-    z-index: $header-zindex;
+    
     overflow: hidden;
-    @include bp(mediumUp) {
+    @include bp(large) {
         background-color: black(.4);
-        
+        z-index: $header-zindex;
         opacity: 1;
     }
     @include bp(large) {
@@ -55,21 +54,22 @@
     }
     width: 100%;
     &.is-fixed {
-        /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
-        /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
-        background-color: $black;
-        border-bottom: 2px solid $white;
-        padding: 0;
-        width: 100%;
-        height: $bar-height;
-        position: fixed;
-        top: 0;
-        bottom: auto;
-        left: 0;
-        &.show-nav {
-            @include transition(opacity .3s);
-            opacity: 0;
-            
+        @include bp(large) {
+            /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
+            /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
+            background-color: $black;
+            border-bottom: 2px solid $white;
+            padding: 0;
+            width: 100%;
+            height: $bar-height;
+            position: fixed;
+            top: 0;
+            bottom: auto;
+            left: 0;
+            &.show-nav {
+                @include transition(opacity .3s);
+                opacity: 0;  
+            }
         }
     }
 
@@ -171,11 +171,12 @@
             @include transform(scale(1));
             @include transition(transform .3s, visibility 0s .1s, ease-in-out);
             @include flat-list;
-            background-color: black(.8);
+            background-color: black(.95);
             width: 100%;
             max-width: 100%;
             visibility: visible;
             bottom: 0;
+            z-index: $header-zindex; 
             li {
                 text-align: center;
                 text-transform: uppercase;
@@ -197,7 +198,7 @@
     }
     white-space: nowrap;
     text-indent: 100%;
-    background: rgba($black, .96);
+    background: rgba($site-primary-color, .96);
     width: 44px;
     height: 44px;
     /* image replacement */
