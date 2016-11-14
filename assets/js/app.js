@@ -1,3 +1,177 @@
+/*
+    The MIT License (MIT)
+
+    Copyright (c) 2014 Dirk Groenen
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of
+    this software and associated documentation files (the "Software"), to deal in
+    the Software without restriction, including without limitation the rights to
+    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+    the Software, and to permit persons to whom the Software is furnished to do so,
+    subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+*/
+
+(function($){
+    $.fn.viewportChecker = function(useroptions){
+        // Define options and extend with user
+        var options = {
+            classToAdd: 'visible',
+            classToRemove : 'invisible',
+            classToAddForFullView : 'full-visible',
+            removeClassAfterAnimation: false,
+            offset: 100,
+            repeat: false,
+            invertBottomOffset: true,
+            callbackFunction: function(elem, action){},
+            scrollHorizontal: false,
+            scrollBox: window
+        };
+        $.extend(options, useroptions);
+
+        // Cache the given element and height of the browser
+        var $elem = this,
+            boxSize = {height: $(options.scrollBox).height(), width: $(options.scrollBox).width()},
+            scrollElem = ((navigator.userAgent.toLowerCase().indexOf('webkit') != -1 || navigator.userAgent.toLowerCase().indexOf('windows phone') != -1) ? 'body' : 'html');
+
+        /*
+         * Main method that checks the elements and adds or removes the class(es)
+         */
+        this.checkElements = function(){
+            var viewportStart, viewportEnd;
+
+            // Set some vars to check with
+            if (!options.scrollHorizontal){
+                viewportStart = $(scrollElem).scrollTop();
+                viewportEnd = (viewportStart + boxSize.height);
+            }
+            else{
+                viewportStart = $(scrollElem).scrollLeft();
+                viewportEnd = (viewportStart + boxSize.width);
+            }
+
+            // Loop through all given dom elements
+            $elem.each(function(){
+                var $obj = $(this),
+                    objOptions = {},
+                    attrOptions = {};
+
+                //  Get any individual attribution data
+                if ($obj.data('vp-add-class'))
+                    attrOptions.classToAdd = $obj.data('vp-add-class');
+                if ($obj.data('vp-remove-class'))
+                    attrOptions.classToRemove = $obj.data('vp-remove-class');
+                if ($obj.data('vp-add-class-full-view'))
+                    attrOptions.classToAddForFullView = $obj.data('vp-add-class-full-view');
+                if ($obj.data('vp-keep-add-class'))
+                    attrOptions.removeClassAfterAnimation = $obj.data('vp-remove-after-animation');
+                if ($obj.data('vp-offset'))
+                    attrOptions.offset = $obj.data('vp-offset');
+                if ($obj.data('vp-repeat'))
+                    attrOptions.repeat = $obj.data('vp-repeat');
+                if ($obj.data('vp-scrollHorizontal'))
+                    attrOptions.scrollHorizontal = $obj.data('vp-scrollHorizontal');
+                if ($obj.data('vp-invertBottomOffset'))
+                    attrOptions.scrollHorizontal = $obj.data('vp-invertBottomOffset');
+
+                // Extend objOptions with data attributes and default options
+                $.extend(objOptions, options);
+                $.extend(objOptions, attrOptions);
+
+                // If class already exists; quit
+                if ($obj.data('vp-animated') && !objOptions.repeat){
+                    return;
+                }
+
+                // Check if the offset is percentage based
+                if (String(objOptions.offset).indexOf("%") > 0)
+                    objOptions.offset = (parseInt(objOptions.offset) / 100) * boxSize.height;
+
+                // Get the raw start and end positions
+                var rawStart = (!objOptions.scrollHorizontal) ? $obj.offset().top : $obj.offset().left,
+                    rawEnd = (!objOptions.scrollHorizontal) ? rawStart + $obj.height() : rawStart + $obj.width();
+
+                // Add the defined offset
+                var elemStart = Math.round( rawStart ) + objOptions.offset,
+                    elemEnd = (!objOptions.scrollHorizontal) ? elemStart + $obj.height() : elemStart + $obj.width();
+
+                if (objOptions.invertBottomOffset)
+                    elemEnd -= (objOptions.offset * 2);
+
+                // Add class if in viewport
+                if ((elemStart < viewportEnd) && (elemEnd > viewportStart)){
+
+                    // Remove class
+                    $obj.removeClass(objOptions.classToRemove);
+                    $obj.addClass(objOptions.classToAdd);
+
+                    // Do the callback function. Callback wil send the jQuery object as parameter
+                    objOptions.callbackFunction($obj, "add");
+
+                    // Check if full element is in view
+                    if (rawEnd <= viewportEnd && rawStart >= viewportStart)
+                        $obj.addClass(objOptions.classToAddForFullView);
+                    else
+                        $obj.removeClass(objOptions.classToAddForFullView);
+
+                    // Set element as already animated
+                    $obj.data('vp-animated', true);
+
+                    if (objOptions.removeClassAfterAnimation) {
+                        $obj.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                            $obj.removeClass(objOptions.classToAdd);
+                        });
+                    }
+
+                // Remove class if not in viewport and repeat is true
+                } else if ($obj.hasClass(objOptions.classToAdd) && (objOptions.repeat)){
+                    $obj.removeClass(objOptions.classToAdd + " " + objOptions.classToAddForFullView);
+
+                    // Do the callback function.
+                    objOptions.callbackFunction($obj, "remove");
+
+                    // Remove already-animated-flag
+                    $obj.data('vp-animated', false);
+                }
+            });
+
+        };
+
+        /**
+         * Binding the correct event listener is still a tricky thing.
+         * People have expierenced sloppy scrolling when both scroll and touch
+         * events are added, but to make sure devices with both scroll and touch
+         * are handles too we always have to add the window.scroll event
+         *
+         * @see  https://github.com/dirkgroenen/jQuery-viewport-checker/issues/25
+         * @see  https://github.com/dirkgroenen/jQuery-viewport-checker/issues/27
+         */
+
+        // Select the correct events
+        if( 'ontouchstart' in window || 'onmsgesturechange' in window ){
+            // Device with touchscreen
+            $(document).bind("touchmove MSPointerMove pointermove", this.checkElements);
+        }
+
+        // Always load on window load
+        $(options.scrollBox).bind("load scroll", this.checkElements);
+
+        // On resize change the height var
+        $(window).resize(function(e){
+            boxSize = {height: $(options.scrollBox).height(), width: $(options.scrollBox).width()};
+            $elem.checkElements();
+        });
+
+        // trigger inital check if elements already visible
+        this.checkElements();
+
+        // Default jquery plugin behaviour
+        return this;
+    };
+})(jQuery);
+
 /*=========================================
  * animatedModal.js: Version 1.0
  * author: João Pereira
@@ -258,7 +432,7 @@ window.onload = convertMailAddress;
 			        }, 50);
 				}
 
-				if(view.scrollTop() + view.height() > ($(document).height() - 100) ) {
+				if(view.scrollTop() + view.height() > ($(document).height() - 800) ) {
 					ctas.removeClass('is-visible');
 					$('.cd-slide-nav').removeClass('moves-out');
 
@@ -330,9 +504,7 @@ window.onload = convertMailAddress;
 
 			$('.bcg').imagesLoaded({
 			    background: true
-			}
-			
-			).progress( function( instance, image ) {
+			}).progress( function( instance, image ) {
 				loadProgress();
 			});
 
@@ -373,7 +545,7 @@ window.onload = convertMailAddress;
 					.to($('.progress'), 0.3, {y: 100, autoAlpha: 0, ease:Back.easeIn})
 					.to($('.txt-perc'), 0.3, {y: 100, autoAlpha: 0, ease:Back.easeIn}, 0.1)
 					.set($('body'), {className: '-=is-loading'})
-					.set($('#intro'), {className: '+=is-loaded'})
+					.set($('#cd-intro'), {className: '+=is-loaded'})
 					.to($('#preloader'), 0.7, {yPercent: 100, ease:Power4.easeInOut})
 					.set($('#preloader'), {className: '+=is-hidden'})
 					.from($('#intro .title'), 1, {autoAlpha: 0, ease:Power1.easeOut}, '-=0.2')
@@ -384,80 +556,6 @@ window.onload = convertMailAddress;
 			}
 		}
 		preLoad();
-
-		function scrollEffects() {
-
-			// get all slides
-			var slides = ["#cd-community", "#cd-connection", "#cd-experience", "#cd-engage", "#cd-summary"];
-
-			// get all headers in slides that trigger animation
-			var headers = ["#cd-community header", "#cd-connection header", "#cd-experience header", "#cd-engage header", "#cd-summary header"];
-
-			// get all break up sections
-			// var breakSections = ["#cb01", "#cb02", "#cb03"];
-
-			// Enable ScrollMagic only for desktop, disable on touch and mobile devices
-			if (!Modernizr.touch) {
-
-				// SCENE 1
-				// create scenes for each of the headers
-				headers.forEach(function (header, index) {
-				    
-				    // number for highlighting scenes
-					var num = index+1;
-
-				    // make scene
-				    var headerScene = new ScrollMagic.Scene({
-				        triggerElement: header, // trigger CSS animation when header is in the middle of the viewport 
-				        offset: -95 // offset triggers the animation 95 earlier then middle of the viewport, adjust to your liking
-				    })
-				    .setClassToggle('.slide0'+num, 'is-active') // set class to active slide
-				    //.addIndicators() // add indicators (requires plugin), use for debugging
-				    .addTo(controller);
-				});
-
-
-			    // SCENE 3 - parallax effect on each of the slides with bcg
-			    // move bcg container when slide gets into the view
-				slides.forEach(function (slide, index) {
-
-					var $bcg = $(slide).find('.bcg');
-
-					var slideParallaxScene = new ScrollMagic.Scene({
-				        triggerElement: slide, 
-				        triggerHook: 1,
-				        duration: "100%"
-				    })
-				    .setTween(TweenMax.from($bcg, 1, {y: '-40%', autoAlpha: 0.3, ease:Power0.easeNone}))
-				    .addTo(controller);
-			    });
-
-			    // SCENE 5 - parallax effect on the intro slide
-			    // move bcg container when intro gets out of the the view
-
-			    var introTl = new TimelineMax();
-
-			    introTl
-			    	.to($('#cd-intro-top header'), 0.2, {autoAlpha: 0, ease:Power1.easeNone})
-			    	//.to($('#cd-intro-top .bcg'), 1.4, {y: '20%', ease:Power1.easeOut}, '-=0.2')
-			    	.to($('#cd-intro-top'), 0.7, {autoAlpha: 0.5, ease:Power1.easeNone}, 0);
-
-				var introScene = new ScrollMagic.Scene({
-			        triggerElement: '#cd-intro-top', 
-			        triggerHook: 0,
-			        duration: "100%"
-			    })
-			    .setTween(introTl)
-			    .addTo(controller);
-
-			    // change behaviour of controller to animate scroll instead of jump
-				controller.scrollTo(function (newpos) {
-					TweenMax.to(window, 1, {scrollTo: {y: newpos}, ease:Power1.easeInOut});
-				});
-
-			}
-		}
-		// scrollEffects();
 
 		// Form Labels
 		function floatLabels() {
@@ -477,11 +575,31 @@ window.onload = convertMailAddress;
 			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
 
+		function viewCheck() {
+			var contentEntry = $('.cd-section .content'),
+				bcgEntry     = $('.cd-section .bcg');
+
+			contentEntry.viewportChecker({
+			    classToAdd: 'content-visible', 
+			    classToAddForFullView: 'full-visible',
+			    invertBottomOffset: true, // Add the offset as a negative number to the element's bottom
+			    repeat: true,
+			});
+
+			bcgEntry.viewportChecker({
+			    classToAdd: 'bcg-visible', 
+			    classToAddForFullView: 'full-visible',
+			    invertBottomOffset: true, // Add the offset as a negative number to the element's bottom
+			    repeat: true,
+			});
+		}
+		viewCheck();
 
 		$('.open-modal').animatedModal({
-			animatedIn:'zoomIn',
-            animatedOut:'cd-fadeOut',
-            color:'#000000',
+			modalTarget: 'contactModal',
+			animatedIn: 'zoomIn',
+            animatedOut:'zoomOut',
+            color:      '#000000',
             animationDuration: .3,
                 // Callbacks
                 beforeOpen: function() {
