@@ -6,6 +6,9 @@
 .cd-social {
     ul {
         @include menu-list($li-padding: 0 5px);
+        li:last-child {
+            padding: 0; 
+        }
         a {
             @include hide-text;
             padding: .6em 1em;
@@ -18,14 +21,15 @@
             }
             &.tw {
                 background: url(#{$imgPath}/icon-tw.svg) no-repeat 0 0;
+
             }
         }
     }
     .hamburger {
         padding: 8px 5px;
         position: absolute;
-        left: 0;
         top: 0;
+        left: 0;
     }
 }
 
@@ -36,11 +40,10 @@
 -------------------------------- */
 
 .cd-secondary-nav {
-    
-    overflow: hidden;
     @include bp(large) {
         background-color: black(.4);
         z-index: $header-zindex;
+
         opacity: 1;
     }
     @include bp(large) {
@@ -53,6 +56,7 @@
         }
     }
     width: 100%;
+    overflow: hidden;
     &.is-fixed {
         @include bp(large) {
             /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
@@ -68,7 +72,8 @@
             left: 0;
             &.show-nav {
                 @include transition(opacity .3s);
-                opacity: 0;  
+
+                opacity: 0;
             }
         }
     }
@@ -141,19 +146,18 @@
         text-align: center;
         background-color: lighten($black, 5%);
         height: 100px;
-        z-index: 3; 
+        z-index: 3;
         &.moves-out {
             @include transform(translateY(0));
             height: 70px;
-            
         }
         li {
-            margin-left: -4px; 
+            margin-left: -4px;
             display: inline-block;
             a {
-                padding: rem(25) rem(30) 0 rem(30); 
+                padding: rem(25) rem(30) 0 rem(30);
             }
-        } 
+        }
     }
 
     li {
@@ -176,7 +180,7 @@
             max-width: 100%;
             visibility: visible;
             bottom: 0;
-            z-index: $header-zindex; 
+            z-index: $header-zindex;
             li {
                 text-align: center;
                 text-transform: uppercase;
@@ -267,13 +271,31 @@
     }
 }
 
+.page-nav {
+    display: none;
+    @include bp(large) {
+        display: block;
+    }
+    @include flat-list;
+    text-align: center;
+    height: 100px;
+    li {
+        margin-left: -4px;
+        display: inline-block;
+        a {
+            padding: rem(25) rem(30) 0 rem(30);
+            display: block;
+            position: relative;
+        }
+    }
+}
+
 /* -------------------------------
 
     CTAs
 
 ------------------------------- */
 .ctas {
-    display: none;
     @include bp(large) {
         @include position(fixed, auto 0 0 0);
         @include transform(translateY(120px));
@@ -290,6 +312,5 @@
             @include transform(translateY(0));
         }
     }
-    
+    display: none;
 }
-

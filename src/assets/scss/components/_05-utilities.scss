@@ -100,13 +100,21 @@
     @include zoomOut($duration: .5s);
 }
 
+.fadeInDownBig {
+    @include fadeInDownBig($duration: .5s);
+}
+
+.fadeOutUpBig {
+    @include fadeOutUpBig($duration: .5s);
+}
+
 #contactModal {
     background-image: url(#{$imgPath}/img-bck-hero.jpg);
 
     opacity: 0;
 }
 
-.close-contactModal {
+.close-contactModal, .close-mobileMenu {
     @include center-align($ver: false, $hor: true, $pos: absolute);
     text-align: center;
     border: 1px solid white(.8);

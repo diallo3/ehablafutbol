@@ -91,7 +91,7 @@ p {
     @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
 }
 
-.site-nav, .cd-slide-nav {
+.site-nav, .cd-slide-nav, .page-nav {
     li {
         a, b {
             color: rgba($white, .45);

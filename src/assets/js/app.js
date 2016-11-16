@@ -35,7 +35,7 @@ window.onload = convertMailAddress;
 	$(function() {
 
 		// Init ScrollMagic
-    	var controller = new ScrollMagic.Controller();
+    	// var controller = new ScrollMagic.Controller();
 
 		// Foundation init
 		$(document).foundation();
@@ -190,7 +190,7 @@ window.onload = convertMailAddress;
 			});
 
 		}
-		secondaryNav();
+		
 
 
 		// preload
@@ -254,7 +254,7 @@ window.onload = convertMailAddress;
 				return preloaderOutTl;
 			}
 		}
-		preLoad();
+		
 
 		// Form Labels
 		function floatLabels() {
@@ -314,6 +314,34 @@ window.onload = convertMailAddress;
                     console.log("The animation is completed");
                 }
 		});
+
+		$('.open-menu').animatedModal({
+			modalTarget: 'mobileMenu',
+			animatedIn: 'fadeInDownBig',
+            animatedOut:'fadeOutUpBig',
+            color:      '#000000',
+            animationDuration: .3,
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                    var $hb = $('.hamburger');
+	    			$hb.removeClass('is-active');
+                }
+		});
+
+		if($('#home-page').length) {
+			secondaryNav();
+			preLoad();
+		}
 		
 
 	});
