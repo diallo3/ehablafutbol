@@ -152,7 +152,7 @@
     z-index: $header-zindex; 
     #cd-logo {
         @include bp(mediumUp) {
-            @include abs-pos($t: 10px, $l: 10%);
+            @include abs-pos($t: 10px, $l: 5%);
         }
         @include abs-pos($t: 10px, $r: 0, $l: 0);
         width: 127px;

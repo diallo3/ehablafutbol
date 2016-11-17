@@ -327,14 +327,14 @@ window.onload = convertMailAddress;
                 },           
                 afterOpen: function() {
                     console.log("The animation is completed");
+                    var $hb = $('.hamburger');
+	    			$hb.removeClass('is-active');
                 }, 
                 beforeClose: function() {
                     console.log("The animation was called");
                 }, 
                 afterClose: function() {
                     console.log("The animation is completed");
-                    var $hb = $('.hamburger');
-	    			$hb.removeClass('is-active');
                 }
 		});
 

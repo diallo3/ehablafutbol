@@ -16,42 +16,13 @@
         <![endif]-->
 
         <main id="main-view" class="main-scene">
+            <!-- header for default pages -->
             {% if page.url != '/' %}
-                <header class="site-header">
-                    <div id="cd-logo">
-                        <a href="/"><img src="assets/img/temp-logo.png" alt="Logo"></a>
-                    </div>
-
-                    <!-- page navigation -->
-                    <nav>
-                        <ul class="page-nav">
-                            <li><a href="/">Home</a></li>
-                            {% include parts/inc-nav-add.html %}
-                            {% include parts/inc-nav-credits.html %}
-                        </ul>
-                    </nav>
-
-                    <div class="cd-btn-head">
-                        <nav class="cd-social">
-                            <ul>
-                                {% include parts/inc-social.html %}
-                                <li>
-                                    <a href="#mobileMenu" id="cd-btn-menu" class="open-menu">
-                                        <button class="hamburger hamburger--spin" type="button">
-                                            <span class="hamburger-box">
-                                                <span class="hamburger-inner"></span>
-                                            </span>
-                                        </button>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>  
-                    </div>
-                </header>
+                {% include parts/prt-page-header.html %}
             {% endif %}
             {{ content }}
             <!-- /cd-main-content -->
-            {% include parts/inc-footer.html %}
+            {% include parts/prt-footer.html %}
         </main>
 
         <!-- contact modal -->
@@ -71,7 +42,7 @@
                     <p>{{ site.contact_desc }}</p>
                     
                     <article id="formContainer" class="entry">
-                        {% include parts/inc-form-default.html %}
+                        {% include parts/prt-form-default.html %}
                     </article>
                 </div>
             </div>
