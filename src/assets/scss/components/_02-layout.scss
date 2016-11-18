@@ -248,3 +248,25 @@ Hero components
         }
     }
 }
+
+/* -------------------------------- 
+
+ Default Pages 
+
+-------------------------------- */
+ 
+.page-content {
+    background-color: $white;
+    padding: rem(150) 0 rem(100);
+    .content {
+        @include center-block;
+        width: 100%;
+        max-width: 70%; 
+        .title-container {
+            text-align: center;
+        } 
+    }
+    .page-feature {
+        margin-bottom: 2.5em; 
+    }
+}

@@ -7,6 +7,9 @@
     ul {
         @include menu-list($li-padding: 0 5px);
         li:last-child {
+            @include bp(large) {
+                display: none;
+            }
             padding: 0; 
         }
         a {
@@ -35,6 +38,20 @@
 
 #cd-btn-menu {
     width: 50px; 
+}
+
+.mobile-index {
+    @include bp(mediumUp) {
+        display: none;
+    }
+    width: 50px;
+    height: 40px;
+    display: block;  
+    position: fixed;
+    top: 12px;
+    right: 3%;
+    z-index: 10; 
+      
 }
 
 /* -------------------------------- 
@@ -206,13 +223,13 @@
     }
     white-space: nowrap;
     text-indent: 100%;
-    background: rgba($site-primary-color, .96);
+    background: rgba($site-primary-color, .75);
     width: 44px;
     height: 44px;
     /* image replacement */
     overflow: hidden;
     position: fixed;
-    right: 5%;
+    right: 3%;
     bottom: 20px;
     z-index: 2;
 

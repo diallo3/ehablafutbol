@@ -20,7 +20,7 @@
     
     overflow: visible;
     .entry {
-        @include bp(large) {
+        @include bp(mediumUp) {
             @include center-align($ver: true, $hor: true, $pos: absolute);
         }
         text-align: center;
@@ -107,6 +107,9 @@
             @include bp(mediumUp) {
                 @include menu-list($li-padding: 0 .8rem);
                 @include centered-list;
+        }
+        li {
+            margin-bottom: 0.5em; 
         }
     }
 }

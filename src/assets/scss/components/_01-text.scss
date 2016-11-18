@@ -4,24 +4,27 @@ $breakpoints: (
     large: 1024px
 );
 $typi: (
-  null: 16px,
-  small: 18px,
-  large: 20px
+    null: 16px,
+    small: 18px,
+    large: 20px
 );
+
 $hero-map: (
-  null: (48px, 1.1),
-  medium: (52px, 2),
-  large: (78px, 1.5)
+    null: (48px, 1.1),
+    medium: (52px, 2),
+    large: (78px, 1.5)
 );
+
 $hero-sub-map: (
-  null: 16px,
-  medium: 20px,
-  large: 32px
+    null: 16px,
+    medium: 20px,
+    large: 32px
 );
+
 $h2-map: (
-  null: 28px,
-  medium: 38px,
-  large: 46px
+    null: 28px,
+    medium: 38px,
+    large: 46px
 );
 
 body {
@@ -78,7 +81,7 @@ p {
 .cd-main-nav {
     a {
         font-size: rem(14px);
-        font-weight: 400;  
+        font-weight: 400;
         text-transform: uppercase;
     }
 }
@@ -97,20 +100,22 @@ p {
             color: rgba($white, .45);
             font-size: rem(13);
             font-weight: 700;
-            text-transform: uppercase;
             text-align: center;
+            text-transform: uppercase;
             &:hover {
                 color: $white;
             }
             &:hover b, &.active b {
                 color: $white;
             }
-        }   
+        }
     }
 }
 
 /*--------------------------------
+
 	Hero and Sections
+    
 */
 #cd-intro {
     .title {
@@ -120,7 +125,7 @@ p {
             text-transform: uppercase;
             padding: 0 1em;
             span {
-                padding: 0 0 0.3em;
+                padding: 0 0 .3em;
             }
             .tag {
                 @include typi($hero-sub-map);
@@ -185,5 +190,18 @@ p {
                 @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
             }
         }
+    }
+}
+
+/* -------------------------------- 
+
+ Default Pages 
+
+-------------------------------- */
+ 
+.page-content {
+    * {
+        color: lighten($black, 20%);
+        text-shadow: none; 
     }
 }
