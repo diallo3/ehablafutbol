@@ -3,13 +3,11 @@
     Navigation
 
 -------------------------------- */
+
 .cd-social {
     ul {
         @include menu-list($li-padding: 0 5px);
         li:last-child {
-            @include bp(large) {
-                display: none;
-            }
             padding: 0; 
         }
         a {
@@ -33,6 +31,16 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+}
+
+body:not(.home) {
+    .cd-social ul {
+        li:last-child {
+            @include bp(large) {
+                display: none;
+            }
+        }
     }
 }
 
