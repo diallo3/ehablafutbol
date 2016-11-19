@@ -60,19 +60,15 @@ Hero components
 
 #cd-community {
     .bcg {
-        @include bp(large) {
-            @include bg-size(120%);
-        }
         background-image: url(#{$imgPath}/img-bck-community.jpg);
+        background-position: 48% -10%;
+
 
     }
 }
 
 #cd-connection {
     .bcg {
-        @include bp(large) {
-            @include bg-size(120%);
-        }
         background-image: url(#{$imgPath}/img-bck-connection.jpg);
 
         background-position: 0 0;
@@ -81,9 +77,6 @@ Hero components
 
 #cd-experience {
     .bcg {
-        @include bp(large) {
-            @include bg-size(120%);
-        }
         background-image: url(#{$imgPath}/img-bck-experience.jpg);
 
         background-position: 0 0;
@@ -92,20 +85,14 @@ Hero components
 
 #cd-engage {
     .bcg {
-        @include bp(large) {
-            @include bg-size(120%);
-        }
         background-image: url(#{$imgPath}/img-bck-engage.jpg);
 
-        background-position: 0 0;
+        background-position: 48% 0;
     }
 }
 
 #cd-summary {
     .bcg {
-        @include bp(large) {
-            @include bg-size(120%);
-        }
         background-image: url(#{$imgPath}/img-bck-summary.jpg);
 
         background-position: 50% 0;
