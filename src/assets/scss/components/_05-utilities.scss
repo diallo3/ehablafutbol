@@ -13,6 +13,8 @@
     #cd-logo-pre {
         @include center-align($ver: false, $hor: true, $pos: absolute);
         padding: 8em 0 0;
+        width: 167px;
+        height: 120px;  
     }
     .txt {
         position: absolute;

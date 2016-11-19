@@ -1,0 +1,47 @@
+---
+title: Thank You
+slug: thank-you
+layout: default
+---
+
+<div class="cd-main-content">
+	<div id="{{page.slug}}" class="page-content">
+		<article class="content content-{{page.slug}}">
+			<header class="title-container">
+				<h1 class="title">{{page.title}}</h1>
+			</header>
+
+			<div class="content-entry">
+				<p>We have received your message and would like to thank you for writing to us. We will reply by email shortly.</p>
+
+				<footer>
+					<form name="redirect">
+						You will be redirected to the script in <input class="rdr" type="text" size="3" name="redirect2"> seconds
+					</form>
+				</footer>
+			</div>
+		</article>
+	</div>
+</div>
+
+<script>
+	<!--
+		var targetURL="/"
+		var countdownfrom=10
+		var currentsecond=document.redirect.redirect2.value=countdownfrom+1
+
+		function countredirect(){
+			if (currentsecond!=1) {
+				currentsecond-=1
+				document.redirect.redirect2.value=currentsecond
+			} else {
+				window.location=targetURL
+				return
+			}
+			setTimeout("countredirect()",1000)
+		}
+
+		countredirect()
+	//-->
+</script>
+

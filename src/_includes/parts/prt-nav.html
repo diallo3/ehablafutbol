@@ -2,36 +2,18 @@
     <a href="#0" class="cd-secondary-nav-trigger">Menu <span></span></a>
     <nav>
         <ul class="site-nav">
+            {% for section in site.data.sections %}
             <li>
-                <a href="#cd-intro-top" id="index">
-                    <b>Intro</b>
-                    <span><img src="assets/img/icon-intro.svg" alt=""></span>
+                {% if forloop.first == true %}
+                <a href="{{ section.href }}" id="index">
+                {% else %}
+                <a href="{{ section.href }}">
+                {% endif % }
+                    <b>{{ section.title }}</b>
+                    <span><img src="assets/img/icon-{{ section.icon | append: '.svg' }}" alt="{{ section.title }}"></span>
                 </a>
             </li>
-            <li>
-                <a href="#cd-community">
-                    <b>Community</b>
-                    <span><img src="assets/img/icon-comm.svg" alt=""></span>
-                </a>
-            </li>
-            <li>
-                <a href="#cd-connection">
-                    <b>Connection</b>
-                    <span><img src="assets/img/icon-conn.svg" alt=""></span>
-                </a>
-            </li>
-            <li>
-                <a href="#cd-experience">
-                    <b>Experience</b>
-                    <span><img src="assets/img/icon-exp.svg" alt=""></span>
-                </a>
-            </li>
-            <li>
-                <a href="#cd-engage">
-                    <b>Engage</b>
-                    <span><img src="assets/img/icon-eng.svg" alt=""></span>
-                </a>
-            </li>
+            {% endfor %}
         </ul>
     </nav>
     <nav>

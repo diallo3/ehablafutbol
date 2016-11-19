@@ -257,14 +257,20 @@ Hero components
  
 .page-content {
     background-color: $white;
-    padding: rem(150) 0 rem(100);
+    padding-bottom: rem(100); 
     .content {
-        @include center-block;
-        width: 100%;
-        max-width: 70%; 
         .title-container {
             text-align: center;
+            background-color: #eee;
+            margin-bottom: 2rem; 
+            padding: rem(150) 2rem rem(30);
+            position: relative;
         } 
+        .content-entry {
+            @include center-block;
+            width: 100%;
+            max-width: 70%; 
+        }
     }
     .page-feature {
         margin-bottom: 2.5em; 

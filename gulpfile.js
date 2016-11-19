@@ -62,6 +62,9 @@ var PATHS = {
     // 'bower_components/foundation-sites/js/foundation.toggler.js',
     // 'bower_components/foundation-sites/js/foundation.tooltip.js',
   ],
+  styleguide: [
+    'bower_components/guide/styleguide.js',
+  ],
   javascript: [
     'bower_components/jQuery-viewport-checker/src/jquery.viewportchecker.js',
     'bower_components/animated-modal/animatedModal.js',
@@ -108,7 +111,7 @@ gulp.task('sass', function() {
 
   var minifycss = $.if(isProduction, $.minifyCss());
 
-  return gulp.src('src/assets/scss/app.scss')
+  return gulp.src('src/assets/scss/*.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
       includePaths: PATHS.sass
@@ -153,6 +156,19 @@ gulp.task('fnd', function() {
         .on('finish', browser.reload);
 });
 
+gulp.task('styleguide', function() {
+    var uglify = $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        });
+
+    return gulp.src(PATHS.styleguide) 
+        .pipe($.concat('styleguide.js'))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
@@ -186,7 +202,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'styleguide', 'javascript', 'images', 'copy'], done);
 });
 
 // deploy to gh-pages
@@ -209,6 +225,6 @@ gulp.task('default', ['build', 'server'], function() {
   gulp.watch(PATHS.assets, ['copy']);
   gulp.watch(PATHS.jekyll, ['jekyll:reset']);
   gulp.watch(['src/assets/scss/**/{*.scss, *.sass}'], ['sass']);
-  gulp.watch(['src/assets/js/**/*.js'], ['javascript']);
+  gulp.watch(['src/assets/js/**/*.js'], ['javascript'], ['styleguide']);
   gulp.watch(['src/assets/img/**/*'], ['images']);
 });
