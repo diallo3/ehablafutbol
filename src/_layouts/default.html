@@ -16,7 +16,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <main id="main-view" class="main-scene">
+        <main id="main-view" class="main-scene {% if page.url == '/' %}main-sec{% endif %}">
             <!-- header for default pages -->
             {% if page.url != '/' %}
                 {% include parts/prt-page-header.html %}
@@ -26,28 +26,7 @@
             {% include parts/prt-footer.html %}
         </main>
 
-        <!-- contact modal -->
-        <div id="contactModal">
-            <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-            <div class="close-contactModal"> 
-                <span class="close thick"></span>
-            </div>
-                
-            <div class="modal-content">
-                <div class="ov"></div>
-                <div class="entry">
-                    <h3 class="contact-title">
-                        {{ site.contact_title }}
-                    </h3>
-                    
-                    <p>{{ site.contact_desc }}</p>
-                    
-                    <article id="formContainer" class="entry">
-                        {% include parts/prt-form-default.html %}
-                    </article>
-                </div>
-            </div>
-        </div>
+        {% include parts/prt-modal-contact.html %}
 
         <div id="mobileMenu">
             <div class="close-mobileMenu"> 
@@ -56,7 +35,7 @@
                 
             <div class="modal-content">
                 <div class="entry">
-                    <h3 class="">Menu</h3>
+                    <h2 class="">Menu</h2>
                 </div>
             </div>
         </div>

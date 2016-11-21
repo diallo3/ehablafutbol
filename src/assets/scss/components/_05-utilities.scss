@@ -295,13 +295,16 @@
 
     .submit-container {
         @include clearfix;
+        text-align: center; 
         clear: both;
         position: relative;
 
         .submit {
             @include ctaMain;
+            color: darken($site-gray, 10%); 
             font-size: rem(18);
             text-transform: uppercase;
+            border: 1px solid $site-gray; 
             padding: 1em 2.5em;
 
             cursor: pointer;
@@ -393,7 +396,7 @@ Custom icons
 FLoating labels 
 -------------------------------- */
 $label-pos: 18px;
-.js .floating-labels {
+.floating-labels {
     @include bp(mediumUp) {
         legend + div {
             /* reduce margin-top for first form element after the legend */
@@ -419,8 +422,32 @@ $label-pos: 18px;
         cursor: text;
     }
 
-    .icon .cd-label {
-        left: 56px;
+    .icon {
+        .cd-label {
+            left: 56px;
+        }
+        .error {
+            @include abs-pos($t: -$label-pos, $r: 0);
+            color: $site-primary-color;
+        } 
+        &.has-error {
+            .cd-label {
+                color: $site-primary-color;
+            }
+            input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+                color: $site-primary-color;
+                border-color: $site-primary-color; 
+            }
+        }
+        &.has-success {
+            .cd-label {
+                color: $site-secondary-color;
+            }
+            input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+                color: $site-secondary-color;
+                border-color: $site-secondary-color; 
+            }
+        }
     }
 
     .cd-label.float {
@@ -444,4 +471,29 @@ input.rdr {
     background: none;
     border: none;
     width: 20px;
+}
+
+.content-entry {
+    .cd-form {
+        input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+            color: black(0.5);
+            background-color: $white;
+            box-shadow: inset 0 1px 1px rgba($black, .08);
+            border-color: $site-gray;
+
+            &:focus {
+                color: lighten($black, 40%);
+                outline: none;
+                background-color: $white(.95);
+                box-shadow: 0 0 5px rgba($black, .2);
+                border-color: lighten($white, 30%);
+            }
+        }
+    }
+    .floating-labels {
+        .cd-label {
+            color: rgba($black, .5);
+        }
+    }
+   
 }

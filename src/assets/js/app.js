@@ -31,14 +31,28 @@ document.getElementsByClassNameForOldies = function(cl) {
 window.onload = convertMailAddress;
 
 (function($) {
-
+	// document ready
 	$(function() {
 
-		// Init ScrollMagic
+		/************************************************************
+
+			ScrollMagic
+
+		************************************************************/
     	// var controller = new ScrollMagic.Controller();
 
-		// Foundation init
+		/************************************************************
+
+			Foundation
+
+		************************************************************/
 		$(document).foundation();
+
+		/************************************************************
+
+			Navigation
+
+		************************************************************/
 
 		// hamburger
 	    function hamburgerNav() {
@@ -72,16 +86,7 @@ window.onload = convertMailAddress;
 	    }
 	    smoothAnchor();
 
-	    //open sub-navigation
-		$('.cd-subnav-trigger').on('click', function(event){
-			
-			event.preventDefault();
-			$('.cd-main-nav').toggleClass('moves-out');
-			$('.cd-slide-nav').toggleClass('moves-out');
-
-		});
-
-		// Secondary Header
+	    // secondary header
 		function secondaryNav() {
 			// global vars
 			var 
@@ -188,12 +193,22 @@ window.onload = convertMailAddress;
 			$('.cd-primary-nav').on('click', function(event){
 				if($(event.target).is('.cd-primary-nav')) $(this).children('ul').toggleClass('is-visible');
 			});
-
 		}
+
+	    //open sub-navigation
+		$('.cd-subnav-trigger').on('click', function(event){
+			
+			event.preventDefault();
+			$('.cd-main-nav').toggleClass('moves-out');
+			$('.cd-slide-nav').toggleClass('moves-out');
+		});
+
 		
+		/************************************************************
 
+			Preload
 
-		// preload
+		************************************************************/
 		function preLoad() {
 
 			// number of loaded images for preloader progress 
@@ -254,11 +269,82 @@ window.onload = convertMailAddress;
 				return preloaderOutTl;
 			}
 		}
+
+
+		/************************************************************
+
+			Form
+
+		************************************************************/
+
+		// Valiidation
+		function validate() {
+			var genContact = $('#generalForm');
+
+			genContact.formValidation({
+				framework: 'foundation',
+				row: {
+		            selector: '.icon',
+		            valid: 'has-success',
+    				invalid: 'has-error'
+		        },
+				// fields
+				fields: {
+					fullname: {
+						validators: {
+							notEmpty: {
+								message: 'Full name is required'
+							},
+							stringLength: {
+								min: 5,
+								max: 50,
+								message: 'Name must be 5 to 50 characters'
+							},
+							regexp: {
+								regexp: /^[a-zA-Z0-9_]+$/,
+                       			 message: 'Name can only contain alphabetical, number and underscore'
+							}
+						}
+					},
+					email: {
+						validators: {
+							notEmpty: {
+								message: 'Email address is required',
+							},
+							emailAddress: {
+		                        message: 'The value is not a valid email address'
+		                    },
+		                    regexp: {
+	                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+	                            message: 'The value is not a valid email address'
+	                        }
+						}
+					},
+					phone: {
+						validators: {
+							notEmpty: {
+								message: 'Email address is required',
+							},
+							phone: {
+								message: 'The value is not valid %s phone number'
+							}
+						}
+					},
+					feedback: {
+						notEmpty: {
+							message: 'Email address is required',
+						}
+					}
+				}
+			});
+		}
+		validate();
 		
 
 		// Form Labels
 		function floatLabels() {
 			var inputFields = $('.floating-labels .cd-label').next();
+
 			inputFields.each(function(){
 				var singleInput = $(this);
 				//check if user is filling one of the form fields 
@@ -273,6 +359,13 @@ window.onload = convertMailAddress;
 		function checkVal(inputField) {
 			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
+
+
+		/************************************************************
+
+			Viewport
+
+		************************************************************/
 
 		function viewCheck() {
 			var contentEntry = $('.cd-section .content'),
@@ -293,6 +386,13 @@ window.onload = convertMailAddress;
 			});
 		}
 		viewCheck();
+
+
+		/************************************************************
+
+			Modals
+
+		************************************************************/
 
 		$('.open-modal').animatedModal({
 			modalTarget: 'contactModal',

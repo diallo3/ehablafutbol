@@ -65,6 +65,10 @@ var PATHS = {
   styleguide: [
     'bower_components/guide/styleguide.js',
   ],
+  validate: [
+    'node_modules/formvalidation/dist/js/formValidation.js',
+    'node_modules/formvalidation/dist/js/framework/foundation.min.js',
+  ],
   javascript: [
     'bower_components/jQuery-viewport-checker/src/jquery.viewportchecker.js',
     'bower_components/animated-modal/animatedModal.js',
@@ -169,6 +173,19 @@ gulp.task('styleguide', function() {
         .on('finish', browser.reload);
 });
 
+gulp.task('validate', function() {
+    var uglify = $.uglify()
+        .on('error', function (e) {
+            console.log(e);
+        });
+
+    return gulp.src(PATHS.validate) 
+        .pipe($.concat('validate.js'))
+        .pipe(uglify)
+        .pipe(gulp.dest('dist/assets/js'))
+        .on('finish', browser.reload);
+});
+
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
@@ -202,7 +219,7 @@ gulp.task('images', function() {
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build', function(done) {
-  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'styleguide', 'javascript', 'images', 'copy'], done);
+  sequence('clean', ['jekyll', 'sass', 'jquery', 'fnd', 'styleguide', 'validate', 'javascript', 'images', 'copy'], done);
 });
 
 // deploy to gh-pages
