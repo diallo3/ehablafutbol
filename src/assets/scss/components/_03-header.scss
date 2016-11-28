@@ -22,6 +22,7 @@
     .entry {
         @include bp(mediumUp) {
             @include center-align($ver: true, $hor: true, $pos: absolute);
+            transform: translateX(-50%) translateY(-70%);
         }
         text-align: center;
         width: 100%;

@@ -253,11 +253,12 @@ Hero components
             padding: rem(150) 2rem rem(30);
             position: relative;
         } 
-        .content-entry {
-            @include center-block;
-            width: 100%;
-            max-width: 70%; 
-        }
+        
+    }
+    .content-entry {
+        @include center-block;
+        width: 100%;
+        max-width: 70%; 
     }
     .page-feature {
         margin-bottom: 2.5em; 

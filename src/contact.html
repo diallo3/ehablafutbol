@@ -1,0 +1,35 @@
+---
+title: Contact Us
+slug: contact
+layout: default
+---
+
+<div class="cd-main-content">
+	<div id="{{page.slug}}" class="page-content">
+		<article class="content content-{{page.slug}}">
+			<header class="title-container">
+				<h1 class="title">{{page.title}}</h1>
+			</header>
+
+			<div class="content-entry">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis. Assumenda voluptas, minus aperiam. Deserunt ducimus, cumque ipsum quae commodi neque, nisi consectetur corporis iure rem dolorem saepe!</p>
+				
+				<div id="formContainer" class="entry">
+					{% include parts/prt-form-default.html %}
+				</div>
+
+				
+			</div>
+		</article>
+	</div>
+	
+	{% include inc-summary.html %}
+    <!-- ctas -->
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
+            <li><li>{% include parts/act-btn-contact.html %}</li></li>
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,54 @@
+---
+title: Case Studies
+slug: case-study
+layout: default
+---
+
+<div class="cd-main-content">
+	<div id="{{page.slug}}" class="page-content">
+		<!-- case study containers -->
+		<div class="cd-case-container">
+			<button class="cd-nav-trigger">Menu<span aria-hidden="true" class="cd-icon"></span></button>
+			<ul>
+				{% for case in site.data.cases  %}
+					<li class="single-case">
+					<header class="cd-title">
+						<div class="title">
+							<h2>{{ case.title }}</h2>
+							{% if case.excerpt %}
+								<p class="excerpt">{{ case.excerpt }}</p>
+							{% endif %}
+						</div>
+					</header>
+
+					<div class="cd-case-info">
+						<button class="cd-scroll">Scroll down</button>
+						
+						<div class="content-wrapper">
+							<div class="content-entry">
+								
+								{% for content in case.contents  %}
+									{% if content.image %}
+										<figure class="page-featured">
+											<img src="{{ content.image }}" alt="">
+										</figure>
+									{% else %}
+										<p>{{ content.entry }}</p>
+									{% endif %}	
+								{% endfor %}
+								
+							</div>
+						</div>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div> 
+		<!-- /cd-projects-container -->
+	</div>
+
+	{% include inc-summary.html %}
+</div>
+
+
+

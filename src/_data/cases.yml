@@ -1,0 +1,23 @@
+- title: "Red Bull"
+  excerpt: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
+  contents:
+    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
+    - image: "http://placehold.it/1200x800"
+    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
+
+
+- title: "Boost Mobile"
+  excerpt: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
+  contents:
+    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
+    - image: "http://placehold.it/1200x800"
+    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
+
+
+- title: "El Modelo"
+  excerpt:
+  contents:
+    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
+    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
+    - image: "http://placehold.it/1200x800"
+    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 

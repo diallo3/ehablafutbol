@@ -56,24 +56,6 @@ header {
 	}
 }
 
-.cd-logo {
-	display: inline-block;
-	height: 100%;
-	position: relative;
-
-	img {
-		position: absolute;
-		display: block;
-		top: 50%;
-		left: 50%;
-		@include transform(translateX(-50%) translateY(-50%));
-	}
-
-	@include MQ(L) {
-		margin-left: 5%;
-	}
-}
-
 .cd-nav-trigger {
 	display: block;
 	position: absolute;
@@ -446,50 +428,50 @@ section {
 	}
 
 	li:nth-of-type(1) .cd-color-swatch {
-		background: $color-1;
+		background: $site-primary-color;
 
 		&::before {
-			background: lighten($color-1, 5%);
+			background: lighten($site-primary-color, 5%);
 		}
 
 		&::after {
-			background: darken($color-1, 5%);
+			background: darken($site-primary-color, 5%);
 		}
 	}
 
 	li:nth-of-type(2) .cd-color-swatch {
-		background: $color-2;
+		background: $site-secondary-color;
 
 		&::before {
-			background: lighten($color-2, 5%);
+			background: lighten($site-secondary-color, 5%);
 		}
 
 		&::after {
-			background: darken($color-2, 5%);
+			background: darken($site-secondary-color, 5%);
 		}
 	}
 
 	li:nth-of-type(3) .cd-color-swatch {
-		background: $color-3;
+		background: $black-alt;
 
 		&::before {
-			background: lighten($color-3, 5%);
+			background: lighten($black-alt, 5%);
 		}
 
 		&::after {
-			background: darken($color-3, 5%);
+			background: darken($black-alt, 5%);
 		}
 	}
 
 	li:nth-of-type(4) .cd-color-swatch {
-		background: $color-4;
+		background: $site-gray;
 
 		&::before {
-			background: lighten($color-4, 5%);
+			background: lighten($site-gray, 5%);
 		}
 
 		&::after {
-			background: darken($color-4, 5%);
+			background: darken($site-gray, 5%);
 		}
 	}
 
@@ -538,9 +520,9 @@ section {
 
 .cd-typography {
 
-	h1::before {
+	.heading::before {
 		content: 'Aa - ';
-		color: $color-1;
+		color: $site-primary-color;
 	}
 }
 
@@ -575,38 +557,6 @@ section {
 		background-position: center center;
 		background-repeat: no-repeat;
 		margin: 1em;
-	}
-
-	.cd-icon-1 {
-		background-image: url('../assets/icons/icon-1.svg'); 
-	}
-
-	.cd-icon-2 {
-		background-image: url('../assets/icons/icon-2.svg'); 
-	}
-
-	.cd-icon-3 {
-		background-image: url('../assets/icons/icon-3.svg'); 
-	}
-
-	.cd-icon-4 {
-		background-image: url('../assets/icons/icon-4.svg'); 
-	}
-
-	.cd-icon-5 {
-		background-image: url('../assets/icons/icon-5.svg'); 
-	}
-
-	.cd-icon-6 {
-		background-image: url('../assets/icons/icon-6.svg'); 
-	}
-
-	.cd-icon-7 {
-		background-image: url('../assets/icons/icon-7.svg'); 
-	}
-
-	.cd-icon-8 {
-		background-image: url('../assets/icons/icon-8.svg'); 
 	}
 }
 

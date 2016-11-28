@@ -177,7 +177,7 @@ window.onload = convertMailAddress;
 			});
 
 			//smooth scrolling when clicking on the secondary navigation items
-			secondaryNav.find('ul a').on('click', function(event){
+			secondaryNav.find('.site-nav a').on('click', function(event){
 		        event.preventDefault();
 		        var target= $(this.hash);
 		        $('body,html').animate({
@@ -299,10 +299,6 @@ window.onload = convertMailAddress;
 								min: 5,
 								max: 50,
 								message: 'Name must be 5 to 50 characters'
-							},
-							regexp: {
-								regexp: /^[a-zA-Z0-9_]+$/,
-                       			 message: 'Name can only contain alphabetical, number and underscore'
 							}
 						}
 					},
@@ -438,9 +434,77 @@ window.onload = convertMailAddress;
                 }
 		});
 
+		/************************************************************
+
+			Case Studies
+
+		************************************************************/
+
+		function caseStudies() {
+			var projectsContainer = $('.cd-case-container'),
+				navigation = $('.cd-primary-nav'),
+				triggerNav = $('.cd-nav-trigger'),
+				logo = $('.cd-logo');
+			
+			triggerNav.on('click', function(){
+				if( triggerNav.hasClass('project-open') ) {
+					//close project
+					projectsContainer.removeClass('project-open').find('.selected').removeClass('selected').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+						$(this).children('.cd-case-info').scrollTop(0).removeClass('has-boxshadow');
+
+					});
+					triggerNav.add(logo).removeClass('project-open');
+				}
+			});
+
+			projectsContainer.on('click', '.single-case', function(){
+				var selectedProject = $(this);
+				if( projectsContainer.hasClass('nav-open') ) {
+					//close navigation
+					triggerNav.add(projectsContainer).add(navigation).removeClass('nav-open');
+				} else {
+					//open project
+					selectedProject.addClass('selected');
+					projectsContainer.add(triggerNav).add(logo).addClass('project-open');
+				}
+			});
+
+			projectsContainer.on('click', '.cd-scroll', function(){
+				//scroll down when clicking on the .cd-scroll arrow
+				var visibleProjectContent =  projectsContainer.find('.selected').children('.cd-case-info'),
+					windowHeight = $(window).height();
+
+				visibleProjectContent.animate({'scrollTop': windowHeight}, 300); 
+			});
+
+			//add/remove the .has-boxshadow to the project content while scrolling 
+			var scrolling = false;
+			projectsContainer.find('.cd-case-info').on('scroll', function(){
+				if( !scrolling ) {
+				 	(!window.requestAnimationFrame) ? setTimeout(updateProjectContent, 300) : window.requestAnimationFrame(updateProjectContent);
+				 	scrolling = true;
+				}
+			});
+
+			function updateProjectContent() {
+				var visibleProject = projectsContainer.find('.selected').children('.cd-case-info'),
+					scrollTop = visibleProject.scrollTop();
+				( scrollTop > 0 ) ? visibleProject.addClass('has-boxshadow') : visibleProject.removeClass('has-boxshadow');
+				scrolling = false;
+			}
+		}
+
+		/************************************************************
+
+			Page Specific
+
+		************************************************************/
+
 		if($('#home-page').length) {
 			secondaryNav();
 			preLoad();
+		} else if($('#case-study-page').length) {
+			caseStudies();
 		}
 		
 

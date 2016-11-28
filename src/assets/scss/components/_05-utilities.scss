@@ -308,7 +308,8 @@
             padding: 1em 2.5em;
 
             cursor: pointer;
-            &:focus {
+            &:hover, &:focus {
+                color: $white;
                 outline: none;
                 background: $site-primary-color;
             }

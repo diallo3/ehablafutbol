@@ -1,0 +1,22 @@
+<!-- contact modal -->
+<div id="contactModal">
+    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+    <div class="close-contactModal"> 
+        <span class="close thick"></span>
+    </div>
+        
+    <div class="modal-content">
+        <div class="ov"></div>
+        <div class="entry">
+            <h2 class="contact-title">
+                {{ site.contact_title }}
+            </h2>
+            
+            <p>{{ site.contact_desc }}</p>
+            
+            <article id="formContainer" class="entry">
+                {% include parts/prt-form-default.html %}
+            </article>
+        </div>
+    </div>
+</div>

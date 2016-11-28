@@ -1,0 +1,189 @@
+/*--------------------------------
+	Variables
+*/
+$site-primary-color: #C00;
+$site-secondary-color: #007725;
+$black: #000;
+$black-alt: #191919;
+$white: #fff;
+
+$section-bck: $black;
+$site-gray: #cccbcb;
+$text-gray: #9b9b9b;
+
+$button-color: #7DC855;
+
+$base-font-size: 16px;
+
+$form-background: #dae0e3;
+$form-input: $black;
+
+$color-1: #3e3947; 
+$color-2: #745360; 
+$color-3: #d88683; 
+$color-4: #fff; 
+
+/*--------------------------------
+    Site
+*/
+$maximum-width: 1190px;
+
+
+/*--------------------------------
+	Breakpoints
+*/
+$breakpoints: (
+    small: 667px,
+    medium: 768px,
+    large: 1024px
+);
+
+/*--------------------------------
+	Paths
+*/
+$fontPath: "../fonts";
+$imgPath: "../img";
+
+/*--------------------------------
+	Google Fonts
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
+$roboto: "Roboto", sans-serif;
+
+@mixin roboto($size, $style, $weight) {
+    font-family: $roboto;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+/*--------------------------------
+    z-index 
+*/
+$secondary-bar-zindex: 1;
+$intro-zindex: 2;
+$header-zindex: 3;
+
+/*--------------------------------
+    header height
+*/
+$header-S: 50px;
+$header-M: 70px;
+
+/*--------------------------------
+    intro height
+*/
+$intro-height-S: 300px;
+$intro-height-M: 400px;
+$intro-height-L: 600px;
+
+/*--------------------------------
+    secondary bar
+*/
+$bar-height-full: 100px;
+$bar-height: 70px;
+
+/*--------------------------------
+    Buttons
+*/
+
+@mixin ctaMain($bg: rgba($white, .3), $hv: $site-primary-color, $type: more) {
+    @include transition(all .3s);
+    @include backface-visibility(hidden);
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    background: $bg;
+    border: 1px solid rgba($white, .8);
+    border-radius: 2px;
+    padding: 1rem 3rem;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+    &:active {
+        background: darken($hv, 10%);
+        top: 2px;
+        &:before {
+            color: #703b87;
+        }
+    }
+    &:hover {
+        background-color: $hv; 
+    }
+}
+
+@mixin ctaSlide($bg: rgba($white, .3), $hv: $site-primary-color, $type: more) {
+    @include transition(all .3s);
+    @include backface-visibility(hidden);
+    color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    background: $bg;
+    border: 1px solid rgba($white, .8);
+    border-radius: 2px;
+    padding: 1rem 3rem;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+
+    cursor: pointer;
+    &:before {
+        @include transition(all .3s);
+        content: ""; 
+        @if $type == mail {
+            background-image: url(#{$imgPath}/icon-mail.svg);
+            -webkit-background-size: 30px 30px; 
+            -o-background-size: 30px 30px; 
+            background-size: 30px 30px; 
+        } 
+        @elseif $type == more {
+           background-image: url(#{$imgPath}/icon-layers.svg); 
+        }
+        
+        background-repeat: no-repeat;
+        background-position: 50% 50%; 
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+    
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        
+    }
+    &:after {
+        @include transition(all .3s);
+        content: "";
+        position: absolute;
+        z-index: -1;
+    }
+    &:active {
+        background: darken($hv, 10%);
+        top: 2px;
+        &:before {
+            color: #703b87;
+        }
+    }
+    &:hover {
+        background-color: $hv; 
+        &:before {
+            right: 0; 
+            left: 0;
+        }
+        span {
+            @include transform(translateX(200%));
+        }
+    }
+
+    span {
+        @include backface-visibility(hidden);
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+}
