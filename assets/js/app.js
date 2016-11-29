@@ -332,14 +332,28 @@ document.getElementsByClassNameForOldies = function(cl) {
 window.onload = convertMailAddress;
 
 (function($) {
-
+	// document ready
 	$(function() {
 
-		// Init ScrollMagic
-    	var controller = new ScrollMagic.Controller();
+		/************************************************************
 
-		// Foundation init
+			ScrollMagic
+
+		************************************************************/
+    	// var controller = new ScrollMagic.Controller();
+
+		/************************************************************
+
+			Foundation
+
+		************************************************************/
 		$(document).foundation();
+
+		/************************************************************
+
+			Navigation
+
+		************************************************************/
 
 		// hamburger
 	    function hamburgerNav() {
@@ -373,16 +387,7 @@ window.onload = convertMailAddress;
 	    }
 	    smoothAnchor();
 
-	    //open sub-navigation
-		$('.cd-subnav-trigger').on('click', function(event){
-			
-			event.preventDefault();
-			$('.cd-main-nav').toggleClass('moves-out');
-			$('.cd-slide-nav').toggleClass('moves-out');
-
-		});
-
-		// Secondary Header
+	    // secondary header
 		function secondaryNav() {
 			// global vars
 			var 
@@ -473,7 +478,7 @@ window.onload = convertMailAddress;
 			});
 
 			//smooth scrolling when clicking on the secondary navigation items
-			secondaryNav.find('ul a').on('click', function(event){
+			secondaryNav.find('.site-nav a').on('click', function(event){
 		        event.preventDefault();
 		        var target= $(this.hash);
 		        $('body,html').animate({
@@ -489,12 +494,22 @@ window.onload = convertMailAddress;
 			$('.cd-primary-nav').on('click', function(event){
 				if($(event.target).is('.cd-primary-nav')) $(this).children('ul').toggleClass('is-visible');
 			});
-
 		}
-		secondaryNav();
 
+	    //open sub-navigation
+		$('.cd-subnav-trigger').on('click', function(event){
+			
+			event.preventDefault();
+			$('.cd-main-nav').toggleClass('moves-out');
+			$('.cd-slide-nav').toggleClass('moves-out');
+		});
 
-		// preload
+		
+		/************************************************************
+
+			Preload
+
+		************************************************************/
 		function preLoad() {
 
 			// number of loaded images for preloader progress 
@@ -555,11 +570,78 @@ window.onload = convertMailAddress;
 				return preloaderOutTl;
 			}
 		}
-		preLoad();
+
+
+		/************************************************************
+
+			Form
+
+		************************************************************/
+
+		// Valiidation
+		function validate() {
+			var genContact = $('#generalForm');
+
+			genContact.formValidation({
+				framework: 'foundation',
+				row: {
+		            selector: '.icon',
+		            valid: 'has-success',
+    				invalid: 'has-error'
+		        },
+				// fields
+				fields: {
+					fullname: {
+						validators: {
+							notEmpty: {
+								message: 'Full name is required'
+							},
+							stringLength: {
+								min: 5,
+								max: 50,
+								message: 'Name must be 5 to 50 characters'
+							}
+						}
+					},
+					email: {
+						validators: {
+							notEmpty: {
+								message: 'Email address is required',
+							},
+							emailAddress: {
+		                        message: 'The value is not a valid email address'
+		                    },
+		                    regexp: {
+	                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+	                            message: 'The value is not a valid email address'
+	                        }
+						}
+					},
+					phone: {
+						validators: {
+							notEmpty: {
+								message: 'Email address is required',
+							},
+							phone: {
+								message: 'The value is not valid %s phone number'
+							}
+						}
+					},
+					feedback: {
+						notEmpty: {
+							message: 'Email address is required',
+						}
+					}
+				}
+			});
+		}
+		validate();
+		
 
 		// Form Labels
 		function floatLabels() {
 			var inputFields = $('.floating-labels .cd-label').next();
+
 			inputFields.each(function(){
 				var singleInput = $(this);
 				//check if user is filling one of the form fields 
@@ -574,6 +656,13 @@ window.onload = convertMailAddress;
 		function checkVal(inputField) {
 			( inputField.val() == '' ) ? inputField.prev('.cd-label').removeClass('float') : inputField.prev('.cd-label').addClass('float');
 		}
+
+
+		/************************************************************
+
+			Viewport
+
+		************************************************************/
 
 		function viewCheck() {
 			var contentEntry = $('.cd-section .content'),
@@ -595,6 +684,13 @@ window.onload = convertMailAddress;
 		}
 		viewCheck();
 
+
+		/************************************************************
+
+			Modals
+
+		************************************************************/
+
 		$('.open-modal').animatedModal({
 			modalTarget: 'contactModal',
 			animatedIn: 'zoomIn',
@@ -615,6 +711,103 @@ window.onload = convertMailAddress;
                     console.log("The animation is completed");
                 }
 		});
+
+		$('.open-menu').animatedModal({
+			modalTarget: 'mobileMenu',
+			animatedIn: 'fadeInDownBig',
+            animatedOut:'fadeOutUpBig',
+            color:      '#000000',
+            animationDuration: .3,
+                // Callbacks
+                beforeOpen: function() {
+                    console.log("The animation was called");
+                },           
+                afterOpen: function() {
+                    console.log("The animation is completed");
+                    var $hb = $('.hamburger');
+	    			$hb.removeClass('is-active');
+                }, 
+                beforeClose: function() {
+                    console.log("The animation was called");
+                }, 
+                afterClose: function() {
+                    console.log("The animation is completed");
+                }
+		});
+
+		/************************************************************
+
+			Case Studies
+
+		************************************************************/
+
+		function caseStudies() {
+			var projectsContainer = $('.cd-case-container'),
+				navigation = $('.cd-primary-nav'),
+				triggerNav = $('.cd-nav-trigger'),
+				mainView = $('.cd-main-content');
+			
+			triggerNav.on('click', function(){
+				if( triggerNav.hasClass('project-open') ) {
+					//close project
+					projectsContainer.removeClass('project-open').find('.selected').removeClass('selected').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+						$(this).children('.cd-case-info').scrollTop(0).removeClass('has-boxshadow');
+
+					});
+					triggerNav.add(mainView).removeClass('project-open');
+				}
+			});
+
+			projectsContainer.on('click', '.single-case', function(){
+				var selectedProject = $(this);
+				if( projectsContainer.hasClass('nav-open') ) {
+					//close navigation
+					triggerNav.add(projectsContainer).add(navigation).removeClass('nav-open');
+				} else {
+					//open project
+					selectedProject.addClass('selected');
+					projectsContainer.add(triggerNav).add(mainView).addClass('project-open');
+
+				}
+			});
+
+			projectsContainer.on('click', '.cd-scroll', function(){
+				//scroll down when clicking on the .cd-scroll arrow
+				var visibleProjectContent =  projectsContainer.find('.selected').children('.cd-case-info'),
+					windowHeight = $(window).height();
+
+				visibleProjectContent.animate({'scrollTop': windowHeight}, 300); 
+			});
+
+			//add/remove the .has-boxshadow to the project content while scrolling 
+			var scrolling = false;
+			projectsContainer.find('.cd-case-info').on('scroll', function(){
+				if( !scrolling ) {
+				 	(!window.requestAnimationFrame) ? setTimeout(updateProjectContent, 300) : window.requestAnimationFrame(updateProjectContent);
+				 	scrolling = true;
+				}
+			});
+
+			function updateProjectContent() {
+				var visibleProject = projectsContainer.find('.selected').children('.cd-case-info'),
+					scrollTop = visibleProject.scrollTop();
+				( scrollTop > 0 ) ? visibleProject.addClass('has-boxshadow') : visibleProject.removeClass('has-boxshadow');
+				scrolling = false;
+			}
+		}
+
+		/************************************************************
+
+			Page Specific
+
+		************************************************************/
+
+		if($('#home-page').length) {
+			secondaryNav();
+			preLoad();
+		} else if($('#case-study-page').length) {
+			caseStudies();
+		}
 		
 
 	});
