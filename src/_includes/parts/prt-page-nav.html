@@ -1,0 +1,8 @@
+{% assign  items = site.pages | sort: "nav-weight" %}
+{% for item in items %}
+    {% unless item.exclude %}
+    <li>
+        <a href="{{ item.url }}" class="page-link{% if item.url == page.url %} active{% endif %}" title="{{item.title}}">{{ item.nav-item }}</a>
+    </li>
+    {% endunless %}
+{% endfor %}
