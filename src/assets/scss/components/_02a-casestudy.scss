@@ -265,6 +265,11 @@ $items: 3;
         color: $white;
         font-weight: 500;
         vertical-align: middle;
+        padding: 0 2em; 
+       	width: 100%;
+       	@include bp(large) {
+       		width: 70%;
+       	} 
         display: table-cell;
         position: relative;
 
