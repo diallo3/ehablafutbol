@@ -1,5 +1,6 @@
 ---
 title: Page Template Temp
+exclude: true
 slug: temp
 layout: default
 ---
@@ -24,12 +25,6 @@ layout: default
 	</div>
 	
 	{% include inc-summary.html %}
-    <!-- ctas -->
-    <div class="ctas">
-        <ul>
-            <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
-            <li><li>{% include parts/act-btn-contact.html %}</li></li>
-        </ul>
-    </div>
+    {% include parts/prt-cta.html %}
 </div>
 

@@ -444,7 +444,7 @@ window.onload = convertMailAddress;
 			var projectsContainer = $('.cd-case-container'),
 				navigation = $('.cd-primary-nav'),
 				triggerNav = $('.cd-nav-trigger'),
-				logo = $('.cd-logo');
+				mainView = $('.cd-main-content');
 			
 			triggerNav.on('click', function(){
 				if( triggerNav.hasClass('project-open') ) {
@@ -453,7 +453,7 @@ window.onload = convertMailAddress;
 						$(this).children('.cd-case-info').scrollTop(0).removeClass('has-boxshadow');
 
 					});
-					triggerNav.add(logo).removeClass('project-open');
+					triggerNav.add(mainView).removeClass('project-open');
 				}
 			});
 
@@ -465,7 +465,8 @@ window.onload = convertMailAddress;
 				} else {
 					//open project
 					selectedProject.addClass('selected');
-					projectsContainer.add(triggerNav).add(logo).addClass('project-open');
+					projectsContainer.add(triggerNav).add(mainView).addClass('project-open');
+
 				}
 			});
 

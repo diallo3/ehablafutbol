@@ -8,31 +8,37 @@ $items: 3;
 
 -------------------------------- */
 	
+.cd-main-content.project-open {
+	#cd-summary {
+		display: none;
+	}
+}
+
 #case-study-page {
     .page-content {
-    	padding: rem(70) 0 0; 
+        padding: rem(70) 0 0;
     }
     .cd-nav-trigger {
         // @include abs-pos($t: 24px, $r:5%);
         @include transition(background .2s);
         color: transparent;
-        text-indent: 100%;
         white-space: nowrap;
+        text-indent: 100%;
         background-color: rgba($black, .6);
-        border: 1px solid white(.5); 
+        border: 1px solid white(.5);
         border-radius: 50%;
         width: 44px;
         height: 44px;
         overflow: hidden;
-        opacity: 0;
         position: fixed;
         top: rem(120);
-        right: 3.5%; 
-         
-        z-index: 5; 
-		&.project-open {
-			opacity: 1; 
-		}
+        right: 3.5%;
+        z-index: 5;
+
+        opacity: 0;
+        &.project-open {
+            opacity: 1;
+        }
         .cd-icon, .cd-icon::before, .cd-icon::after {
             /* Force Hardware Acceleration in WebKit */
             @include transform(translateZ(0));
@@ -106,280 +112,295 @@ $items: 3;
 }
 
 .cd-case-container {
-	background-color: $black; 
-	height: 100vh;
-	width: 100vw;
-	position: relative;
-	overflow: hidden;
-	
-	ul {
-		@include flat-list;
-		@include zero-out;
-	}
+    background-color: $black;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 
-	.single-case {
-		@include transition(transform .4s);
+    ul {
+        @include flat-list;
+        @include zero-out;
+    }
 
-		/* Force hardware acceleration */
-		@include backface-visibility(hidden);
-		@include transform(translateZ(0));
-		@include abs-pos($t:0, $l:0);
-		height: 100%;
-		width: 100%;
-		cursor: pointer;
-		z-index: 2;
-		&:nth-of-type(2) {
-			@include transform(translateY(100%/$items));
-		}
+    .single-case {
+        @include transition(transform .4s);
+        /* Force hardware acceleration */
+        @include backface-visibility(hidden);
+        @include transform(translateZ(0));
+        @include abs-pos($t: 0, $l:0);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
 
-		&:nth-of-type(3) {
-			@include transform(translateY(100%*2/$items));
-		}
+        cursor: pointer;
+        &:nth-of-type(2) {
+            @include transform(translateY(100%/$items));
+        }
 
-		&.selected {
-			@include transform(translateY(0));
-			cursor: auto;
-			background-color: $black; 
-			.cd-title {
-				border: 0;
-				overflow: visible;
-			}
-			.excerpt {
-				display: block;
-			}
-		}
+        &:nth-of-type(3) {
+            @include transform(translateY(100%*2/$items));
+        }
 
-		&.selected ~ li {
-			/* hide siblings projects */
-			@include transform(translateY(100%));
-		}
-	}
+        &.selected {
+            @include transform(translateY(0));
+            background-color: $black;
 
-	&.nav-open .single-case {
-		box-shadow: 0 0 30px rgba($black, .5);
-		@include transform(translateY(91%));
+            cursor: auto;
+            .cd-title {
+                border: 0;
+                overflow: visible;
+                &:before {
+                    height: 300%;
 
-		&:nth-of-type(2) {
-			@include transform(translateY(94%));
-		}
+                    opacity: .3;
+                }
+            }
+            .excerpt {
+                display: block;
+            }
+        }
 
-		&:nth-of-type(3) {
-			@include transform(translateY(97%));
-		}
-	}
+        &.selected ~ li {
+            /* hide siblings projects */
+            @include transform(translateY(100%));
+        }
+    }
 
-	&.nav-open:hover .single-case {
-		@include transform(translateY(88%));
+    &.nav-open .single-case {
+        @include transform(translateY(91%));
+        box-shadow: 0 0 30px rgba($black, .5);
 
-		&:nth-of-type(2) {
-			@include transform(translateY(92%));
-		}
+        &:nth-of-type(2) {
+            @include transform(translateY(94%));
+        }
 
-		&:nth-of-type(3) {
-			@include transform(translateY(96%));
-		}
-	}
+        &:nth-of-type(3) {
+            @include transform(translateY(97%));
+        }
+    }
+
+    &.nav-open:hover .single-case {
+        @include transform(translateY(88%));
+
+        &:nth-of-type(2) {
+            @include transform(translateY(92%));
+        }
+
+        &:nth-of-type(3) {
+            @include transform(translateY(96%));
+        }
+    }
 }
 
 .cd-title {
-	text-align: center;
-	border-bottom: 1px solid white(.8); 
-    height: 100%/$items;
+    text-align: center;
+    border-bottom: 1px solid white(.8);
     width: 100vw;
+    height: 100%/$items;
     display: table;
     overflow: hidden;
     position: relative;
-	z-index: 3;
+    z-index: 3;
 
     &::before {
-    	/* background image */
-    	content: '';
-    	@include abs-pos($t:0, $l:0);
-    	height: 300%;
-    	width: 100%;
-    	background-position: center center;
-    	background-repeat: no-repeat; 
+        @include abs-pos($t: 0, $l:0);
+        @include transition(height .2s linear .08);
+        /* background image */
+        content: "";
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+
+        opacity: .3;
     }
 
     &::after {
-		/* line below title -  visible on hover */
-		@include abs-pos($t:calc(50% + 30px), $l:50%);
-	    @include transform(translateX(-50%) translateY(-50%) scaleX(0));
-	    @include transition(transform .2s);
-	    content: '';
-	    background-color: $white;
-	    width: 60px;
-	    height: 1px;
-	}
+        /* line below title -  visible on hover */
+        @include abs-pos($t: calc(50% + 30px), $l:50%);
+        @include transform(translateX(-50%) translateY(-50%) scaleX(0));
+        @include transition(transform .2s);
+        content: "";
+        background-color: $white;
+        width: 60px;
+        height: 1px;
+    }
 
     .single-case:nth-of-type(1) & {
-    	background-color: $black;
+        background-color: $black;
 
-    	&::before {
-    		background-image: url(../img/img-1.jpg);
-    	}
+        &::before {
+            background-image: url(#{$imgPath}/img-bck-case-redbull.jpg);
+
+        }
     }
 
     .single-case:nth-of-type(2) & {
-    	background-color: $black;
+        background-color: $black;
 
-    	&::before {
-    		background-image: url(../img/img-2.jpg);
-    	}
+        &::before {
+            background-image: url(#{$imgPath}/img-bck-case-boost.jpg);
+
+        }
     }
 
     .single-case:nth-of-type(3) & {
-    	background-color: $black;
+        background-color: $black;
 
-    	&::before {
-    		background-image: url(../img/img-3.jpg);
-    	}
+        &::before {
+            background-image: url(#{$imgPath}/img-bck-case-eljimador.jpg);
+        }
     }
 
-    .single-case:nth-of-type(1) &::before, 
-    .single-case:nth-of-type(2) &::before, 
-    .single-case:nth-of-type(3) &::before {
-    	background-size: cover;
-    } 
+    .single-case:nth-of-type(1) &::before, .single-case:nth-of-type(2) &::before, .single-case:nth-of-type(3) &::before {
+        background-size: cover;
+    }
 
-	.title {
-		@include transition(transform .4s);
+    .title {
+        @include transition(transform .4s);
+        /* Force hardware acceleration */
+        @include backface-visibility(hidden);
+        @include transform(translateZ(0));
+        color: $white;
+        font-weight: 500;
+        vertical-align: middle;
+        display: table-cell;
+        position: relative;
 
-		/* Force hardware acceleration */
-		@include backface-visibility(hidden);
-		@include transform(translateZ(0));
-		color: $white;
-		font-weight: 500;
-		vertical-align: middle;
-		display: table-cell;
-		position: relative;
-		
-		* {
-			color: $white;
-		}
-		
-		h2 {
-			font-weight: 500;
-		}
+        * {
+            color: $white;
+        }
 
-		.excerpt {
-			display: none;
-		}
-	}
+        h2 {
+            font-weight: 500;
+        }
 
-	.no-touch &:hover::after {
-		@include transform(translateX(-50%) translateY(-50%) scaleX(1));
-	}
+        .excerpt {
+            display: none;
+        }
+    }
 
-	.no-touch .selected &:hover::after {
-		@include transition(transform 0s);
-		@include transform(translateX(-50%) translateY(-50%) scaleX(0));
-	}
+    .no-touch &:hover::after {
+        @include transform(translateX(-50%) translateY(-50%) scaleX(1));
+    }
 
-	.selected & .title {
-		/* vertically center h2 in the full-height image*/ 
-		@include transform(translateY( -100%*(1 - $items)/$items ));
+    .no-touch .selected &:hover::after {
+        @include transition(transform 0s);
+        @include transform(translateX(-50%) translateY(-50%) scaleX(0));
+    }
+
+    .selected & .title {
+        /* vertically center h2 in the full-height image*/
+        @include transform(translateY( -100%*(1 - $items)/$items ));
     }
 }
 
 .cd-case-info {
-	@include abs-pos($t:0, $l:0);
-	@include transition(opacity .4s, visibility .4s);
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	opacity: 0;
-	visibility: hidden;
-	z-index: 3;
-	&::before {
-		/* use to push the .content-wrapper below the intro project image */
-		content: '';
-		width: 100%;
-		height: 100%;
-		display: block;
-		pointer-events: none;
-	}
+    @include abs-pos($t: 0, $l:0);
+    @include transition(opacity .4s, visibility .4s);
+    @include bp(large) {
+        .content-wrapper {
+            padding: 4em 0;
+        }
+    }
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: auto;
+    z-index: 3;
 
-	.content-wrapper {
-		background-color: $white;
-		padding: 2em 0 3em;
-		position: relative;
-		z-index: 2;
-	}
+    opacity: 0;
+    &::before {
+        /* use to push the .content-wrapper below the intro project image */
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
 
-	.selected & {
-		@include transition(opacity 0s, visibility 0s);
-		-webkit-overflow-scrolling: touch;
-		opacity: 1;
-		visibility: visible;
-	}
+        pointer-events: none;
+    }
 
-	&.has-boxshadow .content-wrapper {
-		/* add a box-shadow while scrolling over the background image */
-		box-shadow: 0 -5px 30px rgba($black, .2);
-	}
+    .content-wrapper {
+        background-color: $white;
+        padding: 2em 0 3em;
+        position: relative;
+        z-index: 2;
+    }
 
-	@include bp(large) {
-		.content-wrapper {
-			padding: 4em 0;
-		}
-	}
+    .selected & {
+        @include transition(opacity 0s, visibility 0s);
+        visibility: visible;
+
+        opacity: 1;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &.has-boxshadow .content-wrapper {
+        /* add a box-shadow while scrolling over the background image */
+        box-shadow: 0 -5px 30px rgba($black, .2);
+    }
 }
 
 .cd-scroll {
-	@include transition(opacity .4s, visibility .4s);
-	@include center(x);
-	/* scroll down arrow */
-	color: transparent;
-	text-indent: 100%;
-	background: transparent url(#{$imgPath}/cd-case-arrow.svg) no-repeat center center;
-	overflow: hidden;
-	white-space: nowrap;
-	opacity: 0;
-	visibility: hidden;
-	width: 48px;
-	height: 48px;
-	position: fixed;
-	top: calc(100% - 200px);
-	z-index: 1;
+    @include transition(opacity .4s, visibility .4s);
+    @include center(x);
+    /* scroll down arrow */
+    color: transparent;
+    white-space: nowrap;
+    text-indent: 100%;
+    background: transparent url(#{$imgPath}/cd-case-arrow.svg) no-repeat center center;
 
-	.project-open & {
-		@include animation(cd-translate 1.2s 0.4s);
-		@include animation-iteration-count(2);
-		opacity: 1;
-		visibility: visible;
-	}
+    width: 48px;
+    height: 48px;
+    visibility: hidden;
+    overflow: hidden;
+    position: fixed;
+    top: calc(100% - 200px);
+    z-index: 1;
 
-	.project-open .has-boxshadow & {
-		opacity: 0;
-		visibility: hidden;
-	} 
+    opacity: 0;
+
+    .project-open & {
+        @include animation(cd-translate 1.2s .4s);
+        @include animation-iteration-count(2);
+        visibility: visible;
+
+        opacity: 1;
+    }
+
+    .project-open .has-boxshadow & {
+        visibility: hidden;
+
+        opacity: 0;
+    }
 }
 
 @include keyframes(cd-translate) {
-	0% {
-		@include transform(translateX(-50%));
-	}
+    0% {
+        @include transform(translateX(-50%));
+    }
 
-	50% {
-		@include transform(translateY(10px) translateX(-50%));
-	}
+    50% {
+        @include transform(translateY(10px) translateX(-50%));
+    }
 
-	100% {
-		@include transform(translateX(-50%));
-	}
+    100% {
+        @include transform(translateX(-50%));
+    }
 }
 
 @include keyframes(cd-translate) {
-	0% {
-		@include transform(translateX(-50%));
-	}
+    0% {
+        @include transform(translateX(-50%));
+    }
 
-	50% {
-		@include transform(translateY(10px) translateX(-50%));
-	}
+    50% {
+        @include transform(translateY(10px) translateX(-50%));
+    }
 
-	100% {
-		@include transform(translateX(-50%));
-	}
+    100% {
+        @include transform(translateX(-50%));
+    }
 }
