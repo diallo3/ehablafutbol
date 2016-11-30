@@ -6,6 +6,10 @@
 .cd-social {
     ul {
         @include menu-list($li-padding: 0 5px);
+        width: 40px;
+        @include bp(large) {
+            width: auto; 
+        } 
         li:last-child {
             padding: 0; 
         }
@@ -314,6 +318,34 @@ body:not(.home) {
             padding: rem(25) rem(30) 0 rem(30);
             display: block;
             position: relative;
+            &.active {
+                color: $white;
+            }
+        }
+    }
+}
+
+/* -------------------------------
+
+    Mobile Nav
+    
+--------------------------------*/
+
+.mobile-nav {
+    @include flat-list;
+    li {
+        text-align: center;
+        border-bottom: 1px solid white(.1); 
+    }
+    a {
+        color: darken($site-gray, 20%);
+        font-size: 1.5em; 
+        text-transform: uppercase;
+        padding:.8em 1em;
+        display: block;
+        &:active {
+            color: $white;
+            background-color: $site-primary-color; 
         }
     }
 }

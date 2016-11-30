@@ -251,10 +251,20 @@ Hero components
     .content {
         .title-container {
             text-align: center;
-            background-color: #eee;
+            background: $black url(#{$imgPath}/img-page-header.jpg) no-repeat 50% 50%;
+            background-size: cover; 
             margin-bottom: 2rem; 
             padding: rem(150) 2rem rem(30);
             position: relative;
+            .ov {
+                background-color: black(.4); 
+            }
+            .title {
+                color: $white;
+                font-size: 2.3rem;
+                text-shadow: 1px 1px 1px black(.3); 
+                position: relative;
+            }
         } 
         
     }

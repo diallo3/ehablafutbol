@@ -7,13 +7,13 @@
 
 # Site settings
 title: eHabla Futbol
-email: your-email@domain.com
+email: info@ehablafutbol.com
 description: > # this means to ignore newlines until "baseurl:"
   ehabla Futbol combines compelling, real-world experiences with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://ehabla.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://ehablafutbol.com" # the base hostname & protocol for your site
+twitter_username: ""
+github_username:  ""
 
 # Build settings
 markdown: kramdown

@@ -111,10 +111,12 @@
     @include fadeOutUpBig($duration: .5s);
 }
 
+#contactModal, #mobileMenu {
+    opacity: 0;
+}
+
 #contactModal {
     background-image: url(#{$imgPath}/img-bck-hero.jpg);
-
-    opacity: 0;
 }
 
 .close-contactModal, .close-mobileMenu {
@@ -298,22 +300,6 @@
         text-align: center; 
         clear: both;
         position: relative;
-
-        .submit {
-            @include ctaMain;
-            color: darken($site-gray, 10%); 
-            font-size: rem(18);
-            text-transform: uppercase;
-            border: 1px solid $site-gray; 
-            padding: 1em 2.5em;
-
-            cursor: pointer;
-            &:hover, &:focus {
-                color: $white;
-                outline: none;
-                background: $site-primary-color;
-            }
-        }
     }
 
 
@@ -334,6 +320,31 @@
 
     .error {
         border-color: #c00 !important;
+    }
+}
+
+.submit {
+    @include ctaMain;
+    color: darken($site-gray, 10%); 
+    font-size: rem(18);
+    text-transform: uppercase;
+    border: 1px solid $site-gray; 
+    padding: 1em 2.5em;
+
+    cursor: pointer;
+    &:hover, &:focus {
+        color: $white;
+        outline: none;
+        background: $site-primary-color;
+    }
+}
+
+.page-content {
+    .submit {
+        background-color: $button-color;
+        &:hover, &:focus {
+            background: $site-primary-color;
+        } 
     }
 }
 
@@ -397,6 +408,7 @@ Custom icons
 FLoating labels 
 -------------------------------- */
 $label-pos: 18px;
+    
 .floating-labels {
     @include bp(mediumUp) {
         legend + div {

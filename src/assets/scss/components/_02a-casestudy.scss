@@ -50,7 +50,8 @@ $items: 3;
         }
 
         .no-touch &:hover {
-            background-color: black(.8);
+            // background-color: black(.8);
+            background-color: $site-primary-color; 
         }
 
         .cd-icon {
@@ -347,23 +348,30 @@ $items: 3;
 }
 
 .cd-scroll {
-    @include transition(opacity .4s, visibility .4s);
+    @include transition(opacity .4s, visibility .4s, color .4s);
     @include center(x);
     /* scroll down arrow */
-    color: transparent;
+    color: white(.4);
+    font-size: rem(12); 
+    text-align: center;
+    text-transform: uppercase;
     white-space: nowrap;
-    text-indent: 100%;
-    background: transparent url(#{$imgPath}/cd-case-arrow.svg) no-repeat center center;
-
-    width: 48px;
-    height: 48px;
+    text-indent: 0;
+    background: transparent url(#{$imgPath}/cd-case-arrow.svg) no-repeat center 140%;
+    width: auto;
+    height: rem(60);
     visibility: hidden;
     overflow: hidden;
+    cursor: pointer;
     position: fixed;
-    top: calc(100% - 200px);
+    top: calc(100% - 250px);
     z-index: 1;
 
     opacity: 0;
+    
+    .no-touch &:hover {
+        color: $white;
+    }
 
     .project-open & {
         @include animation(cd-translate 1.2s .4s);

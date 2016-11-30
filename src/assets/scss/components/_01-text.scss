@@ -100,6 +100,11 @@ hr {
     }
 }
 
+.cta, .cta-alt {
+    width: 180px;
+    white-space: nowrap; 
+}
+
 .cta {
     @include ctaSlide;
 }
