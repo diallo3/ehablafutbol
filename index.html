@@ -351,50 +351,57 @@
                 Let's Get Started
             </h2>
             
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.</p>
             
             <article id="formContainer" class="entry">
-                <form id="generalForm" class="cd-form floating-labels" action="https://formspree.io/info@ehablafutbol.com" method="POST">
-	<fieldset>
-		<div class="field-container">
-			<!-- left side -->
-			<div class="form-left">
-				<div class="icon">
-					<label class="cd-label" for="cd-name">Full Name</label>
-					<input class="user" type="text" name="fullname" id="cd-name" required>
-			    </div>
-
-			    <div class="icon">
-			    	<label class="cd-label" for="cd-email">Email</label>
-					<input class="email" type="email" name="email" id="cd-email" name="_replyto" required>
-			    </div>
-			
-			    <div class="icon">
-			    	<label class="cd-label" for="cd-phone">Phone</label>
-					<input class="tel" type="text" name="phone" id="cd-phone" required="">
-			    </div> 
-
-			    <input type="text" name="_gotcha" style="display:none" />   
-			</div>
-			
-			<!-- right side -->
-			<div class="form-right">
-				<div class="icon">
-					<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
-					<textarea class="message" name="feedback" id="cd-textarea" required></textarea>
+                <div id="formBlock">
+	<form id="generalForm" class="cd-form floating-labels" action="https://formspree.io/info@ehablafutbol.com" method="POST">
+		<fieldset>
+			<div class="field-container">
+				<!-- left side -->
+				<div class="form-left">
+					<div class="icon">
+						<label class="cd-label" for="cd-name">Full Name</label>
+						<input class="user" type="text" name="fullname" id="cd-name" required>
+				    </div>
+	
+				    <div class="icon">
+				    	<label class="cd-label" for="cd-email">Email</label>
+						<input class="email" type="email" name="email" id="cd-email" name="_replyto" required>
+				    </div>
+				
+				    <div class="icon">
+				    	<label class="cd-label" for="cd-phone">Phone</label>
+						<input class="tel" type="text" name="phone" id="cd-phone" required="">
+				    </div> 
+	
+				    <input type="text" name="_gotcha" style="display:none" />   
+				</div>
+				
+				<!-- right side -->
+				<div class="form-right">
+					<div class="icon">
+						<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
+						<textarea class="message" name="feedback" id="cd-textarea" required></textarea>
+					</div>
 				</div>
 			</div>
-		</div>
+	
+			<div class="submit-container">
+		      	<input type="submit" value="Send Message" class="submit" name="submitButton">
+		    </div>
+		    <input type="hidden" name="_next" value="/thank-you.html" />
+		    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
+		    <input type="hidden" name="_cc" value="d@diallohudgins.com" />
+		    <input type="text" name="_gotcha" style="display:none" />
+		</fieldset>
+	</form>
+</div>
 
-		<div class="submit-container">
-	      	<input type="submit" value="Send Message" class="submit" name="submitButton">
-	    </div>
-	    <input type="hidden" name="_next" value="/thank-you.html" />
-	    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
-	    <input type="hidden" name="_cc" value="d@diallohudgins.com" />
-	    <input type="text" name="_gotcha" style="display:none" />
-	</fieldset>
-</form>
+<!-- <div id="successBlock">
+	<h3 class="title">Thank You</h3>
+	<p>We have received your message and would like to thank you for writing to us. We will reply by email shortly.</p>
+</div> -->
             </article>
         </div>
     </div>

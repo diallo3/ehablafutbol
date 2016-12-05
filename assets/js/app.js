@@ -458,10 +458,9 @@ window.onload = convertMailAddress;
 							actualAnchorIndex = secondaryNav.find('#intro');
 
 						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
+							
 							actualAnchor.addClass('active');
-
 						} else {
-
 							actualAnchor.removeClass('active');
 						}
 
@@ -492,6 +491,7 @@ window.onload = convertMailAddress;
 
 		    //on mobile - open/close primary navigation clicking/tapping the menu icon
 			$('.cd-primary-nav').on('click', function(event){
+				event.preventDefault();
 				if($(event.target).is('.cd-primary-nav')) $(this).children('ul').toggleClass('is-visible');
 			});
 		}
@@ -743,14 +743,15 @@ window.onload = convertMailAddress;
 
 		function caseStudies() {
 			var projectsContainer = $('.cd-case-container'),
-				navigation = $('.cd-primary-nav'),
-				triggerNav = $('.cd-nav-trigger'),
-				mainView = $('.cd-main-content');
+				navigation        = $('.cd-primary-nav'),
+				triggerNav        = $('.cd-nav-trigger'),
+				mainView          = $('.cd-main-content');
 			
 			triggerNav.on('click', function(){
 				if( triggerNav.hasClass('project-open') ) {
 					//close project
-					projectsContainer.removeClass('project-open').find('.selected').removeClass('selected').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					projectsContainer.removeClass('project-open').find('.selected').removeClass('selected')
+					.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 						$(this).children('.cd-case-info').scrollTop(0).removeClass('has-boxshadow');
 
 					});
