@@ -14,12 +14,12 @@ layout: default
 			<button class="cd-nav-trigger">Menu<span aria-hidden="true" class="cd-icon"></span></button>
 			<ul>
 				{% for case in site.data.cases  %}
-					<li class="single-case">
+				<li class="single-case">
 					<header class="cd-title">
 						<div class="title">
-							<h2>{{ case.title }}</h2>
-							{% if case.excerpt %}
-								<p class="excerpt">{{ case.excerpt }}</p>
+							<h2>{{ case.company }}</h2>
+							{% if case.event %}
+								<h3 class="event">{{ case.event }}</h3>
 							{% endif %}
 						</div>
 					</header>
@@ -29,16 +29,37 @@ layout: default
 						
 						<div class="content-wrapper">
 							<div class="content-entry">
-								
-								{% for content in case.contents  %}
+								<!-- background -->
+								<h4>Background</h4>
+								{% for content in case.background  %}
 									{% if content.image %}
 										<figure class="page-featured">
-											<img src="{{ content.image }}" alt="">
+											<img src="/assets/img/{{ content.image }}" alt="">
 										</figure>
 									{% else %}
-										<p>{{ content.entry }}</p>
+										<p>{{ content}}</p>
 									{% endif %}	
 								{% endfor %}
+								
+								<!-- assignment -->
+								<h4>Assignment</h4>
+								<ul>
+									{% for content in case.result  %}
+										<li>{{ content}}</li>
+									{% endfor %}
+								</ul>
+
+								<hr>
+								
+								<!-- result -->
+								<h4>Result</h4>
+								<ul>
+									{% for content in case.result  %}
+										<li>{{ content}}</li>
+									{% endfor %}
+								</ul>
+
+								<hr>
 								
 							</div>
 						</div>

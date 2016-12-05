@@ -120,7 +120,7 @@ $items: 3;
     overflow: hidden;
     position: relative;
 
-    ul {
+    > ul {
         @include flat-list;
         @include zero-out;
     }
@@ -158,7 +158,7 @@ $items: 3;
                     opacity: .3;
                 }
             }
-            .excerpt {
+            .event {
                 display: block;
             }
         }
@@ -264,8 +264,6 @@ $items: 3;
         /* Force hardware acceleration */
         @include backface-visibility(hidden);
         @include transform(translateZ(0));
-        color: $white;
-        font-weight: 500;
         vertical-align: middle;
         padding: 0 2em; 
        	width: 100%;
@@ -283,7 +281,7 @@ $items: 3;
             font-weight: 500;
         }
 
-        .excerpt {
+        .event {
             display: none;
         }
     }
@@ -330,6 +328,12 @@ $items: 3;
         padding: 4em 0;
         position: relative;
         z-index: 2;
+    }
+
+    .content-entry {
+        .page-featured {
+            margin-bottom: 3em; 
+        }
     }
 
     .selected & {

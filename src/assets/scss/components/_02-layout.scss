@@ -248,6 +248,7 @@ Hero components
 .page-content {
     background-color: $white;
     padding-bottom: rem(100); 
+    position: relative;
     .content {
         .title-container {
             text-align: center;

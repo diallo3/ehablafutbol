@@ -196,8 +196,27 @@
 
 
 /*--------------------------------
+
     Form
-*/
+
+--------------------------------*/
+
+#formBlock {
+    position: relative;
+}
+
+#successBlock {
+    @include abs-pos($t:0, $r:0, $b:0, $l:0);
+    text-align: center;
+    background-color: rgba($site-secondary-color, .8);
+    padding: 1em;
+    * {
+        color: $white;
+    }
+    p {
+        font-size: rem(26); 
+    }
+}
 
 #formContainer {
     .entry {

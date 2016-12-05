@@ -1,23 +1,43 @@
-- title: "Red Bull"
-  excerpt: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-  contents:
-    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-    - image: "http://placehold.it/1200x800"
-    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
+- company: "Red Bull"
+  event: "Neymar Jr’s Five Global Tournament"
+  background:
+    - "Created one of a handful of signature global properties to promote a key athlete, Neymar Jr, and its commitment to soccer players and fans around the world."
+    - image: "img-case-redbull.jpg"
+  assignment:
+    - "Create U.S. plan of execution for 10 x 5v5 street soccer events across the U.S."
+    - "Included budgeting, location, promotion and recruitment, competition direction and management, athlete management, branding, merchandise and travel."
+  result:
+    - "The national final featured teams from across the country, with the winning team traveling to Brazil for the world final showcasing 43 countries from across the globe."
+    - "The campaign impacted 300 teams and 2,100 players across the U.S., with hundreds of thousands of profound impressions"
+    - "Significant increase in brand awareness in the target demo and an increased presence with key retailers."
+
+- company: "Boost Mobile"
+  event: "Chivas de Guadalajara Sponsorship 3v3 Tour"
+  background:
+    - "Existing sponsor of Chivas de Guadalajara in the United States, Boost uses this property to engage its Hispanic consumer base across the U.S."
+    - image: "img-case-boost.jpg"
+  assignment:
+    - "Create U.S. plan of execution for 10 x 5v5 street soccer events across the U.S."
+    - "Included budgeting, location, promotion and recruitment, competition direction and management, athlete management, branding, merchandise and travel."
+  result:
+    - "The national final featured teams from across the country, with the winning team traveling to Brazil for the world final showcasing 43 countries from across the globe."
+    - "The campaign impacted 300 teams and 2,100 players across the U.S., with hundreds of thousands of profound impressions"
+    - "Significant increase in brand awareness in the target demo and an increased presence with key retailers."
+
+- company: "Copa Jimador"
+  event: "Hispanic League Activation"
+  background:
+    - "Activate their Mexican National Team sponsorship in the southern California market."
+    - image: "img-case-copa.jpg"
+  assignment: 
+    - "Identify and partner with 20 of the largest adult Hispanic leagues in SoCal"
+    - "The program visited leagues for onsite activations and concluded with the Copa
+      Jimador – a large tournament for all member leagues."
+    - "Local retail accounts offered discounted products for each league"
+  result: 
+    - "Impacted 1,300+ teams and 17,500+ players across the 20 leagues and drove significant increase in key neighborhood sales"
+    - "Landed a major sales deal with the Tournament’s host Hotel/Casino, and partnerships with Univision and Hoy"
+    - "Champions from all 20 leagues will be wearing Jimador branded uniforms in upcoming seasons"
 
 
-- title: "Boost Mobile"
-  excerpt: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-  contents:
-    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-    - image: "http://placehold.it/1200x800"
-    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
 
-
-- title: "El Jimador"
-  excerpt: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-  contents:
-    - entry: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, expedita at perspiciatis."
-    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
-    - image: "http://placehold.it/1200x800"
-    - entry: "Ut laoreet tempor sollicitudin. Mauris neque dolor, dignissim quis auctor ut, rutrum eu urna. Donec eleifend in justo at mattis. Ut sit amet eros eget justo pulvinar volutpat." 
