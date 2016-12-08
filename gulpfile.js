@@ -55,7 +55,7 @@ var PATHS = {
     // 'bower_components/foundation-sites/js/foundation.orbit.js',
     // 'bower_components/foundation-sites/js/foundation.responsiveMenu.js',
     // 'bower_components/foundation-sites/js/foundation.responsiveToggle.js',
-    // 'bower_components/foundation-sites/js/foundation.reveal.js',
+    'bower_components/foundation-sites/js/foundation.reveal.js',
     // 'bower_components/foundation-sites/js/foundation.slider.js',
     // 'bower_components/foundation-sites/js/foundation.sticky.js',
     // 'bower_components/foundation-sites/js/foundation.tabs.js',
@@ -71,7 +71,6 @@ var PATHS = {
   ],
   javascript: [
     'bower_components/jQuery-viewport-checker/src/jquery.viewportchecker.js',
-    'bower_components/animated-modal/animatedModal.js',
     'src/assets/js/**/!(app).js',
     'src/assets/js/app.js'
   ]

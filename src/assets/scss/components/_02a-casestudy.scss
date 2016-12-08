@@ -8,8 +8,8 @@ $items: 3;
 
 -------------------------------- */
 	
-.cd-main-content.project-open {
-	#cd-summary {
+.main-scene.project-open {
+	#cd-summary, .footer-container {
 		display: none;
 	}
 }

@@ -94,6 +94,10 @@
     Modal Content
 
 --------------------------------- */
+        
+$reveal-background: black(.9);
+$reveal-padding: 0;
+$reveal-border: $black;
 
 .zoomIn {
     @include zoomIn($duration: .2s);
@@ -111,16 +115,8 @@
     @include fadeOutUpBig($duration: .5s);
 }
 
-#contactModal, #mobileMenu {
-    opacity: 0;
-}
-
-#contactModal {
-    background-image: url(#{$imgPath}/img-bck-hero.jpg);
-}
-
-.close-contactModal, .close-mobileMenu {
-    @include center-align($ver: false, $hor: true, $pos: absolute);
+.close-button {
+    @include abs-pos($t: 5%, $r: 5%);
     text-align: center;
     border: 1px solid white(.8);
     border-radius: 50%;
@@ -140,8 +136,14 @@
         width: 30px;
         height: 30px;
         display: inline-block;
-        overflow: hidden;
+        // overflow: hidden;
         position: relative;
+        i {
+            @include abs-pos($t: 6px,$r: 150%);
+            font-size: rem(11); 
+            font-style: normal;
+            text-transform: uppercase;
+        }
 
         &::before, &::after {
             content: "";
@@ -162,21 +164,22 @@
         &.big {
             @include transform(scale(3));
         }
-        &.thick {
-            &::before, &::after {
-                margin-top: -2px;
-                height: 4px;
-            }
-        }
     }
+}
+
+#contactModal, #mobileMenu {
+    @include reveal-modal-base;
+    @include reveal-modal-fullscreen;
+    
+    position: fixed;
 }
 
 .modal-content {
     text-align: center;
-    background-color: black(.7);
-    overflow: scroll;
+    background-color: black(.8);
+    overflow: auto;
     @include bp(large) {
-        padding: 8em 5em 5em;
+        padding: 8em 5em 0;
     }
     padding: 6em 1em 1em; 
     width: 100%;
@@ -186,7 +189,7 @@
     }
     .entry {
         @include bp(large) {
-            max-width: 80%;
+            max-width: 90%;
         }
         margin: 0 auto;
         position: relative;
@@ -201,7 +204,7 @@
 
 --------------------------------*/
 
-#formBlock {
+.form-block {
     position: relative;
 }
 

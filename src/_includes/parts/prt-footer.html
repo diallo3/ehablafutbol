@@ -3,6 +3,10 @@
         <div class="copyright">
             <p>Copyright {{ 'now' | date: "%Y" }}, {{ site.title }} All right reserved.</p>
         </div>
-        <div class="bck-top"></div>
+        <div class="bck-top">
+        	<ul class="footer-menu">
+        		{% include parts/prt-page-nav.html %}
+        	</ul>
+        </div>
     </footer>
 </div>

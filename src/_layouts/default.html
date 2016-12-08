@@ -28,10 +28,7 @@
 
         {% include parts/prt-modal-contact.html %}
 
-        <div id="mobileMenu">
-            <div class="close-mobileMenu"> 
-                <span class="close thick"></span>
-            </div>
+        <div id="mobileMenu" data-reveal>
                 
             <div class="modal-content">
                 <div class="entry">
@@ -41,6 +38,10 @@
                     </ul>
                 </div>
             </div>
+
+            <button class="close-button" data-close aria-label="Close modal"> 
+                <span class="close"><i>close</i></span>
+            </button>
         </div>
 
         {% include inc-default-scripts.html %}

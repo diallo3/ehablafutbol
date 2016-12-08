@@ -202,6 +202,9 @@ Hero components
     }
     &.summary {
         .entry {
+            @include bp(large) {
+                max-width: 60rem; 
+            }
             .content {
                 @include grid-col();
                 text-align: center;
@@ -277,4 +280,8 @@ Hero components
     .page-feature {
         margin-bottom: 2.5em; 
     }
+}
+
+.end {
+    text-align: center;
 }

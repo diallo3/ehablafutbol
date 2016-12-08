@@ -1,12 +1,7 @@
 <!-- contact modal -->
-<div id="contactModal">
-    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-    <div class="close-contactModal"> 
-        <span class="close thick"></span>
-    </div>
+<div id="contactModal" data-reveal>
         
     <div class="modal-content">
-        <div class="ov"></div>
         <div class="entry">
             <h2 class="contact-title">
                 {{ site.contact_title }}
@@ -19,4 +14,8 @@
             </article>
         </div>
     </div>
+
+    <button class="close-button" data-close aria-label="Close modal"> 
+        <span class="close"><i>close</i></span>
+    </button>
 </div>

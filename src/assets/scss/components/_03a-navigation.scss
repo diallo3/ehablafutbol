@@ -3,6 +3,17 @@
     Navigation
 
 -------------------------------- */
+    
+a {
+    &.active {
+        color: $white !important;
+    }
+    &.social {
+        display: none !important;
+    }
+}
+
+
 .cd-social {
     ul {
         @include menu-list($li-padding: 0 5px);
@@ -24,7 +35,20 @@
             @include bp(large) {
                 display: block;
             }
+            font-size: rem(13); 
+            margin-left: 1em; 
+            text-transform: uppercase;
+            width: 90px;
             display: none;
+            position: relative;
+            > span {
+                padding: .8em 0; 
+                display: inline-block;
+            }
+            .cd-subnav-trigger {
+                @include abs-pos($t:0, $r:0);
+                width: 50px; 
+            }
         }
         a {
             @include hide-text;
@@ -199,7 +223,7 @@
     @include transform(translateY(-100px));
     @include transition(transform .3s .2s);
     text-align: center;
-    background-color: lighten($black, 5%);
+    background-color: lighten($black,  12%);
     height: 100px;
     z-index: 3;
     &.moves-out {
@@ -250,7 +274,8 @@
     }
     white-space: nowrap;
     text-indent: 100%;
-    background: rgba($site-primary-color, .75);
+    background: rgba($black, .75);
+    border: 1px solid white(.3); 
     width: 44px;
     height: 44px;
     /* image replacement */

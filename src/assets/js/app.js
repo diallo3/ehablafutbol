@@ -50,6 +50,25 @@ window.onload = convertMailAddress;
 
 		/************************************************************
 
+			Modals
+
+		************************************************************/
+		var contact = new Foundation.Reveal($('#contactModal'), {
+			animationIn: 'zoomIn',
+			animationOut: 'zoomOut',
+			fullScreen: true,
+			overlay: false
+		});
+
+		var mobile = new Foundation.Reveal($('#mobileMenu'), {
+			animationIn: 'fadeInDownBig',
+			animationOut: 'fadeOutUpBig',
+			fullScreen: true,
+			overlay: false
+		});
+
+		/************************************************************
+
 			Navigation
 
 		************************************************************/
@@ -157,9 +176,10 @@ window.onload = convertMailAddress;
 							actualAnchorIndex = secondaryNav.find('#intro');
 
 						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
-							
 							actualAnchor.addClass('active');
+
 						} else {
+
 							actualAnchor.removeClass('active');
 						}
 
@@ -190,7 +210,6 @@ window.onload = convertMailAddress;
 
 		    //on mobile - open/close primary navigation clicking/tapping the menu icon
 			$('.cd-primary-nav').on('click', function(event){
-				event.preventDefault();
 				if($(event.target).is('.cd-primary-nav')) $(this).children('ul').toggleClass('is-visible');
 			});
 		}
@@ -279,7 +298,7 @@ window.onload = convertMailAddress;
 
 		// Valiidation
 		function validate() {
-			var genContact = $('#generalForm');
+			var genContact = $('.general-form');
 
 			genContact.formValidation({
 				framework: 'foundation',
@@ -384,55 +403,6 @@ window.onload = convertMailAddress;
 		viewCheck();
 
 
-		/************************************************************
-
-			Modals
-
-		************************************************************/
-
-		$('.open-modal').animatedModal({
-			modalTarget: 'contactModal',
-			animatedIn: 'zoomIn',
-            animatedOut:'zoomOut',
-            color:      '#000000',
-            animationDuration: .3,
-                // Callbacks
-                beforeOpen: function() {
-                    console.log("The animation was called");
-                },           
-                afterOpen: function() {
-                    console.log("The animation is completed");
-                }, 
-                beforeClose: function() {
-                    console.log("The animation was called");
-                }, 
-                afterClose: function() {
-                    console.log("The animation is completed");
-                }
-		});
-
-		$('.open-menu').animatedModal({
-			modalTarget: 'mobileMenu',
-			animatedIn: 'fadeInDownBig',
-            animatedOut:'fadeOutUpBig',
-            color:      '#000000',
-            animationDuration: .3,
-                // Callbacks
-                beforeOpen: function() {
-                    console.log("The animation was called");
-                },           
-                afterOpen: function() {
-                    console.log("The animation is completed");
-                    var $hb = $('.hamburger');
-	    			$hb.removeClass('is-active');
-                }, 
-                beforeClose: function() {
-                    console.log("The animation was called");
-                }, 
-                afterClose: function() {
-                    console.log("The animation is completed");
-                }
-		});
 
 		/************************************************************
 
@@ -444,7 +414,7 @@ window.onload = convertMailAddress;
 			var projectsContainer = $('.cd-case-container'),
 				navigation        = $('.cd-primary-nav'),
 				triggerNav        = $('.cd-nav-trigger'),
-				mainView          = $('.cd-main-content');
+				mainView          = $('.main-scene');
 			
 			triggerNav.on('click', function(){
 				if( triggerNav.hasClass('project-open') ) {

@@ -111,6 +111,8 @@ hr {
 
 .cta-alt {
     @include ctaSlide($bg: $button-color, $hv: $site-secondary-color, $type: mail);
+    color: $white !important;
+    text-align: center; 
 }
 
 .site-nav, .cd-slide-nav, .page-nav {
@@ -219,7 +221,7 @@ hr {
 -------------------------------- */
 
 .page-content {
-    * {
+    *:not(span) {
         color: lighten($black, 25%);
         text-shadow: none;
     }
