@@ -193,6 +193,13 @@ $reveal-border: $black;
         }
         margin: 0 auto;
         position: relative;
+        p {
+            @include bp(mediumUp) {
+                max-width: 60%; 
+            }
+            margin-right: auto;
+            margin-left: auto;  
+        }
         
     }
 }
