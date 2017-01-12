@@ -1,12 +1,25 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="{{ page.lang }}">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% if page.title %}{{ site.title}} - {{ page.title }}{% else %}{{ site.title[page.lang] }}{% endif %}</title>
+        <title>
+            {% if page.title %}
+                {{ site.title[page.lang] }} - {{ page.title }}
+            {% else %}
+                {{ site.title[page.lang] }}
+            {% endif %}
+        </title>
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description[page.lang] }}{% endif %}">
         {% include parts/prt-favicon.html %}
         <link rel="stylesheet" href="{{ "assets/css/app.css" | prepend: site.baseurl }}">
+
+        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
+        {% for page in pages %}
+          <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url }}" />
+        {% endfor %}
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
     <!-- base urls structure -->

@@ -1,19 +1,41 @@
-- title: "Intro"
-  href: "#cd-intro-top"
-  icon: intro
+en: 
+  - title: "Intro"
+    href: "#cd-intro-top"
+    icon: intro
 
-- title: "Community"
-  href: "#cd-community"
-  icon: comm
+  - title: "Community"
+    href: "#cd-community"
+    icon: comm
 
-- title: "Connection"
-  href: "#cd-connection"
-  icon: conn
+  - title: "Connection"
+    href: "#cd-connection"
+    icon: conn
 
-- title: "Experience"
-  href: "#cd-experience"
-  icon: exp
+  - title: "Experience"
+    href: "#cd-experience"
+    icon: exp
 
-- title: "Engage"
-  href: "#cd-engage"
-  icon: eng
+  - title: "Engage"
+    href: "#cd-engage"
+    icon: eng
+
+es:
+  - title: "Intro"
+    href: "#cd-intro-top"
+    icon: intro
+
+  - title: "Comunidad"
+    href: "#cd-community"
+    icon: comm
+
+  - title: "Conexión"
+    href: "#cd-connection"
+    icon: conn
+
+  - title: "Experiencia"
+    href: "#cd-experience"
+    icon: exp
+
+  - title: "Contratar"
+    href: "#cd-engage"
+    icon: eng

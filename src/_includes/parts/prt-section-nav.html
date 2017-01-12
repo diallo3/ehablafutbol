@@ -2,7 +2,7 @@
     <a href="#0" class="cd-secondary-nav-trigger">Menu <span></span></a>
     <nav>
         <ul class="site-nav">
-            {% for section in site.data.sections %}
+            {% for section in site.data.sections[page.lang] %}
             <li>
                 {% if forloop.first == true %}
                 <a href="{{ section.href }}" id="index">
