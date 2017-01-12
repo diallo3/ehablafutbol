@@ -1,1 +1,2 @@
-<a data-open="contactModal" class="cta-alt open-modal"><span>Get Started</span></a>
+{% assign cta = site.data.common[page.lang] %}
+<a data-open="contactModal" class="cta-alt open-modal"><span>{{ cta.start-title }}</span></a>

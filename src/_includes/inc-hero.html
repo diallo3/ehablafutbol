@@ -1,3 +1,4 @@
+{% assign cta = site.data.common[page.lang] %}
 <div id="cd-intro-top" class="header-container">
     <div class="bcg"></div>
     <div class="ov"></div>
@@ -13,7 +14,7 @@
             </heading>
             <footer class="cta-entry">
                 <ul>
-                    <li><a href="/case-studies.html" class="cta"><span>Case Studies</span></a></li>
+                    <li><a href="/case-studies.html" class="cta"><span>{{ cta.case-title }}</span></a></li>
                     <li>{% include parts/act-btn-contact.html %}</li>
                 </ul>
             </footer>
