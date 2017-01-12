@@ -1,4 +1,5 @@
 {% assign cta = site.data.common[page.lang] %}
+{% assign tag = cta.hero %}
 <div id="cd-intro-top" class="header-container">
     <div class="bcg"></div>
     <div class="ov"></div>
@@ -7,9 +8,9 @@
         <article id="cd-intro-tagline" class="entry">
             <heading class="title">
                 <h1>
-                    <span class="tag">Helping brands better</span> 
-                    <span class="tag">serve the Hispanic community through</span>
-                    <span class="end-tag">the power of <i>fútbol!</i></span>
+                    <span class="tag">{{ tag.set }}</span> 
+                    <span class="tag">{{ tag.mid }}</span>
+                    <span class="end-tag">{{ tag.cap }} <i>{{ tag.end }}</i></span>
                 </h1>
             </heading>
             <footer class="cta-entry">

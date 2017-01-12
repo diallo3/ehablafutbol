@@ -1,12 +1,14 @@
+{% assign sum = site.data.common[page.lang] %}
+{% assign c = sum.summary  %}
 <section id="cd-summary" class="cd-section summary">
     <div class="bcg"></div>
     <div class="ov"></div>
     <article class="entry">
         <div class="content">
             <header class="section-title">
-                <h2 class="title">Let's Get Started</h2>
+                <h2 class="title">{{ c.title }}</h2>
             </header>
-            <p>eHabla Fútbol helps you understand, reach and engage with the Hispanic community in an intelligent and meaningful way, better serving their needs while catapulting brand awareness.</p>
+            <p>{{ c.desc }}</p>
 
             <footer class="section-footer">
                 {% include parts/act-btn-contact.html %}

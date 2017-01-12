@@ -1,12 +1,30 @@
 en:
-  contact:
+  # Opening Hero
+  hero:
+    set: Helping brands better
+    mid: serve the Hispanic community through
+    cap: the power of
+    end: fútbol!
+
+  # Summary Call to action
+  summary:
     title: Let's Get Started
     desc: Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
+
+  # Call to action buttons
   case-title: Case Studies
   case-url: /case-studies.html
   start-title: Get Started
 es:
-  contact:
+# Opening Hero
+  hero:
+    set: Ayudar mejor a las marcas
+    mid: servir a la comunidad hispana a través de
+    cap: el poder de
+    end: fútbol!
+
+  # Summary Call to action
+  summary:
     title: Vamos a empezar
     desc: Gracias interés en eHabla Futbol. Estamos aquí para responder cualquier pregunta que pueda tener, así que comuníquese con nosotros y le responderemos tan pronto como podamos.
   case-title: Estudios de caso
