@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% if page.title %}{{ site.title}} - {{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+        <title>{% if page.title %}{{ site.title}} - {{ page.title }}{% else %}{{ site.title[page.lang] }}{% endif %}</title>
         {% include parts/prt-favicon.html %}
         <link rel="stylesheet" href="{{ "assets/css/app.css" | prepend: site.baseurl }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -16,9 +16,9 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <main id="main-view" class="main-scene {% if page.url == '/' %}main-sec{% endif %}">
+        <main id="main-view" class="main-scene {% if site.index %}main-sec{% endif %}">
             <!-- header for default pages -->
-            {% if page.url != '/' %}
+            {% if page.ref != "index" %}
                 {% include parts/prt-page-header.html %}
             {% endif %}
             {{ content }}
@@ -45,7 +45,7 @@
         </div>
 
         {% include inc-default-scripts.html %}
-        {% if page.url == '/' %}
+        {% if site.index %}
             {% include inc-scrollmagic.html %}
         {% endif %}
 

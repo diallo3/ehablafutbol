@@ -17,9 +17,10 @@ function convertMailAddress() {
 
 // http://javascript.about.com/library/bldom08.htm
 document.getElementsByClassNameForOldies = function(cl) {
-  	var retnode = [];
-  	var myclass = new RegExp('\\b'+cl+'\\b');
-  	var elem = this.getElementsByTagName('*');
+  	var
+  		retnode = [],
+  		myclass = new RegExp('\\b'+cl+'\\b'),
+  		elem    = this.getElementsByTagName('*');
 
   	for (var i = 0; i < elem.length; i++) {
     	var classes = elem[i].className;
@@ -79,7 +80,7 @@ window.onload = convertMailAddress;
 	    	$hb.on('click', function(e){
 	    		e.preventDefault();
 	    		$(this).toggleClass('is-active');
-	    	})
+	    	});
 	    }
 	    hamburgerNav();
 
@@ -109,19 +110,19 @@ window.onload = convertMailAddress;
 		function secondaryNav() {
 			// global vars
 			var 
-				target = $('html,body');
-				view = $(window),
-				secondaryNav = $('.cd-secondary-nav'),
-				secondaryNavFixed = $('.cd-secondary-nav.is-fixed');
+				target                  = $('html,body'),
+				view                    = $(window),
+				secondaryNav            = $('.cd-secondary-nav'),
+				secondaryNavFixed       = $('.cd-secondary-nav.is-fixed'),
 				secondaryNavTopPosition = secondaryNav.offset().top,
-				offsetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
-				taglineOffesetTop = $('.header-container') + offsetTop,
-				contentSections = $('.cd-section'),
-				ctas = $('.ctas');
+				offsetTop               = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
+				taglineOffesetTop       = $('.header-container') + offsetTop,
+				contentSections 		= $('.cd-section'),
+				ctas 					= $('.ctas');
 
 			// scroll function
 			view.on('scroll', function(){
-				var logo = $('#cd-logo'),
+				var logo    = $('#cd-logo'),
 					btnHead = $('.cd-btn-head');
 
 				//on desktop - assign a position fixed to logo and action button and move them outside the viewport
@@ -170,9 +171,9 @@ window.onload = convertMailAddress;
 				function updateSecondaryNavigation() {
 					// sections
 					contentSections.each(function(){
-						var actual = $(this),
-							actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
-							actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
+						var actual            = $(this),
+							actualHeight      = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
+							actualAnchor      = secondaryNav.find('a[href="#'+actual.attr('id')+'"]'),
 							actualAnchorIndex = secondaryNav.find('#intro');
 
 						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
@@ -198,7 +199,7 @@ window.onload = convertMailAddress;
 			//smooth scrolling when clicking on the secondary navigation items
 			secondaryNav.find('.site-nav a').on('click', function(event){
 		        event.preventDefault();
-		        var target= $(this.hash);
+		        var target = $(this.hash);
 		        $('body,html').animate({
 		        	'scrollTop': target.offset().top - secondaryNavFixed.height()
 		        	}, 600
@@ -231,9 +232,10 @@ window.onload = convertMailAddress;
 		function preLoad() {
 
 			// number of loaded images for preloader progress 
-			var loadedCount = 0; //current number of images loaded
-			var imagesToLoad = $('.bcg').length; //number of slides with .bcg container
-			var loadingProgress = 0; //timeline progress - starts at 0
+			var 
+				loadedCount     = 0, //current number of images loaded
+				imagesToLoad    = $('.bcg').length, //number of slides with .bcg container
+				loadingProgress = 0; //timeline progress - starts at 0
 
 			$('.bcg').imagesLoaded({
 			    background: true

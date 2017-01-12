@@ -15,6 +15,14 @@
 				</a>
 			</li>
 		</ul>
+		<ul>
+			{% assign trans = site.pages | where:"ref", page.ref | sort: 'lang' %}
+            {% for ts in trans %}
+            <li>
+                <a href="{{ ts.url }}" class="{{ ts.lang }}">{{ ts.lang }}</a>
+            </li>
+            {% endfor %}
+		</ul>
 	</nav>	
 </div>
 

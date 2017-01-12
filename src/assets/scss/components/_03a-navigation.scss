@@ -50,23 +50,25 @@ a {
                 width: 50px; 
             }
         }
-        a {
-            @include hide-text;
-            padding: .6em 1em;
-            width: 40px;
-            height: 40px;
-            display: block;
-            &.fb {
-                background: url(#{$imgPath}/icon-fb.svg) no-repeat 0 0;
-
-            }
-            &.tw {
-                background: url(#{$imgPath}/icon-tw.svg) no-repeat 0 0;
-
-            }
-        }
         position: relative;
         z-index: 5;
+        &:first-child {
+            a {
+                @include hide-text;
+                padding: .6em 1em;
+                width: 40px;
+                height: 40px;
+                display: block;
+                &.fb {
+                    background: url(#{$imgPath}/icon-fb.svg) no-repeat 0 0;
+
+                }
+                &.tw {
+                    background: url(#{$imgPath}/icon-tw.svg) no-repeat 0 0;
+
+                }
+            }
+        }
     }
     .hamburger {
         padding: 8px 5px;

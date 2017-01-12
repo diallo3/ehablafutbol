@@ -1,4 +1,4 @@
-{% assign  items = site.pages | sort: "nav-weight" %}
+{% assign  items = site.pages | where:"lang",page.lang | sort: "nav-weight" %}
 {% for item in items %}
     {% unless item.exclude %}
     <li>

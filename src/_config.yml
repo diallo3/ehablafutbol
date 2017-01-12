@@ -9,7 +9,11 @@
 title: eHabla Futbol
 email: info@ehablafutbol.com
 description: > # this means to ignore newlines until "baseurl:"
-  ehabla Futbol combines compelling, real-world experiences with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
+  en: ehabla Futbol combines compelling, real-world experiences with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
+  es: ehabla Futbol combina experiencias convincentes del mundo real con una plataforma de inteligencia social y publicidad que utiliza el poder del fútbol para impulsar la conciencia de marca y el compromiso con la comunidad hispana
+index:
+  en: /
+  es: indice.html
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://ehablafutbol.com" # the base hostname & protocol for your site
 twitter_username: ""

@@ -29,6 +29,11 @@ $h3-map: (
     large: 28px
 );
 
+.en:lang(en), .es:lang(es){
+    color: $white;
+    font-weight: bold;
+}
+
 body {
     @include antialias;
     font-family: $roboto;
