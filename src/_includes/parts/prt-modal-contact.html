@@ -1,13 +1,14 @@
+{% assign contact = site.data.common[page.lang] %} {% assign frm = contact.form %}
 <!-- contact modal -->
 <div id="contactModal" data-reveal>
         
     <div class="modal-content">
         <div class="entry">
             <h2 class="contact-title">
-                {{ site.contact_title }}
+                {{ frm.title }}
             </h2>
             
-            <p>{{ site.contact_desc }}</p>
+            <p>{{ frm.desc }}</p>
             
             <article id="formContainer" class="entry">
                 {% include parts/prt-form-default.html %}
@@ -16,6 +17,6 @@
     </div>
 
     <button class="close-button" data-close aria-label="Close modal"> 
-        <span class="close"><i>close</i></span>
+        <span class="close"><i>{{ frm.cls }}</i></span>
     </button>
 </div>

@@ -1,3 +1,4 @@
+{% assign c = site.data.common[page.lang] %}
 {% include parts/act-btn-logo.html %}
 
 <div class="cd-btn-head">
@@ -5,7 +6,7 @@
 		<ul>
 			{% include parts/prt-social.html %}
 			<li class="btn-slide">
-				<span>menu</span>
+				<span>{{ c.menu }}</span>
 				<a href="#0" id="cd-btn" class="cd-subnav-trigger">
 					<button class="hamburger hamburger--arrowalt" type="button">
 						<span class="hamburger-box">

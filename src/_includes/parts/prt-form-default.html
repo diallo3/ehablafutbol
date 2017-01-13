@@ -1,3 +1,4 @@
+{% assign contact = site.data.common[page.lang] %} {% assign frm = contact.form %} {% assign e = frm.elem %}
 <div id="formBlock" class="form-block">
 	<form id="generalForm" class="general-form cd-form floating-labels" action="https://formspree.io/{{ site.email }}" method="POST">
 		<fieldset>
@@ -5,17 +6,17 @@
 				<!-- left side -->
 				<div class="form-left">
 					<div class="icon">
-						<label class="cd-label" for="cd-name">Full Name</label>
+						<label class="cd-label" for="cd-name">{{ e.name }}</label>
 						<input class="user" type="text" name="fullname" id="cd-name" required>
 				    </div>
 	
 				    <div class="icon">
-				    	<label class="cd-label" for="cd-email">Email</label>
+				    	<label class="cd-label" for="cd-email">{{ e.email }}</label>
 						<input class="email" type="email" name="email" id="cd-email" name="_replyto" required>
 				    </div>
 				
 				    <div class="icon">
-				    	<label class="cd-label" for="cd-phone">Phone</label>
+				    	<label class="cd-label" for="cd-phone">{{ e.phone }}</label>
 						<input class="tel" type="text" name="phone" id="cd-phone" required="">
 				    </div> 
 	
@@ -25,14 +26,14 @@
 				<!-- right side -->
 				<div class="form-right">
 					<div class="icon">
-						<label class="cd-label" for="cd-textarea">What are you interested in learning?</label>
+						<label class="cd-label" for="cd-textarea">{{ e.msg }}</label>
 						<textarea class="message" name="feedback" id="cd-textarea" required></textarea>
 					</div>
 				</div>
 			</div>
 	
 			<div class="submit-container">
-		      	<input type="submit" value="Send Message" class="submit" name="submitButton">
+		      	<input type="submit" value="{{ e.sub }}" class="submit" name="submitButton">
 		    </div>
 		    <input type="hidden" name="_next" value="/thank-you.html" />
 		    <input type="hidden" name="_subject" value="New submission for eHabla Futbol!" />

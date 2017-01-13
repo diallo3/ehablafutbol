@@ -1,7 +1,8 @@
+{% assign contact = site.data.common[page.lang] %}
 <div class="footer-container">
     <footer class="footer-main">
         <div class="copyright">
-            <p>Copyright {{ 'now' | date: "%Y" }}, {{ site.title }} All right reserved.</p>
+            <p>{{ contact.cpyrt }} {{ 'now' | date: "%Y" }}, {{ site.title }} {{ contact.rights }}.</p>
         </div>
         <div class="bck-top">
         	<ul class="footer-menu">

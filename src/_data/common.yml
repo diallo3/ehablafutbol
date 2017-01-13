@@ -1,4 +1,6 @@
 en:
+  menu: Menu
+
   # Opening Hero
   hero:
     set: Helping brands better
@@ -15,7 +17,28 @@ en:
   case-title: Case Studies
   case-url: /case-studies.html
   start-title: Get Started
+
+  #Contact Form Elements
+  form:
+    title: Let's Get Started
+    desc: Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
+    cls: close
+    elem:
+      name: Full Name
+      email: Email
+      phone: Phone
+      msg: What are you interested in learning?
+      sub: Send Message
+
+  #Footer
+  cpyrt: Copyright
+  rights: All rights reserved
+
+### Spanish Version ###################################################################################################
+
 es:
+  menu: Menú
+
 # Opening Hero
   hero:
     set: Ayudar mejor a las marcas
@@ -27,6 +50,25 @@ es:
   summary:
     title: Vamos a empezar
     desc: Gracias interés en eHabla Futbol. Estamos aquí para responder cualquier pregunta que pueda tener, así que comuníquese con nosotros y le responderemos tan pronto como podamos.
+
+  # Call to action buttons
   case-title: Estudios de caso
   case-url: /estudios-de-caso.html
   start-title: Empezar
+
+  #Contact Form Elements
+  form:
+    title: Vamos a empezar
+    desc: Gracias interés en eHabla Futbol. Estamos aquí para responder cualquier pregunta que pueda tener, así que comuníquese con nosotros y le responderemos tan pronto como podamos.
+    cls: cerrar
+    elem:
+      name: Nombre Completo
+      email: Email
+      phone: Teléfono
+      msg: ¿Qué te interesa aprender?
+      sub: Enviar mensaje
+
+  #Footer
+  cpyrt: Derechos de autor
+  rights: Todos los derechos reservados
+

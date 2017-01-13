@@ -26,7 +26,3 @@ markdown: kramdown
 # Assets are being handled by Gulp
 exclude: [assets]
 keep_files: [assets]
-
-# Contact 
-contact_title: Let's Get Started
-contact_desc: Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
