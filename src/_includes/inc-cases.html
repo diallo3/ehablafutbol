@@ -1,0 +1,65 @@
+<!-- case study containers -->
+<div class="cd-case-container">
+	<button class="cd-nav-trigger">Menu<span aria-hidden="true" class="cd-icon"></span></button>
+	<ul>
+		{% assign c = site.data.common[page.lang] %}
+		{% for case in site.data.cases[page.lang] %}
+		<li class="single-case">
+			<header class="cd-title">
+				<div class="title">
+					<h2>{{ case.company }}</h2>
+					{% if case.event %}
+						<h3 class="event">{{ case.event }}</h3>
+					{% endif %}
+				</div>
+			</header>
+
+			<section class="cd-case-info">
+				<a class="cd-scroll">{{ c.scr }}</a>
+				
+				<div class="content-wrapper">
+					<div class="content-entry">
+						<!-- background -->
+						<h4>{{ c.bgd }}</h4>
+						{% for content in case.background  %}
+							{% if content.image %}
+								<figure class="page-featured">
+									<img src="/assets/img/{{ content.image }}" alt="">
+								</figure>
+							{% else %}
+								<p>{{ content}}</p>
+							{% endif %}	
+						{% endfor %}
+						
+						<!-- assignment -->
+						<h4>{{ c.agn }}</h4>
+						<ul>
+							{% for content in case.result  %}
+								<li>{{ content}}</li>
+							{% endfor %}
+						</ul>
+
+						<hr>
+						
+						<!-- result -->
+						<h4>{{ c.res }}</h4>
+						<ul>
+							{% for content in case.result  %}
+								<li>{{ content}}</li>
+							{% endfor %}
+						</ul>
+
+						<hr>
+
+						<footer class="end">
+							<p>{% include parts/act-btn-contact.html %}</p>
+						</footer>
+						
+					</div>
+				</div>
+			</section>
+		</li>
+		{% endfor %}
+	</ul>
+</div> 
+<!-- /cd-projects-container -->

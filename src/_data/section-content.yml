@@ -1,1 +1,64 @@
 # Home Page Content
+
+### English  Version #########################################
+en:
+  # Community
+  - id: cd-community
+    icon: icon-comm.svg
+    section: Community
+    title: eHabla Fútbol combines compelling, real-world experiences...
+    desc: with a social intelligence and advertising platform that utilizes the power of fútbol to drive brand awareness and engagement with the Hispanic community.
+  # Connection
+  - id: cd-connection
+    icon: icon-conn.svg
+    section: Connection
+    title: Digital Connection
+    desc: Free social media application offers searchable player profiles, simplifies league, tournament and ad hoc play organization while connecting players, fans and families together so they can follow each other’s successes, talk smack, publish their victories and much more.
+    image: img-phone-conn.png
+
+  # Experience
+  - id: cd-experience
+    icon: icon-exp.svg
+    section: Experience
+    title: Intelligent Insight
+    desc: Using leading-edge analytics, eHabla Fútbol not only understands what topics are trending in the community, but also the way in which people are talking about them and how they feel, providing unparalleled insights that sync your messages with the right market.
+    image: img-phone-exp.png
+
+  # Engage
+  - id: cd-engage
+    icon: icon-eng.svg
+    section: Engage
+    title: Profound Impressions
+    desc: A combination of live event sponsorship and intelligent digital advertising enables your brand to synchronize with a passionate community, creating profound impressions that not only drive action but increase brand connection and loyalty in a unique way.
+
+### Spanish  Version #########################################
+es:
+  # Community
+  - id: cd-community
+    icon: icon-comm.svg
+    section: Comunidad
+    title: eHabla Fútbol Combina experiencias convincentes y reales...
+    desc: Con una plataforma de inteligencia social y publicidad que utiliza el poder del fútbol para impulsar la conciencia de marca y el compromiso con la comunidad hispana.
+
+   # Connection
+  - id: cd-connection
+    icon: icon-conn.svg
+    section: Conexión
+    title: Conexión digital
+    desc: La aplicación gratuita de medios de comunicación social ofrece perfiles de jugadores que se pueden buscar, simplifica la liga, el torneo y la organización de juego ad hoc mientras se conecta a los jugadores, aficionados y familias para que puedan seguir los éxitos de cada uno, hablar bien, publicar sus victorias y mucho más.
+    image: img-phone-conn.png
+
+  # Experience
+  - id: cd-experience
+    icon: icon-exp.svg
+    section: Experiencia
+    title: Inteligencia inteligente
+    desc: Utilizando la analítica de vanguardia, eHabla Fútbol no sólo entiende qué temas son tendencias en la comunidad, sino también la forma en que la gente habla de ellos y cómo se sienten, proporcionando conocimientos inigualables que sincronizan sus mensajes con el mercado adecuado.
+    image: img-phone-exp.png
+
+  # Engage
+  - id: cd-engage
+    icon: icon-eng.svg
+    section: Contratar
+    title: Impresiones profundas
+    desc: Una combinación de patrocinio de eventos en vivo y publicidad digital inteligente permite que su marca se sincronice con una comunidad apasionada, creando profundas impresiones que no sólo impulsan la acción, sino que aumentan la conexión de marca y la lealtad de una manera única.

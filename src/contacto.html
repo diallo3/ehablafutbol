@@ -1,0 +1,44 @@
+---
+layout: default
+title: Contacto eHabla Fútbol
+
+lang: es
+ref: contact
+
+nav-item: Contáctenos
+nav-weight: 2
+slug: contact
+
+description: eHabla Fútbol - Empecemos. 
+---
+
+<div class="cd-main-content">
+	<div id="{{page.slug}}" class="page-content">
+		<article class="content content-{{page.slug}}">
+			<header class="title-container">
+				<div class="ov"></div>
+				<h1 class="title">{{page.title}}</h1>
+			</header>
+
+			<div class="content-entry">
+				<p>{{ site.contact_desc }}</p>
+				
+				<div id="formContainer" class="entry">
+					{% include parts/prt-form-default.html %}
+				</div>
+
+				
+			</div>
+		</article>
+	</div>
+	
+	{% include inc-summary.html %}
+    <!-- ctas -->
+    <div class="ctas">
+        <ul>
+            <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
+            <li><li>{% include parts/act-btn-contact.html %}</li></li>
+        </ul>
+    </div>
+</div>
+

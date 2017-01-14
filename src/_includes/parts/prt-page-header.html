@@ -1,4 +1,3 @@
-{% assign c = site.data.common[page.lang] %}
 <header class="site-header">
     {% include parts/act-btn-logo.html %}
 
@@ -6,7 +5,7 @@
         <!-- page navigation -->
         <nav>
             <ul class="page-nav">
-                {% for section in site.data.sections %}
+                {% for section in site.data.sections[page.lang] %}
                 <li>
                     {% if forloop.first == true %}
                     <a href="/{{ section.href }}" id="index">
@@ -34,7 +33,7 @@
                         {% include parts/act-btn-mobile.html %}
                     </li>
                     <li class="btn-slide">
-                        <span>{{ c.menu }}</span>
+                        <span>menu</span>
                         <a href="#0" id="cd-btn" class="cd-subnav-trigger">
                             <button class="hamburger hamburger--arrowalt" type="button">
                                 <span class="hamburger-box">
@@ -43,6 +42,14 @@
                             </button>
                         </a>
                     </li>
+                </ul>
+                <ul>
+                    {% assign trans = site.pages | where:"ref", page.ref | sort: 'lang' %}
+                    {% for ts in trans %}
+                    <li>
+                        <a href="{{ ts.url }}" class="{{ ts.lang }}">{{ ts.lang }}</a>
+                    </li>
+                    {% endfor %}
                 </ul>
             </nav>  
         </div>

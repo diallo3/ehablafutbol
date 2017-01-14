@@ -1,0 +1,22 @@
+{% for sec in site.data.section-content[page.lang] %}
+<section id="{{ sec.id }}" class="cd-section {% if sec.image %}info-graphic{% endif %}">
+    <div class="bcg"></div>
+    <div class="ov"></div>
+    <article class="entry">
+        <div class="content">
+            <span class="icon"><img src="assets/img/{{ sec.icon }}" alt=""></span>
+            <header class="section-title">
+                <span class="small-title">{{ sec.section }}</span>
+                <h2 class="title">{{ sec.title }}</h2>
+            </header>
+            <p>{{ sec.desc }}</p>
+        </div>
+        {% if sec.image %}
+        <!-- phone -->
+        <figure class="featured">
+            <img src="assets/img/{{ sec.image }}" alt="">
+        </figure>
+        {% endif %}
+    </article>
+</section>
+{% endfor %}
