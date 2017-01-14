@@ -17,6 +17,7 @@ index:
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://ehablafutbol.com" # the base hostname & protocol for your site
+assets: assets/img/
 twitter_username: ""
 github_username:  ""
 

@@ -24,7 +24,7 @@
 						{% for content in case.background  %}
 							{% if content.image %}
 								<figure class="page-featured">
-									<img src="/assets/img/{{ content.image }}" alt="">
+									<img src="{{ site.assets }}{{ content.image }}" alt="">
 								</figure>
 							{% else %}
 								<p>{{ content}}</p>

@@ -4,7 +4,7 @@
     <div class="ov"></div>
     <article class="entry">
         <div class="content">
-            <span class="icon"><img src="assets/img/{{ sec.icon }}" alt=""></span>
+            <span class="icon"><img src="{{ site.assets }}{{ sec.icon }}" alt=""></span>
             <header class="section-title">
                 <span class="small-title">{{ sec.section }}</span>
                 <h2 class="title">{{ sec.title }}</h2>
@@ -14,7 +14,7 @@
         {% if sec.image %}
         <!-- phone -->
         <figure class="featured">
-            <img src="assets/img/{{ sec.image }}" alt="">
+            <img src="{{ site.assets }}{{ sec.image }}" alt="">
         </figure>
         {% endif %}
     </article>
