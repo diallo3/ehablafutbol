@@ -21,21 +21,21 @@ en:
 
 es:
   - title: "Intro"
-    href: "#cd-intro-top"
+    href: "indice.html#cd-intro-top"
     icon: intro
 
   - title: "Comunidad"
-    href: "#cd-community"
+    href: "indice.html#cd-community"
     icon: comm
 
   - title: "Conexión"
-    href: "#cd-connection"
+    href: "indice.html#cd-connection"
     icon: conn
 
   - title: "Experiencia"
-    href: "#cd-experience"
+    href: "indice.html#cd-experience"
     icon: exp
 
   - title: "Contratar"
-    href: "#cd-engage"
+    href: "indice.html#cd-engage"
     icon: eng
