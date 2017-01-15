@@ -8,9 +8,9 @@
                 {% for section in site.data.sections[page.lang] %}
                 <li>
                     {% if forloop.first == true %}
-                    <a href="/{{ section.href }}" id="index">
+                    <a href="./{{ section.href }}" id="index">
                     {% else %}
-                    <a href="/{{ section.href }}">
+                    <a href="./{{ section.href }}">
                     {% endif %}
                         {{ section.title }}
                     </a>
