@@ -4,7 +4,13 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>eHabla Futbol - Terms and Conditions of Use</title>
+        <meta name="google" value="notranslate">
+        <title>
+            
+                eHabla Futbol - Terms and Conditions of Use
+            
+        </title>
+        <meta name="description" content="">
         <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
@@ -21,6 +27,7 @@
         <link rel="stylesheet" href="assets/css/app.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
+    
     <!-- base urls structure -->
     
 
@@ -30,7 +37,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <main id="main-view" class="main-scene ">
+        <main id="main-view" class="main-scene main-sec">
             <!-- header for default pages -->
             
                 <header class="site-header">
@@ -93,8 +100,6 @@
     
 
     
-
-    
     <li>
         <a href="./case-studies.html" class="page-link" title="Case Studies">Case Studies</a>
     </li>
@@ -118,10 +123,6 @@
     </li>
     
 
-    
-
-    
-
             </ul>
         </nav>
         
@@ -131,7 +132,7 @@
                     <li><a href="" class="social fb">Facebook</a></li>
 <li><a href="" class="social tw">Twitter</a></li>
                     <li class="btn-mobile">
-                        <a href="#mobileMenu" id="cd-btn-menu" class="open-menu">
+                        <a data-open="mobileMenu" id="cd-btn-menu" class="open-menu">
     <button class="hamburger hamburger--spin" type="button">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -140,8 +141,9 @@
 </a>
                     </li>
                     <li class="btn-slide">
+                        <span>menu</span>
                         <a href="#0" id="cd-btn" class="cd-subnav-trigger">
-                            <button class="hamburger hamburger--spin" type="button">
+                            <button class="hamburger hamburger--arrowalt" type="button">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -149,6 +151,18 @@
                         </a>
                     </li>
                 </ul>
+                <ul class="cd-lang">
+    
+    
+    <li>
+        <a href="/terms-of-use.html" class="en">en</a>
+    </li>
+    
+    <li>
+        <a href="/terminos-de-uso.html" class="es">es</a>
+    </li>
+    
+</ul>
             </nav>  
         </div>
     </div>
@@ -255,7 +269,9 @@
 		</article>
 	</div>
 	
-	<section id="cd-summary" class="cd-section summary">
+	
+
+<section id="cd-summary" class="cd-section summary">
     <div class="bcg"></div>
     <div class="ov"></div>
     <article class="entry">
@@ -263,10 +279,11 @@
             <header class="section-title">
                 <h2 class="title">Let's Get Started</h2>
             </header>
-            <p>eHabla Fútbol helps you understand, reach and engage with the Hispanic community in an intelligent and meaningful way, better serving their needs while catapulting brand awareness.</p>
+            <p>Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.</p>
 
             <footer class="section-footer">
-                <a href="#contactModal" class="cta-alt open-modal"><span>Get Started</span></a>
+                
+<a data-open="contactModal" class="cta-alt open-modal"><span>Get Started</span></a>
             </footer>
         </div>
     </article>
@@ -275,32 +292,61 @@
     <div class="ctas">
         <ul>
             <li><a href="#cd-connection" class="cta"><span>Learn More</span></a></li>
-            <li><li><a href="#contactModal" class="cta-alt open-modal"><span>Get Started</span></a></li></li>
+            <li><li>
+<a data-open="contactModal" class="cta-alt open-modal"><span>Get Started</span></a></li></li>
         </ul>
     </div>
 </div>
 
 
             <!-- /cd-main-content -->
-            <div class="footer-container">
+            
+<div class="footer-container">
     <footer class="footer-main">
         <div class="copyright">
-            <p>Copyright 2016, eHabla Futbol All right reserved.</p>
+            <p>Copyright 2017, eHabla Futbol All rights reserved.</p>
         </div>
-        <div class="bck-top"></div>
+        <div class="bck-top">
+        	<ul class="footer-menu">
+        		
+
+    
+
+    
+    <li>
+        <a href="./case-studies.html" class="page-link" title="Case Studies">Case Studies</a>
+    </li>
+    
+
+    
+    <li>
+        <a href="./contact.html" class="page-link" title="Contact eHabla Fútbol">Contact Us</a>
+    </li>
+    
+
+    
+    <li>
+        <a href="./privacy-policy.html" class="page-link" title="Privacy Policy">Privacy Policy</a>
+    </li>
+    
+
+    
+    <li>
+        <a href="./terms-of-use.html" class="page-link active" title="Terms and Conditions of Use">Terms of Use</a>
+    </li>
+    
+
+        	</ul>
+        </div>
     </footer>
 </div>
         </main>
 
-        <!-- contact modal -->
-<div id="contactModal">
-    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-    <div class="close-contactModal"> 
-        <span class="close thick"></span>
-    </div>
+         
+<!-- contact modal -->
+<div id="contactModal" data-reveal>
         
     <div class="modal-content">
-        <div class="ov"></div>
         <div class="entry">
             <h2 class="contact-title">
                 Let's Get Started
@@ -309,8 +355,9 @@
             <p>Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.</p>
             
             <article id="formContainer" class="entry">
-                <div id="formBlock">
-	<form id="generalForm" class="cd-form floating-labels" action="https://formspree.io/info@ehablafutbol.com" method="POST">
+                  
+<div id="formBlock" class="form-block">
+	<form id="generalForm" class="general-form cd-form floating-labels" action="https://formspree.io/info@ehablafutbol.com" method="POST">
 		<fieldset>
 			<div class="field-container">
 				<!-- left side -->
@@ -346,7 +393,7 @@
 		      	<input type="submit" value="Send Message" class="submit" name="submitButton">
 		    </div>
 		    <input type="hidden" name="_next" value="/thank-you.html" />
-		    <input type="hidden" name="_subject" value="New submission for Sawiana!" />
+		    <input type="hidden" name="_subject" value="New submission for eHabla Futbol!" />
 		    <input type="hidden" name="_cc" value="d@diallohudgins.com" />
 		    <input type="text" name="_gotcha" style="display:none" />
 		</fieldset>
@@ -360,20 +407,19 @@
             </article>
         </div>
     </div>
+
+    <button class="close-button" data-close aria-label="Close modal"> 
+        <span class="close"><i>close</i></span>
+    </button>
 </div>
 
-        <div id="mobileMenu">
-            <div class="close-mobileMenu"> 
-                <span class="close thick"></span>
-            </div>
+        <div id="mobileMenu" data-reveal>
                 
             <div class="modal-content">
                 <div class="entry">
                     <ul class="mobile-nav">
-                        <li><a href="">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         
-
-    
 
     
 
@@ -401,18 +447,37 @@
     </li>
     
 
-    
-
-    
-
                     </ul>
+                    <ul class="cd-lang">
+    
+    
+    <li>
+        <a href="/terms-of-use.html" class="en">en</a>
+    </li>
+    
+    <li>
+        <a href="/terminos-de-uso.html" class="es">es</a>
+    </li>
+    
+</ul>
                 </div>
             </div>
+
+            <button class="close-button" data-close aria-label="Close modal"> 
+                <span class="close"><i>close</i></span>
+            </button>
         </div>
 
         <script src="assets/js/jquery.js"></script>
 <script src="assets/js/fnd.js"></script>
 <script src="assets/js/validate.js"></script>
+        
+            <!-- GreenSock TweenMax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<!-- ScrollMagic GreenSock Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
         
 
         <script src="assets/js/app.js"></script>

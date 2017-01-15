@@ -172,133 +172,6 @@
     };
 })(jQuery);
 
-/*=========================================
- * animatedModal.js: Version 1.0
- * author: João Pereira
- * website: http://www.joaopereira.pt
- * email: joaopereirawd@gmail.com
- * Licensed MIT 
-=========================================*/
-
-(function ($) {
- 
-    $.fn.animatedModal = function(options) {
-        var modal = $(this);
-        
-        //Defaults
-        var settings = $.extend({
-            modalTarget:'animatedModal', 
-            position:'fixed', 
-            width:'100%', 
-            height:'100%', 
-            top:'0px', 
-            left:'0px', 
-            zIndexIn: '9999',  
-            zIndexOut: '-9999',  
-            color: '#39BEB9', 
-            opacityIn:'1',  
-            opacityOut:'0', 
-            animatedIn:'zoomIn',
-            animatedOut:'zoomOut',
-            animationDuration:'.6s', 
-            overflow:'auto', 
-            // Callbacks
-            beforeOpen: function() {},           
-            afterOpen: function() {}, 
-            beforeClose: function() {}, 
-            afterClose: function() {}
- 
-            
-
-        }, options);
-        
-        var closeBt = $('.close-'+settings.modalTarget);
-
-        //console.log(closeBt)
-
-        var href = $(modal).attr('href'),
-            id = $('body').find('#'+settings.modalTarget),
-            idConc = '#'+id.attr('id');
-            //console.log(idConc);
-            // Default Classes
-            id.addClass('animated');
-            id.addClass(settings.modalTarget+'-off');
-
-        //Init styles
-        var initStyles = {
-            'position':settings.position,
-            'width':settings.width,
-            'height':settings.height,
-            'top':settings.top,
-            'left':settings.left,
-            'background-color':settings.color,
-            'overflow-y':settings.overflow,
-            'z-index':settings.zIndexOut,
-            'opacity':settings.opacityOut,
-            '-webkit-animation-duration':settings.animationDuration,
-            '-moz-animation-duration':settings.animationDuration,
-            '-ms-animation-duration':settings.animationDuration,
-            'animation-duration':settings.animationDuration
-        };
-        //Apply stles
-        id.css(initStyles);
-
-        modal.click(function(event) {       
-            event.preventDefault();
-            $('body, html').css({'overflow':'hidden'});
-            if (href == idConc) {
-                if (id.hasClass(settings.modalTarget+'-off')) {
-                    id.removeClass(settings.animatedOut);
-                    id.removeClass(settings.modalTarget+'-off');
-                    id.addClass(settings.modalTarget+'-on');
-                } 
-
-                 if (id.hasClass(settings.modalTarget+'-on')) {
-                    settings.beforeOpen();
-                    id.css({'opacity':settings.opacityIn,'z-index':settings.zIndexIn});
-                    id.addClass(settings.animatedIn);  
-                    id.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', afterOpen);
-                };  
-            } 
-        });
-
-
-
-        closeBt.click(function(event) {
-            event.preventDefault();
-            $('body, html').css({'overflow':'auto'});
-
-            settings.beforeClose(); //beforeClose
-            if (id.hasClass(settings.modalTarget+'-on')) {
-                id.removeClass(settings.modalTarget+'-on');
-                id.addClass(settings.modalTarget+'-off');
-            } 
-
-            if (id.hasClass(settings.modalTarget+'-off')) {
-                id.removeClass(settings.animatedIn);
-                id.addClass(settings.animatedOut);
-                id.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', afterClose);
-            };
-
-        });
-
-        function afterClose () {       
-            id.css({'z-index':settings.zIndexOut});
-            settings.afterClose(); //afterClose
-        }
-
-        function afterOpen () {       
-            settings.afterOpen(); //afterOpen
-        }
-
-    }; // End animatedModal.js
-
-}(jQuery));
-
-
-
-        
-
 // encode emails
 function convertMailAddress() {
 	var emailElements;
@@ -318,9 +191,10 @@ function convertMailAddress() {
 
 // http://javascript.about.com/library/bldom08.htm
 document.getElementsByClassNameForOldies = function(cl) {
-  	var retnode = [];
-  	var myclass = new RegExp('\\b'+cl+'\\b');
-  	var elem = this.getElementsByTagName('*');
+  	var
+  		retnode = [],
+  		myclass = new RegExp('\\b'+cl+'\\b'),
+  		elem    = this.getElementsByTagName('*');
 
   	for (var i = 0; i < elem.length; i++) {
     	var classes = elem[i].className;
@@ -351,6 +225,25 @@ window.onload = convertMailAddress;
 
 		/************************************************************
 
+			Modals
+
+		************************************************************/
+		var contact = new Foundation.Reveal($('#contactModal'), {
+			animationIn: 'zoomIn',
+			animationOut: 'zoomOut',
+			fullScreen: true,
+			overlay: false
+		});
+
+		var mobile = new Foundation.Reveal($('#mobileMenu'), {
+			animationIn: 'fadeInDownBig',
+			animationOut: 'fadeOutUpBig',
+			fullScreen: true,
+			overlay: false
+		});
+
+		/************************************************************
+
 			Navigation
 
 		************************************************************/
@@ -361,7 +254,7 @@ window.onload = convertMailAddress;
 	    	$hb.on('click', function(e){
 	    		e.preventDefault();
 	    		$(this).toggleClass('is-active');
-	    	})
+	    	});
 	    }
 	    hamburgerNav();
 
@@ -391,19 +284,19 @@ window.onload = convertMailAddress;
 		function secondaryNav() {
 			// global vars
 			var 
-				target = $('html,body');
-				view = $(window),
-				secondaryNav = $('.cd-secondary-nav'),
-				secondaryNavFixed = $('.cd-secondary-nav.is-fixed');
+				target                  = $('html,body'),
+				view                    = $(window),
+				secondaryNav            = $('.cd-secondary-nav'),
+				secondaryNavFixed       = $('.cd-secondary-nav.is-fixed'),
 				secondaryNavTopPosition = secondaryNav.offset().top,
-				offsetTop = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
-				taglineOffesetTop = $('.header-container') + offsetTop,
-				contentSections = $('.cd-section'),
-				ctas = $('.ctas');
+				offsetTop               = $('#cd-intro-tagline').offset().top + $('#cd-intro-tagline').height() + parseInt($('#cd-intro-tagline').css('paddingTop').replace('px', '')),
+				taglineOffesetTop       = $('.header-container') + offsetTop,
+				contentSections 		= $('.cd-section'),
+				ctas 					= $('.ctas');
 
 			// scroll function
 			view.on('scroll', function(){
-				var logo = $('#cd-logo'),
+				var logo    = $('#cd-logo'),
 					btnHead = $('.cd-btn-head');
 
 				//on desktop - assign a position fixed to logo and action button and move them outside the viewport
@@ -452,15 +345,16 @@ window.onload = convertMailAddress;
 				function updateSecondaryNavigation() {
 					// sections
 					contentSections.each(function(){
-						var actual = $(this),
-							actualHeight = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
-							actualAnchor = secondaryNav.find('a[href="#'+actual.attr('id')+'"]');
+						var actual            = $(this),
+							actualHeight      = actual.height() + parseInt(actual.css('paddingTop').replace('px', '')) + parseInt(actual.css('paddingBottom').replace('px', '')),
+							actualAnchor      = secondaryNav.find('a[href="#'+actual.attr('id')+'"]'),
 							actualAnchorIndex = secondaryNav.find('#intro');
 
 						if ( ( actual.offset().top - secondaryNav.height() <= $(window).scrollTop() ) && ( actual.offset().top +  actualHeight - secondaryNav.height() > $(window).scrollTop() ) ) {
-							
 							actualAnchor.addClass('active');
+
 						} else {
+
 							actualAnchor.removeClass('active');
 						}
 
@@ -479,7 +373,7 @@ window.onload = convertMailAddress;
 			//smooth scrolling when clicking on the secondary navigation items
 			secondaryNav.find('.site-nav a').on('click', function(event){
 		        event.preventDefault();
-		        var target= $(this.hash);
+		        var target = $(this.hash);
 		        $('body,html').animate({
 		        	'scrollTop': target.offset().top - secondaryNavFixed.height()
 		        	}, 600
@@ -491,7 +385,6 @@ window.onload = convertMailAddress;
 
 		    //on mobile - open/close primary navigation clicking/tapping the menu icon
 			$('.cd-primary-nav').on('click', function(event){
-				event.preventDefault();
 				if($(event.target).is('.cd-primary-nav')) $(this).children('ul').toggleClass('is-visible');
 			});
 		}
@@ -513,9 +406,10 @@ window.onload = convertMailAddress;
 		function preLoad() {
 
 			// number of loaded images for preloader progress 
-			var loadedCount = 0; //current number of images loaded
-			var imagesToLoad = $('.bcg').length; //number of slides with .bcg container
-			var loadingProgress = 0; //timeline progress - starts at 0
+			var 
+				loadedCount     = 0, //current number of images loaded
+				imagesToLoad    = $('.bcg').length, //number of slides with .bcg container
+				loadingProgress = 0; //timeline progress - starts at 0
 
 			$('.bcg').imagesLoaded({
 			    background: true
@@ -580,7 +474,7 @@ window.onload = convertMailAddress;
 
 		// Valiidation
 		function validate() {
-			var genContact = $('#generalForm');
+			var genContact = $('.general-form');
 
 			genContact.formValidation({
 				framework: 'foundation',
@@ -685,55 +579,6 @@ window.onload = convertMailAddress;
 		viewCheck();
 
 
-		/************************************************************
-
-			Modals
-
-		************************************************************/
-
-		$('.open-modal').animatedModal({
-			modalTarget: 'contactModal',
-			animatedIn: 'zoomIn',
-            animatedOut:'zoomOut',
-            color:      '#000000',
-            animationDuration: .3,
-                // Callbacks
-                beforeOpen: function() {
-                    console.log("The animation was called");
-                },           
-                afterOpen: function() {
-                    console.log("The animation is completed");
-                }, 
-                beforeClose: function() {
-                    console.log("The animation was called");
-                }, 
-                afterClose: function() {
-                    console.log("The animation is completed");
-                }
-		});
-
-		$('.open-menu').animatedModal({
-			modalTarget: 'mobileMenu',
-			animatedIn: 'fadeInDownBig',
-            animatedOut:'fadeOutUpBig',
-            color:      '#000000',
-            animationDuration: .3,
-                // Callbacks
-                beforeOpen: function() {
-                    console.log("The animation was called");
-                },           
-                afterOpen: function() {
-                    console.log("The animation is completed");
-                    var $hb = $('.hamburger');
-	    			$hb.removeClass('is-active');
-                }, 
-                beforeClose: function() {
-                    console.log("The animation was called");
-                }, 
-                afterClose: function() {
-                    console.log("The animation is completed");
-                }
-		});
 
 		/************************************************************
 
@@ -745,7 +590,7 @@ window.onload = convertMailAddress;
 			var projectsContainer = $('.cd-case-container'),
 				navigation        = $('.cd-primary-nav'),
 				triggerNav        = $('.cd-nav-trigger'),
-				mainView          = $('.cd-main-content');
+				mainView          = $('.main-scene');
 			
 			triggerNav.on('click', function(){
 				if( triggerNav.hasClass('project-open') ) {
