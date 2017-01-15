@@ -7,22 +7,17 @@
         <meta name="google" value="notranslate">
         <title>
             {% if page.title %}
-                {{ site.title[page.lang] }} - {{ page.title }}
+                {{ site.title }} - {{ page.title }}
             {% else %}
-                {{ site.title[page.lang] }}
+                {{ site.title }}
             {% endif %}
         </title>
         <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description[page.lang] }}{% endif %}">
         {% include parts/prt-favicon.html %}
         <link rel="stylesheet" href="{{ "assets/css/app.css" | prepend: site.baseurl }}">
-
-        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-        {% for page in pages %}
-          <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url }}" />
-        {% endfor %}
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
+    {% assign c = site.data.common[page.lang] %}{% assign frm = c.form %}
     <!-- base urls structure -->
     {% include inc-base-url.html %}
     <body {% if page.slug %} id="{{page.slug}}-page" class="{{page.slug}} is-loading" {% endif %}>
@@ -50,11 +45,12 @@
                         <li><a href="/">Home</a></li>
                         {% include parts/prt-page-nav.html %}
                     </ul>
+                    {% include parts/prt-nav-lang.html %}
                 </div>
             </div>
 
             <button class="close-button" data-close aria-label="Close modal"> 
-                <span class="close"><i>close</i></span>
+                <span class="close"><i>{{ frm.cls }}</i></span>
             </button>
         </div>
 

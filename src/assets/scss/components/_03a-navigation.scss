@@ -13,13 +13,12 @@ a {
     }
 }
 
-
 .cd-social {
     ul {
         @include menu-list($li-padding: 0 5px);
         width: 40px;
         @include bp(large) {
-            width: auto; 
+            width: 100px; 
         } 
         li:last-child {
             padding: 0; 
@@ -76,17 +75,36 @@ a {
         top: 0;
         left: 0;
     }
+    .cd-lang {
+        padding: 13px 0; 
+    }
 }
 
-// body:not(.home) {
-//     .cd-social ul {
-//         li:last-child {
-//             @include bp(large) {
-//                 // display: none;
-//             }
-//         }
-//     }
-// }
+.cd-lang {
+    a {
+        @include hide-text;
+        background: no-repeat 50% 0;
+        background-size: cover;  
+        border: 1px solid darken($site-gray, 20%); 
+        width: 25px; 
+        height: 15px; 
+        display: block;
+        overflow: hidden;
+        opacity: .4; 
+        &.en {
+            background-image: url(#{$imgPath}/icon-flag-us.png); 
+        }
+        &.es {
+            background-image: url(#{$imgPath}/icon-flag-mx.png); 
+        }
+    }
+}
+
+.en:lang(en), .es:lang(es) {
+    border: 1px solid $site-gray; 
+    filter: grayscale(0);
+    opacity: 1; 
+}
 
 #cd-btn-menu {
     width: 50px; 
@@ -220,6 +238,10 @@ a {
 }
 
 .cd-slide-nav {
+    display: none;
+    @include bp(large) {
+        display: block;
+    }
     @include abs-pos($t: 0, $r: 0, $l: 0);
     @include flat-list;
     @include transform(translateY(-100px));
