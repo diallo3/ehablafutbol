@@ -11,7 +11,7 @@ en:
   # Summary Call to action
   summary:
     title: Let's Get Started
-    desc: Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
+    desc: Thank you interest in eHabla Fútbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
 
   # Call to action buttons
   case-title: Case Studies
@@ -21,7 +21,7 @@ en:
   # Contact Form Elements
   form:
     title: Let's Get Started
-    desc: Thank you interest in eHabla Futbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
+    desc: Thank you interest in eHabla Fútbol. We are here to answer any questions you may have, so reach out to us and we'll respond as soon as we can.
     cls: close
     elem:
       name: Full Name

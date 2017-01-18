@@ -2,6 +2,7 @@
 
 ### English  Version #########################################
 en:
+  # Red Bull
   - company: "Red Bull"
     event: "Neymar Jr’s Five Global Tournament"
     background:
@@ -14,77 +15,82 @@ en:
       - "The national final featured teams from across the country, with the winning team traveling to Brazil for the world final showcasing 43 countries from across the globe."
       - "The campaign impacted 300 teams and 2,100 players across the U.S., with hundreds of thousands of profound impressions"
       - "Significant increase in brand awareness in the target demo and an increased presence with key retailers."
-
+  
+  # Boost Mobile
   - company: "Boost Mobile"
     event: "Chivas de Guadalajara Sponsorship 3v3 Tour"
     background:
-      - "Existing sponsor of Chivas de Guadalajara in the United States, Boost uses this property to engage its Hispanic consumer base across the U.S."
+      - "As a sponsor of Chivas de Guadalajara in the United States, Boost Mobile activated at all Chivas Friendly matches hosted in the U.S.  Additionally, Boost launched a nationwide 3v3 Tournament in key markets to engage its Hispanic consumer base. "
       - image: "img-case-boost.jpg"
     assignment:
-      - "Create U.S. plan of execution for 10 x 5v5 street soccer events across the U.S."
-      - "Included budgeting, location, promotion and recruitment, competition direction and management, athlete management, branding, merchandise and travel."
+      - "Review and evaluate Boost’s Hispanic strategy around Chivas"
+      - "Manage game-day activities at all Chivas matches on U.S. soil"
+      - "Create and manage a multi-city 3v3 tournament aimed at Hispanic soccer players"
     result:
       - "The national final featured teams from across the country, with the winning team traveling to Brazil for the world final showcasing 43 countries from across the globe."
       - "The campaign impacted 300 teams and 2,100 players across the U.S., with hundreds of thousands of profound impressions"
       - "Significant increase in brand awareness in the target demo and an increased presence with key retailers."
 
+  #Copa Jimador
   - company: "Copa Jimador"
     event: "Hispanic League Activation"
     background:
-      - "Activate their Mexican National Team sponsorship in the southern California market."
+      - "As a sponsor of the Mexican National Team, Jimador Tequila was looking to connect with Hispanic soccer fans in Southern California.  The Copa Jimador program was developed to directly engage the most important Hispanic soccer leagues in the region."
       - image: "img-case-copa.jpg"
     assignment: 
-      - "Identify and partner with 20 of the largest adult Hispanic leagues in SoCal"
-      - "The program visited leagues for onsite activations and concluded with the Copa
-        Jimador – a large tournament for all member leagues."
-      - "Local retail accounts offered discounted products for each league"
+      - "Create a program that engages Hispanic soccer fans year round, not just when the Mexican National Team is playing"
+      - "Find and partner with the leading Hispanic soccer leagues in Southern California"
+      - "Manage the largest Hispanic soccer Tournament the region has ever seen"
     result: 
-      - "Impacted 1,300+ teams and 17,500+ players across the 20 leagues and drove significant increase in key neighborhood sales."
-      - "Landed a major sales deal with the Tournament’s host Hotel/Casino, and partnerships with Univision and Hoy."
-      - "Champions from all 20 leagues will be wearing Jimador branded uniforms in upcoming seasons."
+      - "Impacted 1,300+ teams and 17,500+ players across the 20 leagues and drove significant increase in key neighborhood sales"
+      - "Landed a major sales deal with the Tournament’s host Hotel/Casino, and partnerships with Univision and Hoy"
+      - "Champions from all 20 leagues will be wearing Jimador branded uniforms in upcoming seasons"
 
 ### Spanish  Version #########################################
 
 es:
+  # Red Bull
   - company: "Red Bull"
     event: "Neymar Jr’s Cinco torneos mundiales"
     background:
       - "Creado una de un puñado de propiedades globales de la firma para promover un atleta dominante, Jr. de Neymar, y su comisión a los jugadores ya los ventiladores del fútbol alrededor del mundo."
       - image: "img-case-redbull.jpg"
     assignment:
-      - "Crear plan de ejecución de los Estados Unidos para 10 x 5v5 eventos de fútbol de calle a través de los U.S."
-      - "Presupuesto incluido, ubicación, promoción y contratación, dirección y gestión de la competencia, gestión de atletas, marcas, mercancías y viajes."
+      - "Crear plan de ejecución de los Estados Unidos para 10 x 5v5 eventos de fútbol de calle a través de los U.S"
+      - "Presupuesto incluido, ubicación, promoción y contratación, dirección y gestión de la competencia, gestión de atletas, marcas, mercancías y viajes"
     result: 
-        - "La final nacional contó con equipos de todo el país, con el equipo ganador viajando a Brasil para la final mundial que muestra 43 países de todo el mundo."
-        - "La campaña impactó a 300 equipos y 2.100 jugadores a través de los Estados Unidos, con cientos de miles de impresiones profundas."
-        - "Aumento significativo de la notoriedad de la marca en la demostración de objetivos y un aumento de la presencia con los principales minoristas."
-
+        - "La final nacional contó con equipos de todo el país, con el equipo ganador viajando a Brasil para la final mundial que muestra 43 países de todo el mundo"
+        - "La campaña impactó a 300 equipos y 2.100 jugadores a través de los Estados Unidos, con cientos de miles de impresiones profundas"
+        - "Aumento significativo de la notoriedad de la marca en la demostración de objetivos y un aumento de la presencia con los principales minoristas"
+  
+  # Boost Mobile
   - company: "Boost Mobile"
     event: "Chivas de Guadalajara Patrocinio 3v3 Tour"
     background:
-      - "Patrocinador actual de Chivas de Guadalajara en los Estados Unidos, Boost utiliza esta propiedad para involucrar a su base de consumidores hispanos en U.S."
+      - "Como patrocinador de Chivas de Guadalajara en los Estados Unidos, Boost Mobile se activó en todos los partidos amistosos de Chivas organizados en los EE.UU. Además, Boost lanzó un torneo nacional 3v3 en mercados clave para involucrar a su base de consumidores hispanos."
       - image: "img-case-boost.jpg"
     assignment: 
-        - "Crear un plan de ejecución de los Estados Unidos para los eventos de fútbol de calle 10 x 5v5 en los Estados Unidos."
-        - "Presupuesto incluido, ubicación, promoción y contratación, dirección y gestión de la competencia, gestión de atletas, marcas, mercancías y viajes."
+        - "Revisar y evaluar la estrategia hispana de Boost en torno a Chivas"
+        - "Gestionar las actividades del día de juego en todos los partidos de Chivas en tierra de los EE.UU."
+        - "Cree y administre un torneo 3v3 de varias ciudades dirigido a jugadores de fútbol hispanos"
     result: 
-        - "La final nacional contó con equipos de todo el país, con el equipo ganador viajando a Brasil para la final mundial que muestra 43 países de todo el mundo."
-        - "La campaña impactó a 300 equipos y 2.100 jugadores a través de los Estados Unidos, con cientos de miles de impresiones profundas."
-        - "Aumento significativo de la notoriedad de la marca en la demostración de objetivos y un aumento de la presencia con los principales minoristas."
+        - "Torneos 3v3 alojados en 5 mercados (Los Ángeles, Houston, Dallas, Chicago y Charlotte)"
+        - "Promedio de 70 equipos por evento, involucrando a jugadores de cientos de ligas hispanas en todo el país"
+        - "Desarrolló y administró el programa de activación de primer día de juego entre los patrocinadores de Chivas, impactando a decenas de miles de consumidores hispanos"
 
   # Copa Jimador
   - company: "Copa Jimador"
     event: "Activación de la Liga Hispana"
     background: 
-      - "Activar el patrocinio de su equipo nacional mexicano en el mercado del sur de California."
+      - "Como patrocinador de la Selección Mexicana, Jimador Tequila buscaba conectarse con aficionados hispanos de fútbol en el sur de California. El programa Copa Jimador fue desarrollado para involucrar directamente a las más importantes ligas hispanas de fútbol de la región."
       - image: "img-case-copa.jpg"
     assignment: 
-        - "Identificar y asociarse con 20 de las mayores ligas hispanas adultas en SoCal."
-        - "El programa visitó las ligas para activaciones en el sitio y concluyó con la Copa - Jimador un torneo grande para todas las ligas miembro."
-        - "Las cuentas minoristas locales ofrecen productos con descuento para cada liga."
+        - "Crear un programa que involucre a los aficionados al fútbol hispano durante todo el año, no solo cuando la Selección Nacional Mexicana esté jugando"
+        - "Buscar y asociarse con las principales ligas de fútbol hispanas en el sur de California"
+        - "Administre el torneo de fútbol hispano más grande que la región haya visto"
     result: 
-        - "Impactó a más de 1.300 equipos y 17.500 jugadores a lo largo de las 20 ligas y condujo un aumento significativo en las ventas claves del vecindario."
-        - "Lanzó un importante acuerdo de ventas con el Hotel / Casino anfitrión del Torneo, y asociaciones con Univision y Hoy."
-        - "Los campeones de las 20 ligas llevarán uniformes de marca Jimador en las próximas temporadas."
+        - "Impactó a más de 1.300 equipos y 17.500 jugadores a lo largo de las 20 ligas y condujo un aumento significativo en las ventas claves del vecindario"
+        - "Lanzó un importante acuerdo de ventas con el Hotel / Casino anfitrión del Torneo, y asociaciones con Univision y Hoy"
+        - "Los campeones de las 20 ligas llevarán uniformes de marca Jimador en las próximas temporadas"
 
 
