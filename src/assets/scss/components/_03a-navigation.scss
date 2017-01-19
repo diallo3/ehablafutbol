@@ -81,6 +81,10 @@ a {
 }
 
 .cd-lang {
+    @include bp(large) {
+        display: none;
+    }
+    display: none;
     a {
         @include hide-text;
         background: no-repeat 50% 0;
