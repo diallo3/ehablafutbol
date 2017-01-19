@@ -82,7 +82,7 @@ a {
 
 .cd-lang {
     @include bp(large) {
-        display: none;
+        display: block;
     }
     display: none;
     a {
